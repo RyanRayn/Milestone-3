@@ -1,18 +1,42 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container-fluid">
-    <div class="row">
-        <hr class="home-hr rounded">
-        <div class="col-lg-6 col-sm-12">
+<div class="container-fluid d-flex">
+    <div class="text-container p-2 pr-3">
+        <div class="row">
+            <div class="col-12 home-headline">Relationship<br>Health Tracker.</div>
         </div>
-        <div class="col-lg-6 col-sm-none pr-0">
-            <div class="home-smiley-outer d-flex justify-content-end align-items-center mt-4 mb-4">
-            <div class="home-smiley-inner">
-                <img class="smile-cheeks img-responsive" src="static/images/smilecheeks.png" alt="">
-            </div>    
+        <div class="row">
+            <div class="col-12">Relationships play an important role in our personal health and wellbeing.
+            A healthy relationship is proven to contribute to a long, happy life.
+            While the health risks associated with a toxic one is comparable to smoking, high blood 
+            pressure and obesity.
             </div>
         </div>
     </div>
-    <hr class="home-hr rounded">
+    <div class="icon-container p-2">
+        <div class="row">
+            <div class="col-6 happy-container orange d-flex justify-content-center">
+                <i class="far fa-smile happy-face"></i>
+            </div>
+            <div class="col-6 love-container grey d-flex justify-content-center">
+                <i class="far fa-grin-hearts love-face"></i>
+            </div>
+        </div>
+        <div class="row">        
+            <div class="col-6 sad-container blue d-flex justify-content-center">
+                <i class="far fa-sad-tear sad-face"></i>
+            </div>
+            <div class="col-6 angry-container pink d-flex justify-content-center">
+                <i class="far fa-angry angry-face"></i>
+            </div>
+        </div>        
+    </div> 
 </div>
+<div class="row pt-2 pl-4">    
+            <div class="col-12">Are you keeping tabs on your relationships?
+            <button type="button" class="btn btn-primary ml-2">Login Here</button>
+            </div>
+        </div>           
+    <hr class="home-hr rounded">
+
 {% endblock %}

@@ -3,38 +3,101 @@ body, html {
     height: 100%;
     margin: 0px;
     padding: 0px;
+    font-family: 'Kanit', sans-serif;
 }
 
 a {
     text-decoration:none !important;
 }
+
+.grey{
+    background-color:#676b76;
+}
+
+.pink{
+    background-color:#ecb099;
+}
+
+.blue{
+    background-color:#bedbfd;
+}
+
+.orange{
+    background-color:#f9ce8b;
+}
 /*---------- Navbar ----------*/
 
 .navbar-logo{
     font-family: 'Kanit', sans-serif;
-    font-size:5vh;
-    color:rgb(255,135,122);
+    font-size:3vh;
+    color:black;
+}
+
+.navbar-logo:hover{
+    color:black;
 }
 
 .hamburger{
     font-size:4vh;
-    color:rgb(255,135,122);
+    color:black;
 }
 
 /*---------- Home Page ----------*/
 
-.home-smiley-outer{
-    overflow:hidden;
-    
+.text-container{
+    width:50%;
 }
 
-.home-smiley-inner{
-    height:500px;
-    width:400px;   
+.icon-container{
+    width:50%
+}
+
+.home-headline{
+    font-size:6vw;
+}
+
+.happy-container{
+    border-radius:25px 0px 0px 0px;
+    width:50%
+}
+
+.happy-face{
+    font-size:18vw;
+    color:rgb(255, 187, 0);
+}
+
+.angry-container{
+    border-radius:0px 0px 25px 0px;
+    width:50%
+}
+
+.angry-face{
+    font-size:18vw;
+    color:rgb(253, 87, 87);
+}
+
+.sad-container{
+    border-radius:0px 0px 0px 25px;
+    width:50%
+}
+
+.sad-face{
+    font-size:18vw;
+    color:rgb(110, 110, 255);
+}
+
+.love-container{
+    border-radius:0px 25px 0px 0px;
+    width:50%
+}
+
+.love-face{
+    font-size:18vw;
+    color:rgb(255, 149, 149);
 }
 
 .home-hr{
-    height:3px;
+    height:1px;
     width:98%;
-    background-color:rgb(102,78,39);
+    background-color:black;
 }
