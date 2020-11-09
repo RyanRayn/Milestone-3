@@ -3,6 +3,7 @@
 
 <div class="container-fluid d-flex">
     <div class="text-container p-2 pr-3">
+<!-- Callout -->    
         <div class="row">
             <div class="col-12 home-headline">Relationship<br>Health Tracker.</div>
         </div>
@@ -13,21 +14,27 @@
             pressure and obesity.
             </div>
         </div>
+        <div class="row mt-4">    
+            <div class="col-12 d-flex justify-content-center align-items-end">
+                <a href="{{ url_for('home') }}" type="button" class="btn register-btn btn-lg ml-2">Back to home</a>
+            </div>    
+        </div>
     </div>
+<!-- Registration Form -->    
     <div class="registration-container p-1 mt-3 orange">
         <form method="POST" action="{{ url_for('register') }}">         
             <div class="text-center registration-header">Let's Get Started!</div>
 <!-- Username -->            
             <div class="pt-3 d-flex justify-content-center">
-                <input id="username" name="username" type="text" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate input-field text-center p-1" placeholder="Create Username" required>
+                <input id="username" name="username" type="text" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate reg-input text-center p-1" placeholder="Create Username" required>
             </div>
 <!-- Password -->             
             <div class="pt-4 d-flex justify-content-center">
-                <input id="password" name="password" type="password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate input-field text-center p-1" placeholder="Password" required>
+                <input id="password" name="password" type="password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate reg-input text-center p-1" placeholder="Password" required>
             </div>
 <!-- Email Address -->             
             <div class="pt-4 d-flex justify-content-center">
-                <input id="email" name="email" type="text" class="input-field text-center p-1" placeholder="Email Address" required>
+                <input id="email" name="email" type="text" class="reg-input text-center p-1" placeholder="Email Address" required>
             </div>
 <!-- Registration Button -->            
             <div class="d-flex justify-content-center p-5">

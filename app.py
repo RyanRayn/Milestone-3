@@ -45,15 +45,52 @@ def register():
 
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful!")
-        return redirect(url_for("home"))
+        return redirect(url_for("profile", username=session["user"]))
 
     return render_template("register.html")
 
 
-@app.route("/get_tabs")
-def get_tabs():
-    tabs = mongo.db.tabs.find()
-    return render_template("tabs.html", tabs=tabs)
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if existing_user:
+            if check_password_hash(
+                existing_user["password"], request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome Back, {}!".format(
+                    request.form.get("username")))
+                return redirect(url_for(
+                    "profile", username=session["user"]))
+            else:
+                flash("Incorrect Username and.or Password")
+                return redirect(url_for("login"))
+        else:
+            flash("Incorrect Username and.or Password")
+            return redirect(url_for("login"))
+
+    return render_template("login.html")
+
+
+@app.route("/logout")
+def logout():
+
+    session.pop("user")
+    return redirect(url_for("home"))
+
+
+@app.route("/profile/<username>", methods=["GET", "POST"])
+def profile(username):
+
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+    if session["user"]:
+        return render_template("profile.html", username=username)
+
+    return redirect(url_for("login"))
 
 
 if __name__ == "__main__":

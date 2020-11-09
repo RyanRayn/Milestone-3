@@ -27,12 +27,13 @@
                 </button>
                 <div class="dropdown-menu" aria-labelledby="hamburgerMenu">
                     <a class="dropdown-item" href="{{ url_for('home') }}">Home</a>
-                    <a class="dropdown-item" href="{{ url_for('get_tabs') }}">Tabs</a>
+                    <a class="dropdown-item" href="{{ url_for('profile', username=session['user']) }}">Profile</a>
+                    <a class="dropdown-item" href="{{ url_for('logout') }}">Log Out</a>
                 </div>
             </div>
             {% else %}
-            <div class="col-6 d-flex align-items-start justify-content-end">Already tracking?
-            <a href="" type="button" class="btn login-btn ml-2">Login</a>
+            <div class="col-6 d-flex align-items-start justify-content-end">
+            <a href="{{ url_for('login') }}" type="button" class="btn nav-login ml-2">Click to log in</a>
             </div>     
         {% endif %}      
         </div>    

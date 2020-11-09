@@ -10,12 +10,20 @@ a {
     text-decoration:none !important;
 }
 
+input{
+    width:75%;
+    border-radius:25px;
+    font-size:20px;
+}
+
+/*---------- Flash Messages ----------*/
 .flashes{
     line-height:2;
     color:rgb(253, 87, 87);
     font-size:3vw;
 }
 
+/*---------- Colors ----------*/
 .grey{
     background-color:#676b76;
 }
@@ -31,6 +39,7 @@ a {
 .orange{
     background-color:#f9ce8b;
 }
+
 /*---------- Navbar ----------*/
 
 .navbar-logo{
@@ -43,14 +52,15 @@ a {
     color:black;
 }
 
-.login-btn{
-    background-color:rgb(110, 110, 255);
+.nav-login{
+    background-color:rgb(253, 87, 87);
     color:white;
+    border-radius:25px;
 }
 
 .login-btn:hover{
     color:white;
-    background-color:#bedbfd;
+    background-color:#ecb099;
 }
 
 .hamburger{
@@ -73,13 +83,27 @@ a {
 }
 
 .register-btn{
-    background-color:rgb(253, 87, 87);
+    background-color:rgb(110, 110, 255);
     color:white;
+    width:75%;
+    border-radius:25px;
 }
 
 .register-btn:hover{
     color:white;
+    background-color:#bedbfd;
+}
+
+.tabs-btn{
+    background-color:rgb(253, 87, 87);
+    color:white;
+    width:75%;
+    border-radius:25px;
+}
+
+.tabs-btn:hover{
     background-color:#ecb099;
+    color:white;
 }
 
 .happy-container{
@@ -141,14 +165,11 @@ a {
     font-size:4vw;
 }
 
-input{
-    width:75%;
+.reg-input{
     border:2px solid rgb(255, 187, 0);
-    border-radius:25px;
-    font-size:20px;
 }
 
-.input-field:focus{
+.reg-input:focus{
     outline:none;
 }
 
@@ -165,6 +186,33 @@ input{
 }
 
 .reg-btn:hover{
+    color:white;
+}
+
+/*---------- Login Page ----------*/
+
+.login-container{
+    width:50%;
+    border-radius:25px;
+    border:2px solid rgb(110, 110, 255);
+}
+
+.login-input{
+    border:2px solid rgb(110, 110, 255);
+}
+
+.login-input:focus{
+    outline:none;
+}
+
+.login-btn{
+    background-color:rgb(110, 110, 255);
+    color:white;
+    width:75%;
+    border-radius:25px;
+}
+
+.login-btn:hover{
     color:white;
 }
 

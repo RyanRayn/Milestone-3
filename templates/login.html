@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container-fluid d-flex">
+    <div class="text-container p-2 pr-3">
+<!-- Callout -->    
+        <div class="row">
+            <div class="col-12 home-headline">Relationship<br>Health Tracker.</div>
+        </div>
+        <div class="row">
+            <div class="col-12">Relationships play an important role in our personal health and wellbeing.
+            A healthy relationship is proven to contribute to a long, happy life.
+            While the health risks associated with a toxic one is comparable to smoking, high blood 
+            pressure and obesity.
+            </div>
+        </div>
+    </div>
+<!-- Login Form -->    
+    <div class="login-container p-1 mt-3 blue">
+        <form method="POST" action="{{ url_for('login') }}">         
+            <div class="text-center registration-header">Welcome Back!</div>
+<!-- Username -->            
+            <div class="pt-3 d-flex justify-content-center">
+                <input id="username" name="username" type="text" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate login-input text-center p-1" placeholder="Username" required>
+            </div>
+<!-- Password -->             
+            <div class="pt-4 d-flex justify-content-center">
+                <input id="password" name="password" type="password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate login-input text-center p-1" placeholder="Password" required>
+            </div>
+<!-- Login Button -->            
+            <div class="d-flex justify-content-center p-5">
+                <button type="submit" class="btn login-btn btn-lg">Login</button>
+            </div>    
+        </form>        
+    </div> 
+</div>
+<div class="pt-5"><hr class="home-hr rounded"></div>
+
+
+{% endblock %}
