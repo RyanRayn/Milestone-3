@@ -19,15 +19,15 @@
             <div class="text-center registration-header">Let's Get Started!</div>
 <!-- Username -->            
             <div class="pt-3 d-flex justify-content-center">
-                <input id="username" name="username" type="text" class="validate input-field text-center p-1" placeholder="Create Username" required>
+                <input id="username" name="username" type="text" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate input-field text-center p-1" placeholder="Create Username" required>
             </div>
 <!-- Password -->             
             <div class="pt-4 d-flex justify-content-center">
-                <input id="password" name="password" type="password" class="validate input-field text-center p-1" placeholder="Password" required>
+                <input id="password" name="password" type="password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate input-field text-center p-1" placeholder="Password" required>
             </div>
 <!-- Email Address -->             
             <div class="pt-4 d-flex justify-content-center">
-                <input id="email" name="email" type="email" class="email input-field text-center p-1" placeholder="Email Address" required>
+                <input id="email" name="email" type="text" class="input-field text-center p-1" placeholder="Email Address" required>
             </div>
 <!-- Registration Button -->            
             <div class="d-flex justify-content-center p-5">

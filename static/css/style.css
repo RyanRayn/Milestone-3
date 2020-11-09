@@ -10,6 +10,12 @@ a {
     text-decoration:none !important;
 }
 
+.flashes{
+    line-height:2;
+    color:rgb(253, 87, 87);
+    font-size:3vw;
+}
+
 .grey{
     background-color:#676b76;
 }
