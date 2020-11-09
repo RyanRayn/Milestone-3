@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container-fluid d-flex">
+    <div class="text-container p-2 pr-3">
+        <div class="row">
+            <div class="col-12 home-headline">Relationship<br>Health Tracker.</div>
+        </div>
+        <div class="row">
+            <div class="col-12">Relationships play an important role in our personal health and wellbeing.
+            A healthy relationship is proven to contribute to a long, happy life.
+            While the health risks associated with a toxic one is comparable to smoking, high blood 
+            pressure and obesity.
+            </div>
+        </div>
+    </div>
+    <div class="registration-container p-1 mt-3 orange">
+        <form method="POST" action="{{ url_for('register') }}">         
+            <div class="text-center registration-header">Let's Get Started!</div>
+<!-- Username -->            
+            <div class="pt-3 d-flex justify-content-center">
+                <input id="username" name="username" type="text" class="validate input-field text-center p-1" placeholder="Create Username" required>
+            </div>
+<!-- Password -->             
+            <div class="pt-4 d-flex justify-content-center">
+                <input id="password" name="password" type="password" class="validate input-field text-center p-1" placeholder="Password" required>
+            </div>
+<!-- Email Address -->             
+            <div class="pt-4 d-flex justify-content-center">
+                <input id="email" name="email" type="email" class="email input-field text-center p-1" placeholder="Email Address" required>
+            </div>
+<!-- Registration Button -->            
+            <div class="d-flex justify-content-center p-5">
+                <button type="submit" class="btn reg-btn btn-lg">Register</button>
+            </div>    
+        </form>        
+    </div> 
+</div>
+<div class="pt-5"><hr class="home-hr rounded"></div>
+
+
+{% endblock %}

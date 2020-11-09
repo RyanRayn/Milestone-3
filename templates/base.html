@@ -17,10 +17,11 @@
 
 <!-- Navigation -->
     <header>
-        <div class="row">
+        <div class="row p-2">
             <div class="col-6">
                 <a href="{{ url_for('home') }}" class="navbar-logo ml-2 pb-0">Keeping<strong>TABS</strong></a>
-            </div>    
+            </div>
+        {% if session.user %}        
             <div class="col-6 dropdown d-flex align-items-start justify-content-end dropleft">
                 <button class="hamburger btn shadow-none bg-transparent" type="button" id="hamburgerMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-bars pb-0 mr-1" aria-hidden="true"></i>
                 </button>
@@ -28,7 +29,12 @@
                     <a class="dropdown-item" href="{{ url_for('home') }}">Home</a>
                     <a class="dropdown-item" href="{{ url_for('get_tabs') }}">Tabs</a>
                 </div>
-            </div>   
+            </div>
+            {% else %}
+            <div class="col-6 d-flex align-items-start justify-content-end">Already tracking?
+            <a href="" type="button" class="btn login-btn ml-2">Login</a>
+            </div>     
+        {% endif %}      
         </div>    
     </header>
 

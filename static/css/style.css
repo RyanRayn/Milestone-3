@@ -37,6 +37,16 @@ a {
     color:black;
 }
 
+.login-btn{
+    background-color:rgb(110, 110, 255);
+    color:white;
+}
+
+.login-btn:hover{
+    color:white;
+    background-color:#bedbfd;
+}
+
 .hamburger{
     font-size:4vh;
     color:black;
@@ -54,6 +64,16 @@ a {
 
 .home-headline{
     font-size:6vw;
+}
+
+.register-btn{
+    background-color:rgb(253, 87, 87);
+    color:white;
+}
+
+.register-btn:hover{
+    color:white;
+    background-color:#ecb099;
 }
 
 .happy-container{
@@ -101,3 +121,44 @@ a {
     width:98%;
     background-color:black;
 }
+
+/*---------- Registration Page ----------*/
+
+.registration-container{
+    width:50%;
+    border-radius:25px;
+    border:2px solid rgb(255, 187, 0);
+}
+
+.registration-header{
+    color:white;
+    font-size:4vw;
+}
+
+input{
+    width:75%;
+    border:2px solid rgb(255, 187, 0);
+    border-radius:25px;
+    font-size:20px;
+}
+
+.input-field:focus{
+    outline:none;
+}
+
+.reg-icon{
+    color:rgb(255, 187, 0);
+    font-size:40px;
+}
+
+.reg-btn{
+    background-color:rgb(255, 187, 0);
+    color:white;
+    width:75%;
+    border-radius:25px;
+}
+
+.reg-btn:hover{
+    color:white;
+}
+
