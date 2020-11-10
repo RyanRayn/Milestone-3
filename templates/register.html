@@ -1,32 +1,53 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="container-fluid d-flex">
-    <div class="text-container p-2 pr-3">
-<!-- Callout -->    
-        <div class="row">
-            <div class="col-12 home-headline">Relationship<br>Health Tracker.</div>
+<!-- Navigation -->
+<header>
+    <div class="row p-2">
+        <div class="col-6 d-flex align-items-center">
+            <a href="{{ url_for('home') }}" class="navbar-logo ml-2 pb-0">Keeping<strong>TABS</strong></a>
         </div>
+        <div class="col-6 d-flex align-items-center justify-content-end">Take me back&nbsp;
+            <a href="{{ url_for('home') }}">HOME</a>&nbsp;or
+            <a href="{{ url_for('login') }}" type="button" class="btn nav-login ml-2">Log in</a>
+        </div>     
+    </div>    
+</header>
+
+<div class="container-fluid d-flex">
+<!-- Callout -->
+    <div class="text-container p-2 pr-3">    
         <div class="row">
-            <div class="col-12">Relationships play an important role in our personal health and wellbeing.
-            A healthy relationship is proven to contribute to a long, happy life.
-            While the health risks associated with a toxic one is comparable to smoking, high blood 
-            pressure and obesity.
+            <div class="col-12 home-headline text-center">Easy as. . .</div>
+        </div>
+        <div class="row text-center">
+            <div class="col-4">
+                <i class="fas fa-user-plus"></i>
+            </div>
+            <div class="col-4">
+                <i class="fas fa-user-lock"></i>
+            </div>
+            <div class="col-4">
+                <i class="fas fa-envelope"></i>
             </div>
         </div>
-        <div class="row mt-4">    
-            <div class="col-12 d-flex justify-content-center align-items-end">
-                <a href="{{ url_for('home') }}" type="button" class="btn register-btn btn-lg ml-2">Back to home</a>
-            </div>    
+<!-- Registration Rules-->        
+        <div class="row reg-rules mt-5 m-3 pt-2 blue d-flex justify-content-center">    
+            <ul>
+                <h3>Username and Password</h3>
+                <li>Must be 5 to 15 characters long</li>
+                <li>Can contain upper or lowercase letters</li>
+                <li>Can contain any letter A to Z or number 0 to 9</li>
+            </ul>     
         </div>
     </div>
 <!-- Registration Form -->    
-    <div class="registration-container p-1 mt-3 orange">
+    <div class="registration-container p-1 mt-3 grey">
         <form method="POST" action="{{ url_for('register') }}">         
-            <div class="text-center registration-header">Let's Get Started!</div>
+            <div class="text-center registration-header"><strong>Let's get started!</strong></div>
 <!-- Username -->            
             <div class="pt-3 d-flex justify-content-center">
-                <input id="username" name="username" type="text" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate reg-input text-center p-1" placeholder="Create Username" required>
+                <input id="username" name="username" type="text" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate reg-input text-center p-1" placeholder="Username" required>
             </div>
 <!-- Password -->             
             <div class="pt-4 d-flex justify-content-center">
@@ -38,12 +59,12 @@
             </div>
 <!-- Registration Button -->            
             <div class="d-flex justify-content-center p-5">
-                <button type="submit" class="btn reg-btn btn-lg">Register</button>
+                <button type="submit" class="btn reg-btn btn-lg">Go!</button>
             </div>    
         </form>        
     </div> 
 </div>
-<div class="pt-5"><hr class="home-hr rounded"></div>
+
 
 
 {% endblock %}

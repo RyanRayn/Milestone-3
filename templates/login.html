@@ -1,24 +1,50 @@
 {% extends "base.html" %}
 {% block content %}
 
+<!-- Navigation -->
+    <header>
+        <div class="row p-2">
+            <div class="col-6 d-flex align-items-center">
+                <a href="{{ url_for('home') }}" class="navbar-logo ml-2 pb-0">Keeping<strong>TABS</strong></a>
+            </div>      
+            <div class="col-6 d-flex align-items-center justify-content-end">Take me back&nbsp;
+            <a href="{{ url_for('home') }}">HOME</a>&nbsp;or
+            <a href="{{ url_for('register') }}" type="button" class="btn nav-register ml-2">Register</a>
+        </div>        
+        </div>    
+    </header>
 <div class="container-fluid d-flex">
-    <div class="text-container p-2 pr-3">
-<!-- Callout -->    
+<!-- Callout -->
+    <div class="text-container p-2 pr-3">    
         <div class="row">
-            <div class="col-12 home-headline">Relationship<br>Health Tracker.</div>
+            <div class="col-12 home-headline text-center">Don't forget!</div>
         </div>
         <div class="row">
-            <div class="col-12">Relationships play an important role in our personal health and wellbeing.
-            A healthy relationship is proven to contribute to a long, happy life.
-            While the health risks associated with a toxic one is comparable to smoking, high blood 
-            pressure and obesity.
+            <div class="col-12">
+            Appreciation is a key to any relationship. While it may be hard at times to 
+            forget the disappointments of your day, take a minute to keep tabs of someone that
+            provided a bright spot. No matter how small it may be. Send them a thank you gift, email or even a simple text message.
+            <br>
+            <br>
+            Appreciating someone makes them feel good about what they do, and that it is making a difference to their lives.
+            </div>
+        </div>
+        <div class="row text-center mt-4">
+            <div class="col-4">
+                <i class="fas fa-gift-card"></i>
+            </div>
+            <div class="col-4">
+                <i class="fas fa-envelope-open-text"></i>
+            </div>
+            <div class="col-4">
+                <i class="fas fa-comment-smile"></i>
             </div>
         </div>
     </div>
 <!-- Login Form -->    
     <div class="login-container p-1 mt-3 blue">
         <form method="POST" action="{{ url_for('login') }}">         
-            <div class="text-center registration-header">Welcome Back!</div>
+            <div class="text-center registration-header"><strong>Welcome Back!</strong></div>
 <!-- Username -->            
             <div class="pt-3 d-flex justify-content-center">
                 <input id="username" name="username" type="text" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate login-input text-center p-1" placeholder="Username" required>
@@ -29,12 +55,12 @@
             </div>
 <!-- Login Button -->            
             <div class="d-flex justify-content-center p-5">
-                <button type="submit" class="btn login-btn btn-lg">Login</button>
+                <button type="submit" class="btn login-btn btn-lg">Log in</button>
             </div>    
         </form>        
     </div> 
 </div>
-<div class="pt-5"><hr class="home-hr rounded"></div>
+
 
 
 {% endblock %}

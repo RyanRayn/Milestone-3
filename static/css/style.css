@@ -58,6 +58,11 @@ input{
     border-radius:25px;
 }
 
+.nav-login:hover{
+    background-color:#ecb099;
+    color:white;
+}
+
 .login-btn:hover{
     color:white;
     background-color:#ecb099;
@@ -157,7 +162,6 @@ input{
 .registration-container{
     width:50%;
     border-radius:25px;
-    border:2px solid rgb(255, 187, 0);
 }
 
 .registration-header{
@@ -166,20 +170,15 @@ input{
 }
 
 .reg-input{
-    border:2px solid rgb(255, 187, 0);
+    border:2px solid #676b76;
 }
 
 .reg-input:focus{
     outline:none;
 }
 
-.reg-icon{
-    color:rgb(255, 187, 0);
-    font-size:40px;
-}
-
 .reg-btn{
-    background-color:rgb(255, 187, 0);
+    background-color:rgb(253, 87, 87);
     color:white;
     width:75%;
     border-radius:25px;
@@ -187,6 +186,27 @@ input{
 
 .reg-btn:hover{
     color:white;
+    background-color:#ecb099;
+}
+
+.fa-user-plus{
+    color:rgb(255, 187, 0);
+    font-size:10vw;
+}
+
+.fa-envelope{
+    color:rgb(110, 110, 255);
+    font-size:10vw;
+}
+
+.fa-user-lock{
+    color:rgb(253, 87, 87);
+    font-size:10vw;
+}
+
+.reg-rules{
+    border-radius:25px;
+   
 }
 
 /*---------- Login Page ----------*/
@@ -194,11 +214,10 @@ input{
 .login-container{
     width:50%;
     border-radius:25px;
-    border:2px solid rgb(110, 110, 255);
 }
 
 .login-input{
-    border:2px solid rgb(110, 110, 255);
+    border:2px solid #bedbfd;
 }
 
 .login-input:focus{
@@ -206,13 +225,51 @@ input{
 }
 
 .login-btn{
-    background-color:rgb(110, 110, 255);
+    background-color:rgb(255, 187, 0);
     color:white;
     width:75%;
     border-radius:25px;
 }
 
 .login-btn:hover{
+    color:white;
+    background-color:#f9ce8b;
+}
+
+.nav-register{
+    background-color:rgb(255, 187, 0);
+    color:white;
+    border-radius:25px;
+}
+
+.nav-register:hover{
+    color:white;
+    background-color:#f9ce8b;
+}
+
+.fa-gift-card{
+    color:rgb(255, 187, 0);
+    font-size:10vw;
+}
+
+.fa-envelope-open-text{
+    color:rgb(253, 87, 87);
+    font-size:10vw;
+}
+
+.fa-comment-smile{
+    color:rgb(110, 110, 255);
+    font-size:10vw;
+}
+
+/*---------- Footer ----------*/
+
+.list-inline li{
+    display:inline;
+}
+
+.list-inline li i{
+    font-size:30px;
     color:white;
 }
 
