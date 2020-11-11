@@ -2,32 +2,59 @@
 {% block content %}
 
 <!-- Navigation -->
-    <header>
-        <div class="row p-2">
-            <div class="col-6 d-flex align-items-center">
-                <a href="{{ url_for('home') }}" class="navbar-logo ml-2 pb-0">Keeping<strong>TABS</strong></a>
+<div class="page-container">
+<header>
+    <div class="row p-2">
+        <div class="col-6 d-flex align-items-center">
+            <a href="{{ url_for('home') }}" class="navbar-logo ml-2 pb-0">Keeping<strong>TABS</strong></a>
+        </div>
+    {% if session.user %}        
+        <div class="col-6 dropdown d-flex align-items-start justify-content-end dropleft">
+            <button class="hamburger btn shadow-none bg-transparent" type="button" id="hamburgerMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-bars pb-0 mr-1" aria-hidden="true"></i>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="hamburgerMenu">
+                <a class="dropdown-item" href="{{ url_for('home') }}">Home</a>
+                <a class="dropdown-item" href="{{ url_for('profile', username=session['user']) }}">Profile</a>
+                <a class="dropdown-item" href="{{ url_for('logout') }}">Log Out</a>
             </div>
-        {% if session.user %}        
-            <div class="col-6 dropdown d-flex align-items-start justify-content-end dropleft">
-                <button class="hamburger btn shadow-none bg-transparent" type="button" id="hamburgerMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-bars pb-0 mr-1" aria-hidden="true"></i>
-                </button>
-                <div class="dropdown-menu" aria-labelledby="hamburgerMenu">
-                    <a class="dropdown-item" href="{{ url_for('home') }}">Home</a>
-                    <a class="dropdown-item" href="{{ url_for('profile', username=session['user']) }}">Profile</a>
-                    <a class="dropdown-item" href="{{ url_for('logout') }}">Log Out</a>
-                </div>
-            </div>
-            {% else %}
-            <div class="col-6 d-flex align-items-start justify-content-end">
-            <a href="{{ url_for('login') }}" type="button" class="btn nav-login ml-2">Click to log in</a>
-            </div>     
-        {% endif %}      
-        </div>    
-    </header>
+        </div>
+        {% else %}
+        <div class="col-6 d-flex align-items-start justify-content-end">
+        <a href="{{ url_for('login') }}" type="button" class="btn nav-login ml-2">Click to log in</a>
+        </div>     
+    {% endif %}      
+    </div>    
+</header>
 
 <!-- Callout Container -->
 <div class="container-fluid d-flex">
     <div class="text-container p-2 pr-3">
+    {% if session.user %}
+        <div class="row">
+            <div class="col-12 home-headline text-center">Welcome Back!</div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+            Appreciation is a key to any relationship. While it may be hard at times to 
+            forget the disappointments of your day, take a minute to keep tabs of someone that
+            provided a bright spot. No matter how small it may be. Send them a thank you gift, email or even a simple text message.
+            <br>
+            <br>
+            Appreciating someone makes them feel good about what they do, and that it is making a difference to their lives.
+            </div>
+        </div>
+        <div class="row text-center mt-4">
+            <div class="col-4">
+                <i class="fas fa-gift-card"></i>
+            </div>
+            <div class="col-4">
+                <i class="fas fa-envelope-open-text"></i>
+            </div>
+            <div class="col-4">
+                <i class="fas fa-comment-smile"></i>
+            </div>
+        </div>
+        {% else %}
         <div class="row">
             <div class="col-12 home-headline">Relationship<br>Health Tracker.</div>
         </div>
@@ -38,6 +65,7 @@
             pressure and obesity.
             </div>
         </div>
+    {% endif %}    
 <!-- To Tabs and To Registration Buttons-->        
     {% if session.user %}
         <div class="row mt-5">    
@@ -73,6 +101,36 @@
         </div>        
     </div> 
 </div>               
-    <hr class="home-hr rounded">
-
+<hr class="home-hr rounded">
+<!-- Footer -->
+<footer class="page-footer grey py-2">
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center align-items-end">
+            <ul class="list-inline mb-0">
+                <li class="mr-2">
+                    <a target="_blank" href="https://www.facebook.com/">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                    <span class="sr-only">Facebook</span>
+                    </a>
+                </li>
+                <li class="mr-2">
+                    <a target="_blank" href="https://www.twitter.com/">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                    <span class="sr-only">Twitter</span>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="https://www.instagram.com/">
+                    <i class="fab fa-instagram" aria-hidden="true"></i>
+                    <span class="sr-only">Instagram</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center text-white">© 2020 Copyright:KeepingTABS.com</div>
+    </div>
+</footer>
+</div>
 {% endblock %}

@@ -1,6 +1,6 @@
 body, html {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     margin: 0px;
     padding: 0px;
     font-family: 'Kanit', sans-serif;
@@ -166,7 +166,7 @@ input{
 
 .registration-header{
     color:white;
-    font-size:4vw;
+    font-size:5vw;
 }
 
 .reg-input{
@@ -205,8 +205,11 @@ input{
 }
 
 .reg-rules{
-    border-radius:25px;
-   
+    border-radius:25px; 
+}
+
+.reg-rules-sm{
+    font-size:6vw;
 }
 
 /*---------- Login Page ----------*/
@@ -247,22 +250,35 @@ input{
     background-color:#f9ce8b;
 }
 
+.lg-icon-row i{
+    font-size:10vw;
+}
+
+.sm-icon-row i{
+    font-size:6vw;
+}
+
 .fa-gift-card{
     color:rgb(255, 187, 0);
-    font-size:10vw;
 }
 
 .fa-envelope-open-text{
     color:rgb(253, 87, 87);
-    font-size:10vw;
 }
 
 .fa-comment-smile{
     color:rgb(110, 110, 255);
-    font-size:10vw;
+}
+
+.callout-header-sm{
+    font-size:8vw;
 }
 
 /*---------- Footer ----------*/
+
+.page-footer{
+    width:100%;
+}
 
 .list-inline li{
     display:inline;
@@ -271,5 +287,31 @@ input{
 .list-inline li i{
     font-size:30px;
     color:white;
+}
+
+/*---------- Media Queries ----------*/
+
+@media (max-width: 588px) {
+    .nav-sm{
+        display:block;
+    }
+    .nav-lg{
+        display:none;
+    }    
+}
+
+@media (min-width: 588px) {
+    .nav-lg{
+        display:block;
+    } 
+    .nav-sm{
+        display:none;
+    }
+} 
+
+@media (max-width: 991px) {
+    .registration-header{
+        font-size:8vw;
+    }
 }
 
