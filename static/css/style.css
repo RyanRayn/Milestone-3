@@ -26,6 +26,23 @@ input{
     font-size:20px;
 }
 
+.headline{
+    font-size:8vw;
+}
+
+.icon-row i{
+    font-size:8vw;
+}
+
+.form-container{
+    border-radius:25px;
+    width:85%
+}
+
+.form-header{
+    font-size:1.5em;
+}
+
 /*---------- Flash Messages ----------*/
 .flashes{
     line-height:2;
@@ -169,15 +186,6 @@ input{
 
 /*---------- Registration Page ----------*/
 
-.registration-container{
-    width:50%;
-    border-radius:25px;
-}
-
-.registration-header{
-    font-size:5vw;
-}
-
 .reg-input{
     border:2px solid #676b76;
 }
@@ -198,42 +206,7 @@ input{
     background-color:#ecb099;
 }
 
-.rules-width-lg{
-    width:75%;
-    border-radius:25px;
-}
-
-.rules-width-sm{
-    border-radius:25px;
-}
-
-.rules-width-sm i{
-    font-size:10vw;
-}
-
-.reg-rules{
-    border-radius:25px;
-    width:50%; 
-}
-
-.reg-rules i{
-    font-size:8vw;
-}
-
-.user-pass-sm{
-    font-size:6vw;
-}
-
-.user-pass-lg{
-    font-size:2vw;
-}
-
 /*---------- Login Page ----------*/
-
-.login-container{
-    width:50%;
-    border-radius:25px;
-}
 
 .login-input{
     border:2px solid #bedbfd;
@@ -264,18 +237,6 @@ input{
 .nav-register:hover{
     color:white;
     background-color:#f9ce8b;
-}
-
-.lg-icon-row i{
-    font-size:10vw;
-}
-
-.sm-icon-row i{
-    font-size:6vw;
-}
-
-.callout-header-sm{
-    font-size:8vw;
 }
 
 /*---------- Footer ----------*/
@@ -315,19 +276,14 @@ input{
     }
 } 
 
-@media (max-width: 991px) {
-    .registration-header{
-        font-size:8vw;
+@media (min-width: 800px) {
+    .form-header{
+        font-size:2em;
     }
-}
+} 
 
-@media (max-width: 1050px) {
-    .reg-rules{
-        display:none;
+@media (min-width: 1300px) {
+    .form-header{
+        font-size:2.5em;
     }
-
-    .rules-width-sm{
-        display:block;
-    }
-}
-
+} 

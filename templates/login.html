@@ -30,80 +30,59 @@
     </header>
 
     <content>
-<!-- Callout for large screens -->
-        <div class="container-fluid d-flex">
-            <div class="text-container d-none d-lg-block p-2">    
-                <div class="row">
-                    <div class="col-12 home-headline text-center">Don't forget!</div>
+
+        <div class="container-fluid">    
+            <div class="row text-center mb-4">
+                <div class="col-12 headline">Don't forget!</div>
+            </div>
+<!-- Icon Row -->            
+            <div class="row icon-row text-center my-2">
+                <div class="col-4">
+                    <i class="fas fa-gift-card dark-orange"></i>
                 </div>
-                <div class="row">
-                    <div class="col-12">
-                    Appreciation is a key to any relationship. While it may be hard at times to 
-                    forget the disappointments of your day, take a minute to keep tabs of someone that
-                    provided a bright spot. No matter how small it may be. Send them a thank you gift, email or even a simple text message.
-                    <br>
-                    <br>
-                    Appreciating someone makes them feel good about what they do, and that it is making a difference to their lives.
-                    </div>
+                <div class="col-4">
+                    <i class="fas fa-envelope-open-text red"></i>
                 </div>
-                <div class="row lg-icon-row text-center mt-4">
-                    <div class="col-4">
-                        <i class="fas fa-gift-card dark-orange"></i>
-                    </div>
-                    <div class="col-4">
-                        <i class="fas fa-envelope-open-text red"></i>
-                    </div>
-                    <div class="col-4">
-                        <i class="fas fa-comment-smile dark-blue"></i>
+                <div class="col-4">
+                    <i class="fas fa-comment-smile dark-blue"></i>
+                </div>
+            </div>
+<!-- Callout-->            
+            <div class="d-flex justify-content-center">
+                <div class="form-container">
+                    <div class="row my-4">
+                        <div class="col-12">
+                        Appreciation is a key to any relationship. While it may be hard at times to 
+                        forget the disappointments of your day, take a minute to keep tabs of someone that
+                        provided a bright spot. No matter how small it may be. Send them a thank you gift, 
+                        email or even a simple text message. Appreciating someone makes them feel good about 
+                        what they do, and that it is making a difference to their lives.
+                        </div>
                     </div>
                 </div>
             </div>
-
-<!-- Login Form -->    
-            <div class="login-container blue col-12 col-lg-6 p-3 my-2 mr-1">
-                <form method="POST" action="{{ url_for('login') }}">         
-                    <div class="text-center registration-header"><strong>Welcome Back!</strong></div>
+<!-- Login Form -->
+            <div class="d-flex justify-content-center">
+                <div class="form-container blue my-3 p-4 mb-5">
+                    <div class="row text-center text-white">
+                        <div class="col-12 form-header">
+                            <strong>Log in</strong>
+                        </div>
+                    </div>
+                    <form method="POST" action="{{ url_for('login') }}">           
 <!-- Username -->            
-                    <div class="pt-4 d-flex justify-content-center">
-                        <input id="username" name="username" type="text" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate login-input text-center p-1" placeholder="Username" required>
-                    </div>
+                        <div class="pt-4 d-flex justify-content-center">
+                            <input id="username" name="username" type="text" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate login-input text-center p-1" placeholder="Username" required>
+                        </div>
 <!-- Password -->             
-                    <div class="pt-4 d-flex justify-content-center">
-                        <input id="password" name="password" type="password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate login-input text-center p-1" placeholder="Password" required>
-                    </div>
+                        <div class="pt-4 d-flex justify-content-center">
+                            <input id="password" name="password" type="password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate login-input text-center p-1" placeholder="Password" required>
+                        </div>
 <!-- Login Button -->            
-                    <div class="d-flex justify-content-center pt-4">
-                        <button type="submit" class="btn login-btn btn-lg">Log in</button>
-                    </div>    
-                </form>        
-            </div> 
-        </div>
-<!-- Callout for small screens -->
-        <div class="container-fluid d-lg-none mb-5">
-            <div class="">    
-                <div class="row">
-                    <div class="col-12 callout-header-sm text-center">Don't forget!</div>
-                </div>
-                <div class="row sm-icon-row my-2">
-                    <div class="col-4 float-right">
-                        <i class="fas fa-gift-card float-right"></i>
-                    </div>
-                    <div class="col-4 text-center">
-                        <i class="fas fa-envelope-open-text"></i>
-                    </div>
-                    <div class="col-4 float-left">
-                        <i class="fas fa-comment-smile"></i>
-                    </div>
-                </div>
-                <div class="row d-flex justify-content-center">
-                    <div class="col-12">
-                    Appreciation is a key to any relationship. While it may be hard at times to 
-                    forget the disappointments of your day, take a minute to keep tabs of someone that
-                    provided a bright spot. No matter how small it may be. Send them a thank you gift, email or even a simple text message.
-                    <br>
-                    <br>
-                    Appreciating someone makes them feel good about what they do, and that it is making a difference to their lives.
-                    </div>
+                        <div class="d-flex justify-content-center pt-4">
+                            <button type="submit" class="btn login-btn btn-lg">Log in</button>
+                        </div>    
+                    </form>        
                 </div>
             </div>
         </div>
