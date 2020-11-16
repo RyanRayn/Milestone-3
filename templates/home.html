@@ -3,7 +3,7 @@
 
     <header>
 <!-- Navigation -->    
-        <div class="row mx-4 mt-1 mb-5">
+        <div class="row mx-2 mt-1 mb-2">
             <div class="col-6 d-flex align-items-center">
                 <a href="{{ url_for('home') }}" class="navbar-logo">Keeping<strong>TABS</strong></a>
             </div>
@@ -26,8 +26,8 @@
     </header>
 
     <content>
-<!-- Callout Container -->
-        <div class="container-fluid d-flex">
+<!-- Callout Container Large Screens -->
+        <div class="container-fluid home-container-lg">
             <div class="text-container pr-3">
             {% if session.user %}
                 <div class="row">
@@ -91,15 +91,91 @@
                         <i class="far fa-grin-hearts love-face"></i>
                     </div>
                 </div>
-                <div class="row">        
+                <div class="row">
+                    <div class="col-6 angry-container pink d-flex justify-content-center">
+                        <i class="far fa-angry red"></i>
+                    </div>        
                     <div class="col-6 sad-container blue d-flex justify-content-center">
                         <i class="far fa-sad-tear dark-blue"></i>
                     </div>
-                    <div class="col-6 angry-container pink d-flex justify-content-center">
-                        <i class="far fa-angry red"></i>
-                    </div>
                 </div>        
             </div> 
+        </div>
+
+<!-- Callout Container Small Screens -->
+
+        <div class="container-fluid home-container-sm p-0 mt-2">
+<!-- Emoticons -->
+            <div class="row home-icon-row">
+                <div class="col-6 py-2 happy-container orange d-flex justify-content-center">
+                    <i class="far fa-smile dark-orange"></i>
+                </div>
+                <div class="col-6 py-2 love-container grey d-flex justify-content-center">
+                    <i class="far fa-grin-hearts love-face"></i>
+                </div>
+            </div>
+            <div class="row home-icon-row">
+                <div class="col-6 py-2 angry-container pink d-flex justify-content-center">
+                    <i class="far fa-angry red"></i>
+                </div>        
+                <div class="col-6 py-2 sad-container blue d-flex justify-content-center">
+                    <i class="far fa-sad-tear dark-blue"></i>
+                </div>
+            </div>
+<!-- Callout -->
+            <div class="my-2">
+            {% if session.user %}
+                <div class="row">
+                    <div class="col-12 headline-sm text-center mb-2">Welcome Back!</div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                    Appreciation is a key to any relationship. While it may be hard at times to 
+                    forget the disappointments of your day, take a minute to keep tabs of someone that
+                    provided a bright spot. No matter how small it may be. Send them a thank you gift, email or even a simple text message.
+                    <br>
+                    <br>
+                    Appreciating someone makes them feel good about what they do, and that it is making a difference to their lives.
+                    </div>
+                </div>
+                <div class="row icon-row text-center my-4">
+                    <div class="col-4">
+                        <i class="fas fa-gift-card dark-orange"></i>
+                    </div>
+                    <div class="col-4">
+                        <i class="fas fa-envelope-open-text red"></i>
+                    </div>
+                    <div class="col-4">
+                        <i class="fas fa-comment-smile dark-blue"></i>
+                    </div>
+                </div>
+                {% else %}
+                <div class="row">
+                    <div class="col-12 headline-sm text-center my-2">Relationship Health Tracker</div>
+                </div>
+                <div class="row">
+                    <div class="col-12">Relationships play an important role in our personal health and wellbeing. A healthy relationship is proven to contribute to a long, happy life. While the health risks associated with a toxic one is comparable to smoking, high blood pressure and obesity.
+                    <br>
+                    <br>
+                    Ready to start keeping TABS?
+                    </div>
+                </div>
+            {% endif %}
+                <!-- To Tabs and To Registration Buttons-->        
+            {% if session.user %}
+                <div class="row mb-4">    
+                    <div class="col-12 d-flex justify-content-center align-items-end">
+                        <a href="{{ url_for('profile', username=session['user']) }}" type="button" class="btn btn-lg tabs-btn">Take me to my tabs!</a>
+                    </div>
+                </div>
+                {% else %}
+                <div class="row mt-4">    
+                    <div class="col-12 d-flex justify-content-center align-items-end">
+                        <a href="{{ url_for('register') }}" type="button" class="btn btn-lg register-btn text-center">Register</a>
+                    </div>    
+                </div>
+            {% endif %}    
+            </div>
         </div>               
     </content>
 

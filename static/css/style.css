@@ -30,6 +30,10 @@ input{
     font-size:8vw;
 }
 
+.headline-sm{
+    font-size:6vw;
+}
+
 .icon-row i{
     font-size:8vw;
 }
@@ -52,7 +56,7 @@ input{
 
 /*---------- Colors ----------*/
 .grey{
-    background-color:#676b76;
+    background-color:#676b76d8;
 }
 
 .red{
@@ -60,7 +64,7 @@ input{
 
 }
 .pink{
-    background-color:#ecb099;
+    background-color:#ecb09979;
 }
 
 .dark-blue{
@@ -68,7 +72,7 @@ input{
 }
 
 .blue{
-    background-color:#bedbfd;
+    background-color:#bedbfd7e;
 }
 
 .dark-orange{
@@ -76,7 +80,7 @@ input{
 }
 
 .orange{
-    background-color:#f9ce8b;
+    background-color:#f9cf8b70;
 }
 
 /*---------- Navbar ----------*/
@@ -114,6 +118,18 @@ input{
 
 /*---------- Home Page ----------*/
 
+.home-container-lg{
+    display:none;
+}
+
+.home-container-sm{
+    width:85%;
+}
+
+.home-headline{
+    font-size:6vw;
+}
+
 .text-container{
     width:50%;
 }
@@ -126,8 +142,8 @@ input{
     font-size:18vw;
 }
 
-.home-headline{
-    font-size:6vw;
+.home-icon-row i{
+    font-size:8em;
 }
 
 .register-btn{
@@ -160,12 +176,12 @@ input{
 }
 
 .angry-container{
-    border-radius:0px 0px 25px 0px;
+    border-radius:0px 0px 0px 25px;
     width:50%
 }
 
 .sad-container{
-    border-radius:0px 0px 0px 25px;
+    border-radius:0px 0px 25px 0px;
     width:50%
 }
 
@@ -175,13 +191,7 @@ input{
 }
 
 .love-face{
-    color:rgb(255, 149, 149);
-}
-
-.home-hr{
-    height:1px;
-    width:98%;
-    background-color:black;
+    color:rgb(255, 131, 131);
 }
 
 /*---------- Registration Page ----------*/
@@ -287,3 +297,13 @@ input{
         font-size:2.5em;
     }
 } 
+
+@media (min-width: 992px) {
+    .home-container-lg{
+        display:flex;
+    }
+
+    .home-container-sm{
+        display:none;
+    }
+}
