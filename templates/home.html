@@ -25,10 +25,12 @@
         </div>    
     </header>
 
+<hr class="my-3 rounded">
+
     <content>
 <!-- Callout Container Large Screens -->
         <div class="container-fluid home-container-lg">
-            <div class="text-container pr-3">
+            <div class="text-container mr-5">
             {% if session.user %}
                 <div class="row">
                     <div class="col-12 home-headline text-center">Welcome Back!</div>
@@ -175,6 +177,38 @@
                     </div>    
                 </div>
             {% endif %}    
+            </div>
+        </div>
+
+<hr class="black-hr my-4 rounded">
+
+        <div class="container-fluid feature-container">
+            <div class="row my-4">
+                <div class="col-3">
+                    <i class="fad fa-address-card"></i>
+                </div>
+                <div class="col-9 d-flex align-items-center">
+                    <p class="form-header">Create a TAB for friends, family, colleagues and loved ones.</p>
+                    <p></p>
+                </div>
+            </div>
+            <div class="row mb-4 calendar-row d-flex align-items-center p-2">
+                <div class="col-3">
+                    <i class="fad fa-calendar-alt"></i>
+                </div>    
+                <div class="col-9 d-flex justify-content-end">
+                    <p class="form-header">Has a loved one upset you?<br> A lazy partner make you angry?<br> Maybe a colleague surprised you with a venti soy iced caramel machiatto with extra whip and it made your day.<br> Keep TABS daily and watch your KeepingTabs relationship status change. </p>
+                    <p></p>    
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col-3">
+                    <i class="fad fa-hands-heart"></i>
+                </div>    
+                <div class="col-9 d-flex align-items-center">
+                    <p class="form-header">Send thanks and love.</p>
+                    <p></p>    
+                </div>
             </div>
         </div>               
     </content>

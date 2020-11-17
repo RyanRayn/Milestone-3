@@ -26,6 +26,11 @@ input{
     font-size:20px;
 }
 
+hr{
+    width:90%;
+    background-color:black;
+}
+
 .headline{
     font-size:8vw;
 }
@@ -131,11 +136,11 @@ input{
 }
 
 .text-container{
-    width:50%;
+    width:42.5%;
 }
 
 .icon-container{
-    width:50%
+    width:42.5%%
 }
 
 .icon-container i{
@@ -192,6 +197,33 @@ input{
 
 .love-face{
     color:rgb(255, 131, 131);
+}
+
+.feature-container{
+    width:90%;
+}
+
+.fa-address-card{
+    font-size:15vw;
+    --fa-primary-color:rgb(255, 187, 0);
+    --fa-secondary-color:#bedbfd7e;
+}
+
+.fa-calendar-alt{
+    font-size:15vw;
+    --fa-primary-color:rgb(253, 87, 87);
+    --fa-secondary-color:#676b76d8;
+}
+
+.calendar-row{
+    background-color:rgba(238, 238, 238, 0.555);
+    border-radius:25px;
+}
+
+.fa-hands-heart{
+    font-size:15vw;
+    --fa-primary-color:rgb(253, 87, 87);
+    --fa-secondary-color:#f9cf8b70;
 }
 
 /*---------- Registration Page ----------*/
@@ -301,6 +333,7 @@ input{
 @media (min-width: 992px) {
     .home-container-lg{
         display:flex;
+        justify-content:center;
     }
 
     .home-container-sm{
