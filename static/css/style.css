@@ -52,6 +52,12 @@ hr{
     font-size:1.5em;
 }
 
+.card{
+    width:98%;
+    display:flex;
+    justify-content:center;
+}
+
 /*---------- Flash Messages ----------*/
 .flashes{
     line-height:2;
@@ -61,7 +67,7 @@ hr{
 
 /*---------- Colors ----------*/
 .grey{
-    background-color:#676b76d8;
+    background-color:rgba(238, 238, 238, 0.555);
 }
 
 .red{
@@ -215,8 +221,7 @@ hr{
     --fa-secondary-color:#676b76d8;
 }
 
-.calendar-row{
-    background-color:rgba(238, 238, 238, 0.555);
+.calendar-container{
     border-radius:25px;
 }
 
@@ -295,6 +300,10 @@ hr{
 
 .list-inline li i{
     font-size:30px;
+    color:black;
+}
+
+.list-inline li i:hover{
     color:white;
 }
 
