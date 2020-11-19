@@ -12,7 +12,7 @@ body, html {
     min-height: 100vh;
 }
 
-content{
+#content{
     flex-grow:1;
 }
 
@@ -68,6 +68,10 @@ hr{
 /*---------- Colors ----------*/
 .grey{
     background-color:rgba(238, 238, 238, 0.555);
+}
+
+.white{
+    background-color:white;
 }
 
 .red{
@@ -146,7 +150,7 @@ hr{
 }
 
 .icon-container{
-    width:42.5%%
+    width:42.5%;
 }
 
 .icon-container i{
@@ -205,6 +209,8 @@ hr{
     color:rgb(255, 131, 131);
 }
 
+/*---------- Accordion Home Page ----------*/
+
 .feature-container{
     width:90%;
 }
@@ -221,18 +227,37 @@ hr{
     --fa-secondary-color:#676b76d8;
 }
 
-.calendar-container{
-    border-radius:25px;
-}
-
 .fa-hands-heart{
     font-size:15vw;
     --fa-primary-color:rgb(253, 87, 87);
     --fa-secondary-color:#f9cf8b70;
 }
 
+.fa-thumbs-up{
+    font-size:15vw;
+    --fa-primary-color:rgb(110, 110, 255);
+    --fa-secondary-color:#f9cf8b70;
+}
+
+.fa-plus-circle{
+    font-size:3vw;
+    color:rgba(0, 0, 0, 0.24);
+    --fa-primary-color:white;
+    --fa-secondary-color:#676b76d8;
+}
+
+.fa-minus-circle{
+    font-size:3vw;
+    color:rgba(0, 0, 0, 0.24);
+    --fa-primary-color:white;
+    --fa-secondary-color:#676b76d8;
+}
+
 /*---------- Registration Page ----------*/
 
+.reg-background{
+    background-color:#676b76d8;
+}
 .reg-input{
     border:2px solid #676b76;
 }

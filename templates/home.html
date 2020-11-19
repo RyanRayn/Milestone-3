@@ -27,7 +27,7 @@
 
 <hr class="my-3 rounded">
 
-    <content>
+    <div id="content">
 <!-- Callout Container Large Screens -->
         <div class="container-fluid home-container-lg">
             <div class="text-container mr-5">
@@ -45,15 +45,15 @@
                     Appreciating someone makes them feel good about what they do, and that it is making a difference to their lives.
                     </div>
                 </div>
-                <div class="row text-center mt-4">
+                <div class="row text-center icon-row mt-4">
                     <div class="col-4">
-                        <i class="fas fa-gift-card"></i>
+                        <i class="fas fa-gift-card dark-orange"></i>
                     </div>
                     <div class="col-4">
-                        <i class="fas fa-envelope-open-text"></i>
+                        <i class="fas fa-envelope-open-text red"></i>
                     </div>
                     <div class="col-4">
-                        <i class="fas fa-comment-smile"></i>
+                        <i class="fas fa-comment-smile dark-blue"></i>
                     </div>
                 </div>
                 {% else %}
@@ -187,39 +187,54 @@
             <div class="my-4 ml-3" id="accordion">
 
 <!-- Create TAB Card -->            
-                <div class="card blue border-0 collapsed" data-toggle="collapse"              data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                    <div class="row card-header" id="headingOne">
-                        <div class="col-3">
-                            <i class="fad fa-address-card"></i>
-                        </div>  
-                        <div class="col-9 d-flex align-items-center justify-content-center">
-                            <div class="form-header">
-                            Create a TAB for friends, family, colleagues and loved ones.
+                <div class="card border-0 collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    <div class="card-header pb-0 white border-bottom-0" id="headingOne">
+                        <div class="row">
+                            <div class="col-3 pl-0 pr-2">
+                                <i class="fad fa-address-card"></i>
+                            </div>  
+                            <div class="col-9 d-flex align-items-center justify-content-center">
+                                <div class="form-header">
+                                Create a TAB For Everyone!
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="row icon-toggle text-center m-0 p-0">
+                            <div class="col-12 pb-1">
+                                <i class="fad fa-plus-circle"></i>
+                            </div>
+                        </div>    
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                         <div class="card-body">
                             Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
                         </div>
+                    </div>
                     </div>
                 </div>
 
 <!-- Calendar Card -->                
                 <div class="card border-0 collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    <div class="row card-header" id="headingTwo">
-                        <div class="col-3">
-                            <i class="fad fa-calendar-alt"></i>
-                        </div>  
-                        <div class="col-9 d-flex align-items-center justify-content-center">
-                            <div class="form-header">
-                            Keep TABS Daily
+                    <div class="card-header grey pb-0 border-bottom-0" id="headingTwo">
+                        <div class="row">
+                            <div class="col-9 d-flex align-items-center justify-content-center">
+                                <div class="form-header">
+                                Keep TABS Daily
+                                </div>
                             </div>
+                            <div class="col-3 pl-1 pt-4">
+                                <i class="fad fa-calendar-alt"></i>
+                            </div>  
+                            
                         </div>
+                        <div class="row icon-toggle text-center m-0 p-0">
+                            <div class="col-12 pb-1">
+                                <i class="fad fa-plus-circle"></i>
+                            </div>
+                        </div>    
                     </div>
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                        <div class="row card-body d-flex justify-content-center">
-                            <div class="col-12">
+                        <div class="row card-body">
+                            <div class="col-12 d-flex justify-content-center">
                                 <p>Has a loved one forgotten your birthday and upset you?<br> A lazy partner make you angry again by leaving a sink full of dirty dishes?<br> Maybe a colleague surprised you with a venti soy iced caramel machiatto and it made your day.<br> Keep tabs daily and watch your relationship status change.</p> 
                             </div>   
                         </div>
@@ -227,25 +242,61 @@
                 </div>
 
 <!-- Gift Card -->                
-                <div class="card border-0 collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    <div class="row card-header" id="headingThree">
-                        <div class="col-3">
-                            <i class="fad fa-hands-heart"></i>
-                        </div>  
-                        <div class="col-9 d-flex align-items-center justify-content-center">
-                            <div class="form-header">
-                            Send thanks and love
+                <div class="card border-0 collapsed mt-4" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    <div class="card-header white border-bottom-0 pb-0" id="headingThree">
+                        <div class="row">
+                            <div class="col-3 pl-0 pr-1">
+                                <i class="fad fa-hands-heart"></i>
+                            </div>  
+                            <div class="col-9 d-flex align-items-center justify-content-center">
+                                <div class="form-header">
+                                Send Thanks
+                                </div>
                             </div>
                         </div>
+                        <div class="row icon-toggle text-center m-0 p-0">
+                            <div class="col-12 pb-1">
+                                <i class="fad fa-plus-circle"></i>
+                            </div>
+                        </div>        
                     </div>
                     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                         <div class="card-body">
                             Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
                         </div>
                     </div>
+                </div>
+
+<!-- Relationship Status Card -->                
+                <div class="card border-0 collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    <div class="card-header grey pb-0 border-bottom-0" id="headingFour">
+                        <div class="row">
+                            <div class="col-9 d-flex align-items-center justify-content-center">
+                                <div class="form-header">
+                                Watch Your Relationship Status Change
+                                </div>
+                            </div>
+                            <div class="col-3 pl-1 pt-4">
+                                <i class="fad fa-thumbs-up"></i>
+                            </div>  
+                            
+                        </div>
+                        <div class="row icon-toggle text-center m-0 p-0">
+                            <div class="col-12 pb-1">
+                                <i class="fad fa-plus-circle"></i>
+                            </div>
+                        </div>    
+                    </div>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                        <div class="row card-body">
+                            <div class="col-12 d-flex justify-content-center">
+                                <p>Has a loved one forgotten your birthday and upset you?<br> A lazy partner make you angry again by leaving a sink full of dirty dishes?<br> Maybe a colleague surprised you with a venti soy iced caramel machiatto and it made your day.<br> Keep tabs daily and watch your relationship status change.</p> 
+                            </div>   
+                        </div>
+                    </div>
                 </div>    
             </div>
         </div>                     
-    </content>
+    </div>
 
 {% endblock %}
