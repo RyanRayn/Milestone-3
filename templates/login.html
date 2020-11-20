@@ -11,7 +11,7 @@
                 </div>
                 <div class="col-6 d-flex align-items-center justify-content-end">Take me back&nbsp;
                     <a href="{{ url_for('home') }}">HOME</a>&nbsp;or
-                    <a href="{{ url_for('register') }}" type="button" class="btn nav-login ml-2 mt-1">Register</a>
+                    <a href="{{ url_for('register') }}" class="btn nav-login ml-2 mt-1">Register</a>
                 </div>     
             </div>
         </div>    
@@ -23,13 +23,13 @@
                 </div>
                 <div class="col-6 d-flex align-items-center justify-content-end">
                     <a href="{{ url_for('home') }}">HOME</a>&nbsp;or
-                    <a href="{{ url_for('register') }}" type="button" class="btn nav-login ml-2">Register</a>
+                    <a href="{{ url_for('register') }}" class="btn nav-login ml-2">Register</a>
                 </div>     
             </div>
         </div>        
     </header>
 <hr class="my-4 rounded">
-    <content>
+    <div id="content">
 
         <div class="container-fluid">    
             <div class="row text-center mb-4">
@@ -86,6 +86,6 @@
                 </div>
             </div>
         </div>
-    </content> 
+    </div> 
 
 {% endblock %}

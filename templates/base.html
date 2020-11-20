@@ -13,7 +13,6 @@
 </head>
 <body>
 
-
 <!-- Flash Message -->
     <section>
         {% with messages = get_flashed_messages() %}
@@ -30,6 +29,26 @@
     </section>
 
 <div class="wrapper">
+    {% if session.user %}
+        <header>
+<!-- Navigation -->    
+            <div class="row mx-2 mt-1 mb-2">
+                <div class="col-6 d-flex align-items-center">
+                    <a href="{{ url_for('home') }}" class="navbar-logo">Keeping<strong>TABS</strong></a>
+                </div>       
+                <div class="col-6 dropdown d-flex align-items-start justify-content-end dropleft">
+                    <button class="hamburger btn shadow-none bg-transparent" type="button" id="hamburgerMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-bars pb-0 mr-1" aria-hidden="true"></i>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="hamburgerMenu">
+                        <a class="dropdown-item" href="{{ url_for('home') }}">Home</a>
+                        <a class="dropdown-item" href="{{ url_for('get_tabs') }}">My TABS</a>
+                        <a class="dropdown-item" href="{{ url_for('logout') }}">Log Out</a>
+                    </div>
+                </div>
+            </div>    
+        </header>
+    {% endif %}    
+
     {% block content %}    
     {% endblock %}        
         <!-- Footer -->

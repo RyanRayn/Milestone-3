@@ -1,0 +1,27 @@
+{% extends "base.html" %}    
+{% block content %}
+
+
+<hr class="my-3 rounded">
+
+    <div id="content">
+        <div class="container-fluid">
+            <div class="row text-center">
+                <div class="col-12">
+                    <h1>{{ username }}'s TABS</h1>
+                </div>
+            </div>
+            <div class="row">
+            {% for tab in tabs %}
+                <div class="col-6 my-4 col-md-3 d-flex justify-content-center">
+                    <div class="user text-center">
+                        <i class="fad fa-user mb-3"></i><br>
+                        <a href="{{ url_for('get_tabs', username=session['user']) }}" class="btn btn-lg user-btn text-center">{{ tab.tab_name }}</a>
+                    </div>
+                </div>
+            {% endfor %}    
+            </div>
+        </div>   
+    </div>        
+
+{% endblock %}

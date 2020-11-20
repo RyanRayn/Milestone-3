@@ -78,16 +78,13 @@ def logout():
     return redirect(url_for("home"))
 
 
-@app.route("/profile/<username>", methods=["GET", "POST"])
-def profile(username):
-
+@app.route("/get_tabs", methods=["GET"])
+def get_tabs():
+    tabs = list(mongo.db.tabs.find())
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
-    if session["user"]:
-        return render_template("profile.html", username=username)
-
-    return redirect(url_for("login"))
+    return render_template("tabs.html", tabs=tabs, username=username)
 
 
 if __name__ == "__main__":

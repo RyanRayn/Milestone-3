@@ -59,6 +59,7 @@ hr{
 }
 
 /*---------- Flash Messages ----------*/
+
 .flashes{
     line-height:2;
     color:rgb(253, 87, 87);
@@ -66,6 +67,7 @@ hr{
 }
 
 /*---------- Colors ----------*/
+
 .grey{
     background-color:rgba(238, 238, 238, 0.555);
 }
@@ -209,7 +211,7 @@ hr{
     color:rgb(255, 131, 131);
 }
 
-/*---------- Accordion Home Page ----------*/
+/* Home Page Accordion */
 
 .feature-container{
     width:90%;
@@ -258,6 +260,7 @@ hr{
 .reg-background{
     background-color:#676b76d8;
 }
+
 .reg-input{
     border:2px solid #676b76;
 }
@@ -309,6 +312,21 @@ hr{
 .nav-register:hover{
     color:white;
     background-color:#f9ce8b;
+}
+
+/*---------- Tabs Page ----------*/
+
+.fa-user{
+    font-size:8vw;
+    --fa-primary-color:black;
+    --fa-secondary-color:rgba(160, 160, 160, 0.534);
+}
+
+.user-btn{
+    background-color:rgba(160, 160, 160, 0.534);
+    color:white;
+    width:150px;
+    border-radius:25px;
 }
 
 /*---------- Footer ----------*/
