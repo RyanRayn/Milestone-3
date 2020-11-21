@@ -78,8 +78,15 @@ def logout():
     return redirect(url_for("home"))
 
 
-@app.route("/get_tabs", methods=["GET"])
+@app.route("/get_tabs", methods=["GET", "POST"])
 def get_tabs():
+    if request.method == "POST":
+        tab = {
+            "tab_name":request.form.get("tab_name")
+        }
+        mongo.db.tabs.insert_one(tab)
+        return redirect(url_for("get_tabs"))
+
     tabs = list(mongo.db.tabs.find())
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]

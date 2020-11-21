@@ -100,6 +100,10 @@ hr{
     background-color:#f9cf8b70;
 }
 
+.dark-grey{
+    color:rgba(168, 168, 168, 0.651);
+}
+
 /*---------- Navbar ----------*/
 
 .navbar-logo{
@@ -322,13 +326,52 @@ hr{
     --fa-secondary-color:rgba(160, 160, 160, 0.534);
 }
 
-.user-btn{
+.fa-user-plus{
+    font-size:8vw;
+    --fa-primary-color:rgba(160, 160, 160, 0.534);
+    --fa-secondary-color:rgb(253, 87, 87);
+}
+
+.tab-btn{
     background-color:rgba(160, 160, 160, 0.534);
     color:white;
     width:150px;
     border-radius:25px;
 }
 
+.add-tab-btn{
+    background-color:rgba(168, 168, 168, 0.651);
+    color:white;
+    width:150px;
+    border-radius:25px;
+}
+
+.add-tab-btn:hover{
+    background-color:black;
+    color:white;
+}
+
+.modal-content{
+    background-color:rgba(255, 167, 167, 0.849);
+    border:none;
+    border-radius:25px;
+}
+
+.tab-input{
+    border:2px solid rgb(255, 167, 167);
+}
+
+.create-submit{
+    background-color:rgb(253, 87, 87);
+    color:white;
+    width:60%;
+    border-radius:25px;
+}
+
+.create-submit:hover{
+    background-color:rgb(253, 87, 87);
+    color:white;
+}
 /*---------- Footer ----------*/
 
 .page-footer{
