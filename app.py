@@ -71,6 +71,7 @@ def login():
     return render_template("login.html")
 
 
+# logout
 @app.route("/logout")
 def logout():
 
@@ -80,18 +81,26 @@ def logout():
 
 @app.route("/get_tabs", methods=["GET", "POST"])
 def get_tabs():
+    # add new tab function
     if request.method == "POST":
         tab = {
-            "tab_name":request.form.get("tab_name")
+            "tab_name": request.form.get("tab_name")
         }
         mongo.db.tabs.insert_one(tab)
         return redirect(url_for("get_tabs"))
-
+# get tabs from db
     tabs = list(mongo.db.tabs.find())
+# get session user username
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
     return render_template("tabs.html", tabs=tabs, username=username)
+
+
+@app.route("/profile", methods=["GET", "POST"])
+def profile():
+
+    return render_template("profile.html")
 
 
 if __name__ == "__main__":
