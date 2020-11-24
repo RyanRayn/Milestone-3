@@ -97,6 +97,19 @@ def get_tabs():
     return render_template("tabs.html", tabs=tabs, username=username)
 
 
+@app.route("/edit_tab/<tab_id>", methods=["GET", "POST"])
+def edit_tab(tab_id):
+    if request.method == "POST":
+        submit = {
+            "tab_name": request.form.get("tab_name")
+        }
+        mongo.db.tabs.update({"_id": ObjectId(tab_id)}, submit)
+        return redirect(url_for("get_tabs"))
+
+    tab = mongo.db.tabs.find_one({"_id": ObjectId(tab_id)})
+    return render_template("tabs.html", tab=tab)
+
+
 @app.route("/profile", methods=["GET", "POST"])
 def profile():
 
