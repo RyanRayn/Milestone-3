@@ -81,33 +81,44 @@ def logout():
 
 @app.route("/get_tabs", methods=["GET", "POST"])
 def get_tabs():
-    # add new tab function
-    if request.method == "POST":
-        tab = {
-            "tab_name": request.form.get("tab_name")
-        }
-        mongo.db.tabs.insert_one(tab)
-        return redirect(url_for("get_tabs"))
-# get tabs from db
+    # get tabs from db
     tabs = list(mongo.db.tabs.find())
-# get session user username
+    # get session user username
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
     return render_template("tabs.html", tabs=tabs, username=username)
 
 
+@app.route("/add_tab", methods=["GET", "POST"])
+def add_tab():
+    if request.method == "POST":
+        tab = {
+            "tab_name": request.form.get("tab_name")
+        }
+        mongo.db.tabs.insert_one(tab)
+        return redirect(url_for("get_tabs"))
+
+    return redirect(url_for("get_tabs"))
+
+
 @app.route("/edit_tab/<tab_id>", methods=["GET", "POST"])
 def edit_tab(tab_id):
     if request.method == "POST":
         submit = {
-            "tab_name": request.form.get("tab_name")
+            "new_tab_name": request.form.get("new_tab_name")
         }
         mongo.db.tabs.update({"_id": ObjectId(tab_id)}, submit)
         return redirect(url_for("get_tabs"))
 
     tab = mongo.db.tabs.find_one({"_id": ObjectId(tab_id)})
     return render_template("tabs.html", tab=tab)
+
+
+@app.route("/delete_tab/<tab_id>")
+def delete_tab(tab_id):
+    mongo.db.tabs.remove({"_id": ObjectId(tab_id)})
+    return redirect(url_for("get_tabs"))
 
 
 @app.route("/profile", methods=["GET", "POST"])
