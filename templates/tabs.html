@@ -31,7 +31,7 @@
 
                 <div class="modal fade" id="newTabModal" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
+                        <div class="modal-content modal-new">
                             <div class="modal-body">
                                 <div class="d-flex justify-content-center">
                                     <div class="form-container my-3 p-4 mb-5">
@@ -43,12 +43,12 @@
                                         <form name="add_tab" id="add_tab" method="POST" action="{{ url_for('add_tab') }}">           
 <!-- Tab Name -->            
                                             <div class="pt-4 d-flex justify-content-center">
-                                                <input type="text" id="tab_name" name="tab_name" minlength="1" maxlength="15" class="validate tab-input text-center p-1" placeholder="Tab Name" required>
+                                                <input type="text" id="tab_name" name="tab_name" minlength="1" maxlength="15" class="validate new-input text-center p-1" placeholder="Tab Name" required>
                                             </div>
                                             <div class="text-center"><small class="w-100 text-white">(Max length 15 characters. Letters or numbers ok.)</small></div>
 <!-- Submit Button -->            
                                             <div class="d-flex justify-content-center pt-4">
-                                                <button type="submit" class="btn create-submit btn-lg">Submit</button>
+                                                <button type="submit" class="btn new-btn create-submit btn-lg">Submit</button>
                                             </div>    
                                         </form>        
                                     </div>
@@ -63,8 +63,8 @@
             {% for tab in tabs %}
                 <div class="col-6 my-4 col-md-3 d-flex justify-content-center">
                     <div class="text-center">
-                        <a href="{{ url_for('profile') }}" class=""><i class="fad fa-user mb-3"></i><br></a>
-                        <h5 class="w-200">{{ tab.tab_name or tab.new_tab_name }}</h5>
+                        <a href="{{ url_for('profile', tab_id=tab._id) }}" class=""><i class="fad fa-user mb-3"></i><br></a>
+                        <h5 class="w-200">{{ tab.tab_name }}</h5>
                         <div class="no-show">
                             <a href="{{ url_for('edit_tab', tab_id=tab._id) }}" class="btn nav-login mt-1" data-toggle="modal" data-target="#editModal{{ loop.index }}">Edit</a>
                             <a href="{{ url_for('delete_tab', tab_id=tab._id) }}" class="btn nav-login mt-1" data-toggle="modal" data-target="#deleteModal{{ loop.index }}">Delete</a>
@@ -77,7 +77,7 @@
 
                 <div class="modal fade" id="editModal{{ loop.index }}" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
+                        <div class="modal-content modal-edit">
                             <div class="modal-body">
                                 <div class="d-flex justify-content-center">
                                     <div class="form-container my-3 p-4 mb-5">
@@ -89,12 +89,12 @@
                                         <form name="edit_name" id="edit_name" method="POST" action="{{ url_for('edit_tab', tab_id=tab._id) }}">           
 <!-- New Tab Name -->            
                                             <div class="pt-4 d-flex justify-content-center">
-                                                <input id="new_tab_name" name="new_tab_name" type="text" minlength="1" maxlength="15" class="validate tab-input text-center p-1" placeholder="New Name" required>
+                                                <input id="new_tab_name" name="new_tab_name" type="text" minlength="1" maxlength="15" class="validate edit-input text-center p-1" placeholder="New Name" required>
                                             </div>
                                             <div class="text-center"><small class="w-100 text-white">(Max length 15 characters. Letters or numbers ok.)</small></div>
 <!-- Submit Button -->            
                                             <div class="d-flex justify-content-center pt-4">
-                                                <button type="submit" class="btn create-submit btn-lg">Submit</button>
+                                                <button type="submit" class="btn edit-btn create-submit btn-lg">Submit</button>
                                             </div>       
                                         </form>        
                                     </div>
@@ -108,7 +108,7 @@
 
                 <div class="modal fade" id="deleteModal{{ loop.index }}" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
+                        <div class="modal-content modal-delete">
                             <div class="modal-body">
                                 <div class="d-flex justify-content-center">
                                     <div class="form-container my-3 p-4 mb-5">
@@ -120,7 +120,7 @@
                                         <form name="delete_name" id="delete_name" method="GET" action="{{ url_for('delete_tab', tab_id=tab._id) }}">           
 <!-- Delete Button -->            
                                             <div class="d-flex justify-content-center pt-4">
-                                                <button type="submit" class="btn create-submit btn-lg">Delete</button>
+                                                <button type="submit" class="btn delete-btn create-submit btn-lg">Delete</button>
                                             </div>      
                                         </form>        
                                     </div>

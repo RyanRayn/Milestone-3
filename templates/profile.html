@@ -3,14 +3,117 @@
 
     <div id="content">
         <div class="container-fluid">
-            <div class="row text-center">
-                <div class="col-12">
-                    <h3>{{ tab_name }}</h3>
-                </div>
-            </div>
-        </div>
-    </div>    
 
+<!-- Feeling entry buttons-->
+
+            <div class="feelings-container text-center d-flex justify-content-start">
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <h3 class="">How did {{ tab.tab_name }} make you feel today?</h3>
+                        <div class="feelings">
+                            <button class="feelings-btn mr-3" data-toggle="modal" data-target="#happyModal">
+                            <i class="far fa-smile dark-orange"></i>
+                            </button>
+                            <button class="feelings-btn mr-3" data-toggle="modal" data-target="#sadModal">
+                            <i class="far fa-sad-tear dark-blue"></i>
+                            </button>
+                            <button class="feelings-btn" data-toggle="modal" data-target="#angryModal">
+                            <i class="far fa-angry red"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+
+<!-- Happy Modal -->
+
+                <div class="modal fade" id="happyModal" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content modal-edit">
+                            <div class="modal-body">
+                                <div class="d-flex justify-content-center">
+                                    <div class="form-container my-3 p-4 mb-5">
+                                        <div class="row text-center text-white">
+                                            <div class="col-12 form-header">
+                                                <strong>Edit Name</strong>
+                                            </div>
+                                        </div>
+                                        <form name="edit_name" id="edit_name" method="POST" action="{{ url_for('edit_tab', tab_id=tab._id) }}">           
+<!-- New Tab Name -->            
+                                            <div class="pt-4 d-flex justify-content-center">
+                                                <input id="new_tab_name" name="new_tab_name" type="text" minlength="1" maxlength="15" class="validate edit-input text-center p-1" placeholder="New Name" required>
+                                            </div>
+                                            <div class="text-center"><small class="w-100 text-white">(Max length 15 characters. Letters or numbers ok.)</small></div>
+<!-- Submit Button -->            
+                                            <div class="d-flex justify-content-center pt-4">
+                                                <button type="submit" class="btn edit-btn create-submit btn-lg">Submit</button>
+                                            </div>       
+                                        </form>        
+                                    </div>
+                                </div>                           
+                            </div>
+                        </div>        
+                    </div>
+                </div>
+
+<!-- Sad Modal -->
+
+                <div class="modal fade" id="sadModal" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content modal-new">
+                            <div class="modal-body">
+                                <div class="d-flex justify-content-center">
+                                    <div class="form-container my-3 p-4 mb-5">
+                                        <div class="row text-center text-white">
+                                            <div class="col-12 form-header">
+                                                <strong>Create New Tab</strong>
+                                            </div>
+                                        </div>
+                                        <form name="add_tab" id="add_tab" method="POST" action="{{ url_for('add_tab') }}">           
+<!-- Tab Name -->            
+                                            <div class="pt-4 d-flex justify-content-center">
+                                                <input type="text" id="tab_name" name="tab_name" minlength="1" maxlength="15" class="validate new-input text-center p-1" placeholder="Tab Name" required>
+                                            </div>
+                                            <div class="text-center"><small class="w-100 text-white">(Max length 15 characters. Letters or numbers ok.)</small></div>
+<!-- Submit Button -->            
+                                            <div class="d-flex justify-content-center pt-4">
+                                                <button type="submit" class="btn new-btn create-submit btn-lg">Submit</button>
+                                            </div>    
+                                        </form>        
+                                    </div>
+                                </div>                           
+                            </div>
+                        </div>        
+                    </div>
+                </div>
+<!-- Angry Modal -->
+
+                <div class="modal fade" id="angryModal" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content modal-delete">
+                            <div class="modal-body">
+                                <div class="d-flex justify-content-center">
+                                    <div class="form-container my-3 p-4 mb-5">
+                                        <div class="row text-center text-white">
+                                            <div class="col-12 form-header">
+                                                <strong>Are you sure you want to delete this tab?</strong>
+                                            </div>
+                                        </div>
+                                        <form name="delete_name" id="delete_name" method="GET" action="{{ url_for('delete_tab', tab_id=tab._id) }}">           
+<!-- Delete Button -->            
+                                            <div class="d-flex justify-content-center pt-4">
+                                                <button type="submit" class="btn delete-btn create-submit btn-lg">Delete</button>
+                                            </div>      
+                                        </form>        
+                                    </div>
+                                </div>                           
+                            </div>
+                        </div>        
+                    </div>
+                </div>
+            
+        </div>
+    </div>
     
 
 {% endblock %}

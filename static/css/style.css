@@ -24,6 +24,7 @@ input{
     width:75%;
     border-radius:25px;
     font-size:20px;
+    outline:none;
 }
 
 hr{
@@ -335,29 +336,68 @@ hr{
 }
 
 .modal-content{
-    background-color:rgba(255, 167, 167, 0.849);
     border:none;
     border-radius:25px;
 }
 
-.tab-input{
-    border:2px solid rgb(255, 167, 167);
+.modal-delete{
+    background-color:rgba(255, 167, 167, 0.849);
+}
+
+.delete-btn{
+    background-color:rgb(253, 87, 87);
+}
+
+.modal-new{
+    background-color:#bedbfde8;
+}
+
+.new-input{
+    border:2px solid #bedbfde8;
+}
+
+.new-btn{
+    background-color:rgb(110, 110, 255);
+}
+
+.modal-edit{
+    background-color:#f9cf8bea;
+}
+
+.edit-input{
+    border:2px solid #f9cf8bea;
+}
+
+.edit-btn{
+    background-color:rgb(255, 187, 0);
 }
 
 .create-submit{
-    background-color:rgb(253, 87, 87);
     color:white;
     width:60%;
     border-radius:25px;
 }
 
 .create-submit:hover{
-    background-color:rgb(253, 87, 87);
+    background-color:rgb(194, 194, 194);
     color:white;
 }
 
 .no-show{
     display:none;
+}
+
+/*---------- Profile Page ----------*/
+
+.feelings i{
+    font-size:7vw;
+}
+
+.feelings-btn{
+    outline: none !important;
+    box-shadow: none;
+    background-color:white;
+    border:none;
 }
 
 /*---------- Footer ----------*/

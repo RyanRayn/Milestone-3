@@ -106,7 +106,7 @@ def add_tab():
 def edit_tab(tab_id):
     if request.method == "POST":
         submit = {
-            "new_tab_name": request.form.get("new_tab_name")
+            "tab_name": request.form.get("new_tab_name")
         }
         mongo.db.tabs.update({"_id": ObjectId(tab_id)}, submit)
         return redirect(url_for("get_tabs"))
@@ -121,10 +121,12 @@ def delete_tab(tab_id):
     return redirect(url_for("get_tabs"))
 
 
-@app.route("/profile", methods=["GET", "POST"])
-def profile():
+@app.route("/profile/<tab_id>", methods=["GET", "POST"])
+def profile(tab_id):
 
-    return render_template("profile.html")
+    tab = mongo.db.tabs.find_one({"_id": ObjectId(tab_id)})
+
+    return render_template("profile.html", tab=tab)
 
 
 if __name__ == "__main__":
