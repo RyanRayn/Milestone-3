@@ -27,6 +27,13 @@ input{
     outline:none;
 }
 
+textarea{
+    width:90%;
+    border-radius:25px;
+    font-size:20px;
+    outline:none;
+}
+
 hr{
     width:90%;
     background-color:black;
@@ -341,7 +348,11 @@ hr{
 }
 
 .modal-delete{
-    background-color:rgba(255, 167, 167, 0.849);
+    background-color:rgb(255, 167, 167);
+}
+
+.delete-input{
+    border:2px solid rgba(255, 167, 167, 0.849);
 }
 
 .delete-btn{
@@ -349,7 +360,7 @@ hr{
 }
 
 .modal-new{
-    background-color:#bedbfde8;
+    background-color:#bedbfd;
 }
 
 .new-input{
@@ -361,7 +372,7 @@ hr{
 }
 
 .modal-edit{
-    background-color:#f9cf8bea;
+    background-color:#f9cf8b;
 }
 
 .edit-input{
@@ -389,8 +400,12 @@ hr{
 
 /*---------- Profile Page ----------*/
 
+.profile-header{
+    font-size:4vw;
+}
+
 .feelings i{
-    font-size:7vw;
+    font-size:11vw;
 }
 
 .feelings-btn{
@@ -398,6 +413,22 @@ hr{
     box-shadow: none;
     background-color:white;
     border:none;
+}
+
+.feelings-btn:hover{
+    background-color:rgb(223, 223, 223);
+    border-radius:50%;
+    box-shadow: 0 0 8px 8px white inset;
+}
+
+.cancel-button{
+    color:white;
+    width:30%;
+    border-radius:25px;
+}
+
+.date{
+    font-size:2vw;
 }
 
 /*---------- Footer ----------*/
