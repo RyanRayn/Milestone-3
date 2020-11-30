@@ -134,9 +134,20 @@ def profile(tab_id):
         "profile.html", year=year, day=day, month=month, tab=tab)
 
 
-@app.route("/add_entry")
-def add_entry():
-    return redirect(url_for("get_tabs"))
+@app.route("/entry_form", methods=["GET", "POST"])
+def entry_form():
+    if request.method == "POST":
+        entry = {
+            "entry_emotion": request.form.get("entry_emotion"),
+            "entry_month": request.form.get("entry_month"),
+            "entry_day": request.form.get("entry_day"),
+            "entry_year": request.form.get("entry_year"),
+            "entry_name": request.form.get("entry_name"),
+            "entry_subject": request.form.get("entry_subject"),
+            "entry_details": request.form.get("entry_details")
+        }
+        mongo.db.entries.insert_one(entry)
+        return redirect(url_for("get_tabs"))
 
 
 if __name__ == "__main__":

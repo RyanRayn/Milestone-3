@@ -31,16 +31,20 @@ $(".angry").click(function(){
 });
 
 $(".happy").click(function(){
-  $(".insert-text").text("is the best! Give us the details.");
-  $(".insert-2").text("");
+  $(".insert-1").text("");
+  $(".insert-2").text("is the best! Give us the details.");
+  $("#entry_emotion").val("happy");
 });
 
 $(".sad").click(function(){
-    $(".insert-2").text("Aww, what did ");
-    $(".insert-text").text("do this time?");
+    $(".insert-1").text("Aww, what did ");
+    $(".insert-2").text("do this time?");
+    $("#entry_emotion").val("sad");
 });
 
 $(".angry").click(function(){
-    $(".insert-text").text("makes me so MAD!!!");
-    $(".insert-2").text("");
+    $(".insert-1").text("");
+    $(".insert-2").text("makes me so MAD!!!");
+    $("#entry_emotion").val("angry");
 });
+

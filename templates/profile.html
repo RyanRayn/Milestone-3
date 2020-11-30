@@ -34,33 +34,35 @@
                                 <div class="form-container p-2 mb-4">
                                     <div class="row text-center text-white">
                                         <div class="col-12 form-header">
-                                            <p><span class="insert-2"></span>{{ tab.tab_name }} <span class="insert-text"></span></p>
+                                            <p><span class="insert-1"></span>{{ tab.tab_name }} <span class="insert-2"></span></p>
                                         </div>
                                     </div>
-                                    <form name="log_happy" id="log_happy" method="POST" action="{{ url_for('add_entry') }}">
-<!-- Hidden Inputs -->                  <input type="hidden" id="hidden-name" name="hidden-name" value="{{ tab.tab_name }}">
-                                        <input type="hidden" id="hidden-month" name="hidden-month" value="{{ month }}">
-                                        
-<!-- Happy Date -->
-                                        <div class="pt-4 d-flex text-white date justify-content-center">
+                                    <form name="entry-from" id="entry-form" method="POST" action="{{ url_for('entry_form') }}">
+<!-- Hidden Inputs -->                  <input type="hidden" id="entry_emotion" name="entry_emotion" value="">
+                                        <input type="hidden" id="entry-month" name="entry-month" value="{{ month }}">
+                                        <input type="hidden" id="entry-day" name="entry-day" value="{{ day|e }}">
+                                        <input type="hidden" id="entry-year" name="entry-year" value="{{ year }}">
+                                        <input type="hidden" id="entry-name" name="entry-name" value="{{ tab.tab_name }}">                                 
+<!-- Entry Date -->
+                                        <div class="d-flex text-white date justify-content-center">
                                             {{ month }} {{ day }}, {{ year }}
                                         </div>           
-<!-- Happy Subject -->            
+<!-- Entry Subject -->            
                                         <div class="pt-4 d-flex justify-content-center">
-                                            <input id="happy_subject" name="happy_subject" type="text" minlength="1" maxlength="20" class="validate entry-input text-center p-1" placeholder="Subject">
+                                            <input id="entry_subject" name="entry_subject" type="text" minlength="1" maxlength="20" class="validate entry-input text-center p-1" placeholder="Subject">
                                         </div>
                                         <div class="text-center">
                                             <small class="w-100 text-white">*Not required. Short, one word subject.</small>
                                         </div>
-<!-- Happy Details -->
+<!-- Entry Details -->
                                         <div class="pt-4 d-flex justify-content-center">
-                                            <textarea id="happy_details" name="happy_details" class="validate entry-input" maxlength="300" rows="3">
+                                            <textarea id="entry_details" name="entry_details" class="validate text-left entry-input" maxlength="300" rows="3">
                                             </textarea>
                                         </div>
                                         <div class="text-center">
                                             <small class="w-100 text-white">*Details not required. Max 300 characters.</small>
                                         </div>          
-<!-- Happy Submit/Delete -->            
+<!-- Entry Submit/Delete -->            
                                         <div class="d-flex justify-content-center pt-4">
                                             <button type="submit" class="btn entry-button create-submit btn-lg mr-2">Submit</button>
                                             <button type="button" class="btn grey cancel-button" data-dismiss="modal">Cancel</button>
@@ -78,6 +80,5 @@
 
         
     </div>
-    
 
 {% endblock %}
