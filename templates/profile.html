@@ -8,15 +8,15 @@
             <div class="feelings-container text-center d-flex justify-content-center">
                 <div class="row mt-4">
                     <div class="col-12">
-                        <div class="profile-header mb-3">How did {{ tab.tab_name }} make you feel today?</div>
+                        <div class="profile-header mb-3">How did {{ tab.tab_name }} do today?</div>
                         <div class="feelings">
-                            <button class="feelings-btn mr-4" data-toggle="modal" data-target="#happyModal">
+                            <button class="feelings-btn happy mr-4" data-toggle="modal" data-target="#entryModal">
                             <i class="far fa-smile dark-orange"></i>
                             </button>
-                            <button class="feelings-btn mr-4" data-toggle="modal" data-target="#sadModal">
+                            <button class="feelings-btn sad mr-4" data-toggle="modal" data-target="#entryModal">
                             <i class="far fa-sad-tear dark-blue"></i>
                             </button>
-                            <button class="feelings-btn" data-toggle="modal" data-target="#angryModal">
+                            <button class="feelings-btn angry" data-toggle="modal" data-target="#entryModal">
                             <i class="far fa-angry red"></i>
                             </button>
                         </div>
@@ -24,34 +24,37 @@
                 </div>
             </div> 
 
-<!-- Happy Modal -->
+<!-- Entry Modal -->
 
-            <div class="modal fade" id="happyModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal fade" id="entryModal" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content modal-edit">
+                    <div class="modal-content entry-modal">
                         <div class="modal-body">
                             <div class="d-flex justify-content-center">
                                 <div class="form-container p-2 mb-4">
                                     <div class="row text-center text-white">
                                         <div class="col-12 form-header">
-                                            <strong>{{ tab.tab_name }} is the best! Give us the details.</strong>
+                                            <p><span class="insert-2"></span>{{ tab.tab_name }} <span class="insert-text"></span></p>
                                         </div>
                                     </div>
-                                    <form name="log_happy" id="log_happy" method="POST" action="{{ url_for('edit_tab', tab_id=tab._id) }}">
-<!-- Happy Date -->                                        
+                                    <form name="log_happy" id="log_happy" method="POST" action="{{ url_for('add_entry') }}">
+<!-- Hidden Inputs -->                  <input type="hidden" id="hidden-name" name="hidden-name" value="{{ tab.tab_name }}">
+                                        <input type="hidden" id="hidden-month" name="hidden-month" value="{{ month }}">
+                                        
+<!-- Happy Date -->
                                         <div class="pt-4 d-flex text-white date justify-content-center">
                                             {{ month }} {{ day }}, {{ year }}
                                         </div>           
 <!-- Happy Subject -->            
                                         <div class="pt-4 d-flex justify-content-center">
-                                            <input id="happy_subject" name="happy_subject" type="text" minlength="1" maxlength="20" class="validate edit-input text-center p-1" placeholder="Subject">
+                                            <input id="happy_subject" name="happy_subject" type="text" minlength="1" maxlength="20" class="validate entry-input text-center p-1" placeholder="Subject">
                                         </div>
                                         <div class="text-center">
                                             <small class="w-100 text-white">*Not required. Short, one word subject.</small>
                                         </div>
 <!-- Happy Details -->
                                         <div class="pt-4 d-flex justify-content-center">
-                                            <textarea id="happy_details" name="happy_details" class="validate edit-input" maxlength="300" rows="3">
+                                            <textarea id="happy_details" name="happy_details" class="validate entry-input" maxlength="300" rows="3">
                                             </textarea>
                                         </div>
                                         <div class="text-center">
@@ -59,100 +62,9 @@
                                         </div>          
 <!-- Happy Submit/Delete -->            
                                         <div class="d-flex justify-content-center pt-4">
-                                            <button type="submit" class="btn edit-btn create-submit btn-lg mr-2">Submit</button>
+                                            <button type="submit" class="btn entry-button create-submit btn-lg mr-2">Submit</button>
                                             <button type="button" class="btn grey cancel-button" data-dismiss="modal">Cancel</button>
                                         </div>       
-                                    </form>        
-                                </div>
-                            </div>                           
-                        </div>
-                    </div>        
-                </div>
-            </div>
-
-<!-- Sad Modal -->
-
-            <div class="modal fade" id="sadModal" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content modal-new">
-                        <div class="modal-body">
-                            <div class="d-flex justify-content-center">
-                                <div class="form-container p-2 mb-4">
-                                    <div class="row text-center text-white">
-                                        <div class="col-12 form-header">
-                                            <strong>Aww, what did {{ tab.tab_name }} do?</strong>
-                                        </div>
-                                    </div>
-                                    <form name="log_sad" id="log_sad" method="POST" action="{{ url_for('add_tab') }}">           
-<!-- Sad Date -->            
-                                        <div class="pt-4 d-flex text-white date justify-content-center">
-                                            {{ month }} {{ day }}, {{ year }}
-                                        </div>     
-<!-- Sad Subject-->                            
-                                        <div class="pt-4 d-flex justify-content-center">
-                                            <input id="sad_subject" name="sad_subject" type="text" minlength="1" maxlength="20" class="validate new-input text-center p-1" placeholder="Subject">
-                                        </div>
-                                        <div class="text-center">
-                                            <small class="w-100 text-white">*Not required. Short, one word subject.</small>
-                                        </div>                
-<!-- Sad Details -->
-                                        <div class="pt-4 d-flex justify-content-center">
-                                            <textarea id="sad_details" name="sad_details" class="validate new-input" maxlength="300" rows="3">
-                                            </textarea>
-                                        </div>
-                                        <div class="text-center">
-                                            <small class="w-100 text-white">*Details not required. Max 300 characters.</small>
-                                        </div>
-<!-- Sad Submit/Delete -->            
-                                        <div class="d-flex justify-content-center pt-4">
-                                            <button type="submit" class="btn new-btn create-submit btn-lg mr-2">Submit</button>
-                                            <button type="button" class="btn grey cancel-button" data-dismiss="modal">Cancel</button>
-                                        </div>    
-                                    </form>        
-                                </div>
-                            </div>                           
-                        </div>
-                    </div>        
-                </div>
-            </div>
-<!-- Angry Modal -->
-
-            <div class="modal fade" id="angryModal" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content modal-delete">
-                        <div class="modal-body">
-                            <div class="d-flex justify-content-center">
-                                <div class="form-container p-2 mb-4">
-                                    <div class="row text-center text-white">
-                                        <div class="col-12 form-header">
-                                            <strong>{{ tab.tab_name }} can make me so angry!!!</strong>
-                                        </div>
-                                    </div>
-                                    <form name="log_angry" id="log_angry" method="POST" action="{{ url_for('delete_tab', tab_id=tab._id) }}">
-<!-- Angry Date -->            
-                                        <div class="pt-4 d-flex text-white date justify-content-center">
-                                            {{ month }} {{ day }}, {{ year }}
-                                        </div>     
-<!-- Angry Subject-->                            
-                                        <div class="pt-4 d-flex justify-content-center">
-                                            <input id="angry_subject" name="angry_subject" type="text" minlength="1" maxlength="20" class="validate delete-input text-center p-1" placeholder="Subject">
-                                        </div>
-                                        <div class="text-center">
-                                            <small class="w-100 text-white">*Not required. Short, one word subject.</small>
-                                        </div>                
-<!-- Angry Details -->
-                                        <div class="pt-4 d-flex justify-content-center">
-                                            <textarea id="angry_details" name="angry_details" class="validate delete-input" maxlength="300" rows="3">
-                                            </textarea>
-                                        </div>
-                                        <div class="text-center">
-                                            <small class="w-100 text-white">*Details not required. Max 300 characters.</small>
-                                        </div>              
-<!-- Angry Submit/Delete -->            
-                                        <div class="d-flex justify-content-center pt-4">
-                                            <button type="submit" class="btn delete-btn create-submit btn-lg mr-2">Submit</button>
-                                            <button type="button" class="btn grey cancel-button" data-dismiss="modal">Cancel</button>
-                                        </div>      
                                     </form>        
                                 </div>
                             </div>                           

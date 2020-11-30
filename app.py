@@ -134,6 +134,11 @@ def profile(tab_id):
         "profile.html", year=year, day=day, month=month, tab=tab)
 
 
+@app.route("/add_entry")
+def add_entry():
+    return redirect(url_for("get_tabs"))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

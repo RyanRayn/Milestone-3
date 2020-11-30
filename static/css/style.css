@@ -431,6 +431,20 @@ hr{
     font-size:2vw;
 }
 
+.entry-modal{
+    background-color:#f9cf8b;
+}
+
+.entry-button{
+    background-color:rgb(255, 187, 0);
+}
+
+.entry-input{
+    border:2px solid #f9cf8bea;
+}
+
+
+
 /*---------- Footer ----------*/
 
 .page-footer{
