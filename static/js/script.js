@@ -48,3 +48,22 @@ $(".angry").click(function(){
     $("#entry_emotion").val("angry");
 });
 
+
+function setValues(){
+
+let monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"]
+
+let d = new Date();
+let monthNumber = d.getMonth();
+let monthName = monthNames[monthNumber];
+let currentYear = d.getFullYear();
+let currentDate = d.getDate();
+let today = monthName + " " + currentDate + "," + " " + currentYear;
+
+$('#entry_month').val(monthName);
+$('#entry_year').val(currentYear);
+$('#entry_date').val(today);
+}
+
+

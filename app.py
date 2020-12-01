@@ -140,12 +140,13 @@ def entry_form():
         entry = {
             "entry_emotion": request.form.get("entry_emotion"),
             "entry_month": request.form.get("entry_month"),
-            "entry_day": request.form.get("entry_day"),
+            "entry_date": request.form.get("entry_date"),
             "entry_year": request.form.get("entry_year"),
-            "entry_name": request.form.get("entry_name"),
             "entry_subject": request.form.get("entry_subject"),
-            "entry_details": request.form.get("entry_details")
+            "entry_details": request.form.get("entry_details"),
+            "entry_name": request.form.get("entry_name")
         }
+
         mongo.db.entries.insert_one(entry)
         return redirect(url_for("get_tabs"))
 

@@ -10,13 +10,13 @@
                     <div class="col-12">
                         <div class="profile-header mb-3">How did {{ tab.tab_name }} do today?</div>
                         <div class="feelings">
-                            <button class="feelings-btn happy mr-4" data-toggle="modal" data-target="#entryModal">
+                            <button onclick="setValues()" class="feelings-btn happy mr-4" data-toggle="modal" data-target="#entryModal">
                             <i class="far fa-smile dark-orange"></i>
                             </button>
-                            <button class="feelings-btn sad mr-4" data-toggle="modal" data-target="#entryModal">
+                            <button onclick="setValues()" class="feelings-btn sad mr-4" data-toggle="modal" data-target="#entryModal">
                             <i class="far fa-sad-tear dark-blue"></i>
                             </button>
-                            <button class="feelings-btn angry" data-toggle="modal" data-target="#entryModal">
+                            <button onclick="setValues()" class="feelings-btn angry" data-toggle="modal" data-target="#entryModal">
                             <i class="far fa-angry red"></i>
                             </button>
                         </div>
@@ -39,10 +39,10 @@
                                     </div>
                                     <form name="entry-from" id="entry-form" method="POST" action="{{ url_for('entry_form') }}">
 <!-- Hidden Inputs -->                  <input type="hidden" id="entry_emotion" name="entry_emotion" value="">
-                                        <input type="hidden" id="entry-month" name="entry-month" value="{{ month }}">
-                                        <input type="hidden" id="entry-day" name="entry-day" value="{{ day|e }}">
-                                        <input type="hidden" id="entry-year" name="entry-year" value="{{ year }}">
-                                        <input type="hidden" id="entry-name" name="entry-name" value="{{ tab.tab_name }}">                                 
+                                        <input type="hidden" id="entry_date" name="entry_date" value="">
+                                        <input type="hidden" id="entry_month" name="entry_month" value="">
+                                        <input type="hidden" id="entry_year" name="entry_year" value="">
+                                        <input type="hidden" id="entry_name" name="entry_name" value={{ tab.tab_name }}>                                
 <!-- Entry Date -->
                                         <div class="d-flex text-white date justify-content-center">
                                             {{ month }} {{ day }}, {{ year }}
