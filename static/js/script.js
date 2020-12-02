@@ -1,17 +1,37 @@
-/* Home Page */
+/* Flash Message Timeout */
+setTimeout(function() {
+    $('#flash_message').fadeOut('fast');
+}, 2500);
+
+
+
+/* HOME PAGE */
+
+
 
 /* Change +,- icons for accordion on click */
 $('.icon-toggle').click(function(){ 
     $(this).find('i').toggleClass('fa-plus-circle fa-minus-circle'); 
 });
 
-/* Tabs Page */
+
+
+/* TABS PAGE */
+
+
 
 /* Toggle Create New, Edit and Delete buttons */    
 $(".add-edit-delete").click(function(){
   $(".no-show").toggle();
 });
 
+
+
+/* PROFILE PAGE */
+
+
+
+/* Change entry modal colors based on emotion chosen */
 $(".sad").click(function(){
     $(".entry-modal, .modal-delete").removeClass("entry-modal modal-delete").addClass("modal-new");
     $(".entry-input, .delete-input").removeClass("entry-input delete-btn").addClass("new-input");
@@ -30,6 +50,7 @@ $(".angry").click(function(){
     $(".new-btn, .entry-button").removeClass("new-btn entry-button").addClass("delete-btn");
 });
 
+/* Toggle text for entry modal and enter hidden input for "emotion" */
 $(".happy").click(function(){
   $(".insert-1").text("");
   $(".insert-2").text("is the best! Give us the details.");
@@ -48,7 +69,7 @@ $(".angry").click(function(){
     $("#entry_emotion").val("angry");
 });
 
-
+/* Enter date values in hidden input fields on the Entry Modal */
 function setValues(){
 
 let monthNames = ["January", "February", "March", "April", "May", "June",

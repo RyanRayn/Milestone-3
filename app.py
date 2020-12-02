@@ -94,9 +94,18 @@ def get_tabs():
 @app.route("/add_tab", methods=["GET", "POST"])
 def add_tab():
     if request.method == "POST":
+
+        existing_tab = mongo.db.tabs.find_one(
+            {"tab_name": request.form.get("tab_name").lower()})
+
+        if existing_tab:
+            flash("Tab name already exists")
+            return redirect(url_for("get_tabs"))
+
         tab = {
-            "tab_name": request.form.get("tab_name")
+            "tab_name": request.form.get("tab_name").lower()
         }
+
         mongo.db.tabs.insert_one(tab)
         return redirect(url_for("get_tabs"))
 
@@ -106,8 +115,16 @@ def add_tab():
 @app.route("/edit_tab/<tab_id>", methods=["GET", "POST"])
 def edit_tab(tab_id):
     if request.method == "POST":
+
+        existing_tab = mongo.db.tabs.find_one(
+            {"tab_name": request.form.get("new_tab_name").lower()})
+
+        if existing_tab:
+            flash("Tab name already exists")
+            return redirect(url_for("get_tabs"))
+
         submit = {
-            "tab_name": request.form.get("new_tab_name")
+            "tab_name": request.form.get("new_tab_name").lower()
         }
         mongo.db.tabs.update({"_id": ObjectId(tab_id)}, submit)
         return redirect(url_for("get_tabs"))
@@ -138,13 +155,13 @@ def profile(tab_id):
 def entry_form():
     if request.method == "POST":
         entry = {
-            "entry_emotion": request.form.get("entry_emotion"),
-            "entry_month": request.form.get("entry_month"),
-            "entry_date": request.form.get("entry_date"),
-            "entry_year": request.form.get("entry_year"),
-            "entry_subject": request.form.get("entry_subject"),
-            "entry_details": request.form.get("entry_details"),
-            "entry_name": request.form.get("entry_name")
+            "entry_emotion": request.form.get("entry_emotion").lower(),
+            "entry_month": request.form.get("entry_month").lower(),
+            "entry_date": request.form.get("entry_date").lower(),
+            "entry_year": request.form.get("entry_year").lower(),
+            "entry_subject": request.form.get("entry_subject").lower(),
+            "entry_details": request.form.get("entry_details").lower(),
+            "entry_name": request.form.get("entry_name").lower()
         }
 
         mongo.db.entries.insert_one(entry)
