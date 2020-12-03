@@ -2,11 +2,11 @@
 {% block content %}
 
     <div id="content">
-
+    
 <!-- Feeling entry buttons-->
         <div class="container-fluid">
             <div class="feelings-container text-center d-flex justify-content-center">
-                <div class="row mt-4">
+                <div class="row mt-3">
                     <div class="col-12">
                         <div class="profile-header mb-3">How did {{ tab.tab_name.capitalize() }} do today?</div>
                         <div class="feelings">
@@ -42,7 +42,7 @@
                                         <input type="hidden" id="entry_date" name="entry_date" value="">
                                         <input type="hidden" id="entry_month" name="entry_month" value="">
                                         <input type="hidden" id="entry_year" name="entry_year" value="">
-                                        <input type="hidden" id="entry_name" name="entry_name" value={{ tab.tab_name }}>                                
+                                        <input type="hidden" id="entry_name" name="entry_name" value={{ tab.tab_name }}> 
 <!-- Entry Date -->
                                         <div class="d-flex text-white date justify-content-center">
                                             {{ month.capitalize() }} {{ day }}, {{ year }}
@@ -56,8 +56,7 @@
                                         </div>
 <!-- Entry Details -->
                                         <div class="pt-4 d-flex justify-content-center">
-                                            <textarea id="entry_details" name="entry_details" class="validate text-left entry-input" maxlength="300" rows="3">
-                                            </textarea>
+                                            <textarea id="entry_details" name="entry_details" class="validate entry-input" maxlength="300" rows="3"></textarea>
                                         </div>
                                         <div class="text-center">
                                             <small class="w-100 text-white">*Details not required. Max 300 characters.</small>
@@ -74,11 +73,41 @@
                     </div>        
                 </div>
             </div>
-        </div>
+            <div class="row px-2 mt-4">
+                <div class="col-12 col-md-3 p-1">
+                    <div class="tool-box text-center text-white">
+                    Happy Entries
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 p-1">
+                    <div class="tool-box text-center text-white">
+                    Sad Entries
+                    </div>
+                </div> 
+                <div class="col-12 col-md-3 p-1">
+                    <div class="tool-box p-2 text-center">
+                        <h3 class="mb-3"><a class="gift-card-h3 dark-grey" target="_blank" href="https://www.starbucks.com/gift">Click to show {{ tab.tab_name.capitalize() }} some love with a Starbucks gift card!</a></h3>
+                        <a target="_blank" href="https://www.starbucks.com/gift"><i class="fad fa-coffee-togo mt-3 mb-2"></i></a>
+                    </div>      
+                </div> 
+                <div class="col-12 col-md-3 p-1">
+                    <div class="tool-box dark-grey text-center p-2">
+                        <h3 id="email-h3" class="">Send {{ tab.tab_name.capitalize() }} an email?</h3>
+                        <h1 id="email-h1" class="text-white no-show">Email<br>Sent!</h1>
+                        <form id="emailForm" onsubmit="return sendMail(this);" method="POST" autocomplete="off">
+                            <div class="row d-flex justify-content-center">         
+                                <input class="email-input text-center mb-2 validate" type="email" placeholder="To Email" id="toEmail" name="toEmail" required>
+                                <input class="email-input text-center mb-2" type="text" placeholder="Subject" id="subject" name="subject" required>
+                                <textarea id="message" name="message" class="validate entry-input validate mb-2" maxlength="300" rows="3"></textarea>
+                                <button id="emailSend" onclick="" class="btn text-center mb-2" type="submit">Submit</button>
+                            </div>    
+                        </form>
+                    </div>    
+                </div>      
+            </div>
 
 
 
-        
+        </div>    
     </div>
-
 {% endblock %}

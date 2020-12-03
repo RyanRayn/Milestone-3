@@ -87,4 +87,33 @@ $('#entry_year').val(currentYear);
 $('#entry_date').val(today);
 }
 
+/* Send Email Function */
+function sendMail(emailSend) {
+    emailjs.send("KeepingTABS", "template_s61f969", {
+       "toEmail": emailSend.toEmail.value,
+       "subject": emailSend.subject.value,
+       "message": emailSend.message.value
+    })
+    .then(
+        function(response) {
+            console.log("SUCCESS", response);
+        },
+        function(error) {
+            console.log("FAILED", error);
+        });
+    return false;
+}
 
+/* Hide email form on submission */
+$(document).ready(function(){
+    $( "#emailSend" ).click(function() {
+        $( "#emailForm" ).hide( "slow", function() {
+    });
+});
+}); 
+
+/* Change header message when email sends */
+$("#emailSend").click(function(){
+    $("#email-h3").addClass("no-show");
+    $("#email-h1").removeClass("no-show");
+});
