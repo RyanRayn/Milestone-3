@@ -58,7 +58,8 @@ def login():
 
         if existing_user:
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
+                                existing_user["password"],
+                                request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 return redirect(url_for(
                     "home", username=session["user"]))
@@ -143,12 +144,28 @@ def delete_tab(tab_id):
 def profile(tab_id):
 
     tab = mongo.db.tabs.find_one({"_id": ObjectId(tab_id)})
+    happy = mongo.db.entries.count_documents(
+                                            {"$and": [{"entry_name":
+                                             tab["tab_name"]},
+                                             {"entry_emotion": "happy"}]})
+
+    sad = mongo.db.entries.count_documents(
+                                            {"$and": [{"entry_name":
+                                             tab["tab_name"]},
+                                             {"entry_emotion": "sad"}]})
+
+    angry = mongo.db.entries.count_documents(
+                                            {"$and": [{"entry_name":
+                                             tab["tab_name"]},
+                                             {"entry_emotion": "angry"}]})
+
+    tab = mongo.db.tabs.find_one({"_id": ObjectId(tab_id)})
     month = datetime.utcnow().strftime("%B")
     day = datetime.utcnow().strftime("%d")
     year = datetime.utcnow().strftime("%Y")
 
-    return render_template(
-        "profile.html", year=year, day=day, month=month, tab=tab)
+    return render_template("profile.html", year=year, day=day, month=month,
+                           tab=tab, happy=happy, sad=sad, angry=angry)
 
 
 @app.route("/entry_form", methods=["GET", "POST"])
@@ -164,8 +181,8 @@ def entry_form():
             "entry_name": request.form.get("entry_name").lower()
         }
 
-        mongo.db.entries.insert_one(entry)
-        return redirect(url_for("get_tabs"))
+    mongo.db.entries.insert_one(entry)
+    return redirect(url_for("get_tabs"))
 
 
 if __name__ == "__main__":

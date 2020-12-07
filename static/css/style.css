@@ -460,19 +460,12 @@ hr{
     border:2px solid #f9cf8bea;
 }
 
-.happy-stat{
-    background-color:rgb(238, 238, 238);
-    border-radius:25px;
-    width:99%;
-    height:99%;
-}
-
 .tool-box{
     background-color:rgb(238, 238, 238);
     border-radius:25px;
     width:99%;
     height:99%;
-}    
+}
 
 .email-input{
     border:2px solid rgb(204, 204, 204);
@@ -494,7 +487,7 @@ hr{
 }
 
 .fa-coffee-togo{
-    font-size:10vw;
+    font-size:12vw;
     --fa-primary-color:rgb(253, 87, 87);
     --fa-secondary-color:rgb(155, 155, 155);
 }
@@ -505,7 +498,30 @@ hr{
 }
 
 .gift-card-h3:hover{
-    color:black;
+    color:rgb(155, 155, 155);
+}
+
+#email-h1{
+    font-size:6vw;
+}
+
+.total-icons{
+    font-size:3vw;
+}
+
+.fa-equals{
+    font-size:2vw;
+}
+
+.fa-file-search{
+    font-size:12vw;
+    --fa-primary-color:rgb(110, 110, 255);
+    --fa-secondary-color:rgb(155, 155, 155);
+}
+
+.fa-file-search:hover{
+    --fa-primary-color:rgb(253, 87, 87);
+    --fa-secondary-color:rgb(107, 107, 107);
 }
 
 /*---------- Footer ----------*/

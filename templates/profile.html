@@ -73,28 +73,50 @@
                     </div>        
                 </div>
             </div>
-            <div class="row px-2 mt-4">
-                <div class="col-12 col-md-3 p-1">
-                    <div class="tool-box text-center text-white">
-                    Happy Entries
+            <div class="row d-flex justify-content-center mx-1 mt-5">
+                <h2>Dashboard</h2> 
+            </div>
+            <hr class="mt-0">
+            <div class="row px-2 mb-3">
+                <div class="col-3 p-1">
+                    <div class="tool-box text-center dark-grey p-2">
+                        <h3 class="pb-4">Entry Totals</h3>
+                        <div class="pb-2">
+                            <i class="far fa-smile dark-orange total-icons d-inline-block mr-3"></i>
+                            <i class="fas fa-equals d-inline-block mr-3"></i>
+                            <h1 class="d-inline-block">{{ happy }}</h1>
+                        </div>
+                        <div class="pb-2">
+                            <i class="far fa-sad-tear dark-blue total-icons d-inline-block mr-3"></i>
+                            <i class="fas fa-equals d-inline-block mr-3"></i>
+                            <h1 class="d-inline-block">{{ sad }}</h1>
+                        </div>
+                        <div>
+                            <i class="far fa-angry red  total-icons d-inline-block mr-3"></i>
+                            <i class="fas fa-equals d-inline-block mr-3"></i>
+                            <h1 class="d-inline-block">{{ angry }}</h1>
+                        </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-3 p-1">
-                    <div class="tool-box text-center text-white">
-                    Sad Entries
+                <div class="col-3 p-1">
+                    <div class="tool-box text-center dark-grey p-2">
+                        <h3 class="">Click icon to perform detailed search.</h3>
+                        <div class="mt-3"><a href="{{ url_for('register') }}"><i class="fad fa-file-search"></i></a></div>
                     </div>
                 </div> 
-                <div class="col-12 col-md-3 p-1">
-                    <div class="tool-box p-2 text-center">
-                        <h3 class="mb-3"><a class="gift-card-h3 dark-grey" target="_blank" href="https://www.starbucks.com/gift">Click to show {{ tab.tab_name.capitalize() }} some love with a Starbucks gift card!</a></h3>
-                        <a target="_blank" href="https://www.starbucks.com/gift"><i class="fad fa-coffee-togo mt-3 mb-2"></i></a>
+                <div class="col-3 p-1">
+                    <div class="tool-box p-2 container">
+                        <div class="pl-2 mb-2"><h3><a class="gift-card-h3 dark-grey" target="_blank" href="https://www.starbucks.com/gift">Show {{ tab.tab_name.capitalize() }} love with a Starbucks gift card!</a></h3>
+                        </div>
+                        <div class="text-center"><a target="_blank" href="https://www.starbucks.com/gift"><i class="fad fa-coffee-togo mt-3 mb-2"></i></a>
+                        </div>
                     </div>      
                 </div> 
-                <div class="col-12 col-md-3 p-1">
+                <div class="col-3 p-1">
                     <div class="tool-box dark-grey text-center p-2">
-                        <h3 id="email-h3" class="">Send {{ tab.tab_name.capitalize() }} an email?</h3>
-                        <h1 id="email-h1" class="text-white no-show">Email<br>Sent!</h1>
-                        <form id="emailForm" onsubmit="return sendMail(this);" method="POST" autocomplete="off">
+                        <h3 id="email-h3">Send {{ tab.tab_name.capitalize() }} an email?</h3>
+                        <h1 id="email-h1" class="dark-grey no-show my-4">Email<br>Sent!</h1>
+                        <form id="emailForm" onsubmit="return sendMail(this);" method="POST" autocomplete="off"> 
                             <div class="row d-flex justify-content-center">         
                                 <input class="email-input text-center mb-2 validate" type="email" placeholder="To Email" id="toEmail" name="toEmail" required>
                                 <input class="email-input text-center mb-2" type="text" placeholder="Subject" id="subject" name="subject" required>
