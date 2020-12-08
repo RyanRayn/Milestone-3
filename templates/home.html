@@ -12,6 +12,7 @@
             </div>           
         </div>    
     </header>
+    <hr class="mt-3 mb-4 rounded">
 {% endif %}
 
 
@@ -171,121 +172,91 @@
 
 <hr class="black-hr my-4 rounded">
 
-<!-- Accordion -->
         <div class="container-fluid feature-container">
-            <div class="my-4 ml-3" id="accordion">
+            {% if session.user %}           
+              
+            <div class="row">
+                <div class="col-12 col-md-6 mb-4">
+                    <div class="keep-tab-border d-flex p-3">
+                        <p class="d-inline align-self-center">29</p>    
+                    </div>
+                </div>
+
+
+
+                <div class="col-12 col-md-6">
+                    <div class="create-tab-border d-flex p-3">
+                        
+                    </div>
+                </div>                   
+            </div>                    
+                                                  
+              
+               
+            <div class="row my-4">
+                <div class="col-12 col-md-6 mb-4">
+                    <div class="gift-card-border d-flex p-3">
+                        
+                    </div>
+                </div>   
+                                
+
+
+                <div class="col-12 col-md-6">
+                    <div class="relationship-border d-flex p-3">
+                        
+                    </div>
+                </div>               
+            </div>
+
+            {% else %}
 
 <!-- Create TAB Card -->            
-                <div class="card border-0 collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                    <div class="card-header pb-0 white border-bottom-0" id="headingOne">
-                        <div class="row">
-                            <div class="col-3 pl-0 pr-2">
-                                <i class="fad fa-address-card"></i>
-                            </div>  
-                            <div class="col-9 d-flex align-items-center justify-content-center">
-                                <div class="form-header">
-                                Create a TAB For Everyone!
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row icon-toggle text-center m-0 p-0">
-                            <div class="col-12 pb-1">
-                                <i class="fad fa-plus-circle"></i>
-                            </div>
-                        </div>    
-                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                        <div class="card-body">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                        </div>
-                    </div>
+              
+            <div class="row">
+                <div class="col-12 col-md-6 mb-4">
+                    <div class="create-tab-border d-flex p-3">
+                        <i class="fad fa-address-card d-inline align-self-center icon-size"></i>
+                        <p class="d-inline ml-3 align-self-center"><span class="home-card-headline font-weight-bold">Create TABS</span><br>Create a profile for anyone you want to keep tabs of. Friends, family, colleagues, they are all fair game!</p>
                     </div>
                 </div>
 
-<!-- Calendar Card -->                
-                <div class="card border-0 collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    <div class="card-header grey pb-0 border-bottom-0" id="headingTwo">
-                        <div class="row">
-                            <div class="col-9 d-flex align-items-center justify-content-center">
-                                <div class="form-header">
-                                Keep TABS Daily
-                                </div>
-                            </div>
-                            <div class="col-3 pl-1 pt-4">
-                                <i class="fad fa-calendar-alt"></i>
-                            </div>  
-                            
-                        </div>
-                        <div class="row icon-toggle text-center m-0 p-0">
-                            <div class="col-12 pb-1">
-                                <i class="fad fa-plus-circle"></i>
-                            </div>
-                        </div>    
-                    </div>
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                        <div class="row card-body">
-                            <div class="col-12 d-flex justify-content-center">
-                                <p>Has a loved one forgotten your birthday and upset you?<br> A lazy partner make you angry again by leaving a sink full of dirty dishes?<br> Maybe a colleague surprised you with a venti soy iced caramel machiatto and it made your day.<br> Keep tabs daily and watch your relationship status change.</p> 
-                            </div>   
-                        </div>
-                    </div>
-                </div>
+<!-- Calendar Card --> 
 
+                <div class="col-12 col-md-6">
+                    <div class="keep-tab-border d-flex p-3">
+                        <i class="fad fa-calendar-alt d-inline align-self-center icon-size"></i>
+                        <p class="d-inline ml-3 align-self-center"><span class="home-card-headline font-weight-bold">Keep TABS Daily</span><br>There is no limit on how many entries you can log. Keep track of all happy, sad, angry or frustrating moments.</p>
+                    </div>
+                </div>                   
+            </div>                    
+                                                  
 <!-- Gift Card -->                
-                <div class="card border-0 collapsed mt-4" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    <div class="card-header white border-bottom-0 pb-0" id="headingThree">
-                        <div class="row">
-                            <div class="col-3 pl-0 pr-1">
-                                <i class="fad fa-hands-heart"></i>
-                            </div>  
-                            <div class="col-9 d-flex align-items-center justify-content-center">
-                                <div class="form-header">
-                                Send Thanks
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row icon-toggle text-center m-0 p-0">
-                            <div class="col-12 pb-1">
-                                <i class="fad fa-plus-circle"></i>
-                            </div>
-                        </div>        
+               
+            <div class="row my-4">
+                <div class="col-12 col-md-6 mb-4">
+                    <div class="gift-card-border d-flex p-3">
+                        <i class="fad fa-hands-heart d-inline align-self-center icon-size"></i>
+                        <p class="d-inline ml-3 align-self-center"><span class="home-card-headline font-weight-bold">Send Thanks</span><br>Log a positive entry and show appreciation by sending a gift card or thank you email directly from their profile.</p>
                     </div>
-                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                        <div class="card-body">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                        </div>
-                    </div>
-                </div>
+                </div>   
+                                
+<!-- Relationship Status Card -->
 
-<!-- Relationship Status Card -->                
-                <div class="card border-0 collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                    <div class="card-header grey pb-0 border-bottom-0" id="headingFour">
-                        <div class="row">
-                            <div class="col-9 d-flex align-items-center justify-content-center">
-                                <div class="form-header">
-                                Watch Your Relationship Status Change
-                                </div>
-                            </div>
-                            <div class="col-3 pl-1 pt-4">
-                                <i class="fad fa-thumbs-up"></i>
-                            </div>  
-                            
-                        </div>
-                        <div class="row icon-toggle text-center m-0 p-0">
-                            <div class="col-12 pb-1">
-                                <i class="fad fa-plus-circle"></i>
-                            </div>
-                        </div>    
+                <div class="col-12 col-md-6">
+                    <div class="relationship-border d-flex p-3">
+                        <i class="fad fa-thumbs-up d-inline align-self-center icon-size"></i>
+                        <p class="d-inline ml-3 align-self-center"><span class="home-card-headline font-weight-bold">Status Change</span><br>As you are keeping tabs, watch how your relationship status icon automatically changes for each individual profile.</p>
                     </div>
-                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
-                        <div class="row card-body">
-                            <div class="col-12 d-flex justify-content-center">
-                                <p>Has a loved one forgotten your birthday and upset you?<br> A lazy partner make you angry again by leaving a sink full of dirty dishes?<br> Maybe a colleague surprised you with a venti soy iced caramel machiatto and it made your day.<br> Keep tabs daily and watch your relationship status change.</p> 
-                            </div>   
-                        </div>
-                    </div>
-                </div>    
+                </div>               
             </div>
-        </div>                     
+            
+            
+            <div class="row d-flex justify-content-center my-4">
+                <a href="{{ url_for('register') }}" class="btn btn-lg register-btn-bottom text-center">Click Here To Get Started!</a>    
+            </div>
+            {% endif %}                
+        </div>                       
     </div>
 
 {% endblock %}

@@ -223,48 +223,73 @@ hr{
     color:rgb(255, 131, 131);
 }
 
-/* Home Page Accordion */
+/* Home Page Info Section */
 
 .feature-container{
     width:90%;
 }
 
-.fa-address-card{
+.icon-size{
     font-size:15vw;
+}
+.fa-address-card{
     --fa-primary-color:rgb(255, 187, 0);
     --fa-secondary-color:#bedbfd7e;
 }
 
 .fa-calendar-alt{
-    font-size:15vw;
     --fa-primary-color:rgb(253, 87, 87);
     --fa-secondary-color:#676b76d8;
 }
 
 .fa-hands-heart{
-    font-size:15vw;
     --fa-primary-color:rgb(253, 87, 87);
     --fa-secondary-color:#f9cf8b70;
 }
 
 .fa-thumbs-up{
-    font-size:15vw;
     --fa-primary-color:rgb(110, 110, 255);
     --fa-secondary-color:#f9cf8b70;
 }
 
-.fa-plus-circle{
-    font-size:3vw;
-    color:rgba(0, 0, 0, 0.24);
-    --fa-primary-color:white;
-    --fa-secondary-color:#676b76d8;
+.home-card-headline{
+    font-size:2vw;
 }
 
-.fa-minus-circle{
-    font-size:3vw;
-    color:rgba(0, 0, 0, 0.24);
-    --fa-primary-color:white;
-    --fa-secondary-color:#676b76d8;
+.create-tab-border{
+    border:2px solid #bedbfd7e;
+    border-radius:25px;
+    height:250px;
+}
+
+.keep-tab-border{
+    border:2px solid rgba(238, 238, 238, 0.555);
+    border-radius:25px;
+    height:250px;
+}
+
+.gift-card-border{
+    border:2px solid #ecb09979;
+    border-radius:25px;
+    height:250px;
+}
+
+.relationship-border{
+    border:2px solid #f9cf8b70;
+    border-radius:25px;
+    height:250px;
+}
+
+.register-btn-bottom{
+    background-color:rgb(253, 87, 87);
+    color:white;
+    width:300px;
+    border-radius:25px;
+}
+
+.register-btn-bottom:hover{
+    color:white;
+    background-color:#ecb099;
 }
 
 /*---------- Registration Page ----------*/
@@ -575,6 +600,10 @@ hr{
     .form-header{
         font-size:2.5em;
     }
+
+    .icon-size{
+        font-size:12em;
+    }
 } 
 
 @media (min-width: 992px) {
@@ -585,5 +614,11 @@ hr{
 
     .home-container-sm{
         display:none;
+    }
+}
+
+@media (max-width: 765px) {
+    .home-card-headline{
+        font-size:5vw;
     }
 }

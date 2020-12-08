@@ -22,8 +22,13 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/home")
 def home():
+    happy = mongo.db.entries.count_documents({"entry_emotion": "happy"})
+    sad = mongo.db.entries.count_documents({"entry_emotion": "sad"})
+    angry = mongo.db.entries.count_documents({"entry_emotion": "angry"})
+    logs = mongo.db.entries.count_documents({"entry_year": "2020"})
 
-    return render_template("home.html")
+    return render_template("home.html",
+                           happy=happy, sad=sad, angry=angry, logs=logs)
 
 
 @app.route("/register", methods=["GET", "POST"])
