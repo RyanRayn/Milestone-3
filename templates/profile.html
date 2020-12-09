@@ -10,13 +10,13 @@
                     <div class="col-12">
                         <div class="profile-header mb-3">How did {{ tab.tab_name.capitalize() }} do today?</div>
                         <div class="feelings">
-                            <button onclick="setValues()" class="feelings-btn happy mr-4" data-toggle="modal" data-target="#entryModal">
+                            <button onclick="setValues()" class="feelings-btn text-shadow happy mr-4" data-toggle="modal" data-target="#entryModal">
                             <i class="far fa-smile dark-orange"></i>
                             </button>
-                            <button onclick="setValues()" class="feelings-btn sad mr-4" data-toggle="modal" data-target="#entryModal">
+                            <button onclick="setValues()" class="feelings-btn text-shadow sad mr-4" data-toggle="modal" data-target="#entryModal">
                             <i class="far fa-sad-tear dark-blue"></i>
                             </button>
-                            <button onclick="setValues()" class="feelings-btn angry" data-toggle="modal" data-target="#entryModal">
+                            <button onclick="setValues()" class="feelings-btn text-shadow angry" data-toggle="modal" data-target="#entryModal">
                             <i class="far fa-angry red"></i>
                             </button>
                         </div>
@@ -92,7 +92,7 @@
                             <h1 class="d-inline-block">{{ sad }}</h1>
                         </div>
                         <div>
-                            <i class="far fa-angry red  total-icons d-inline-block mr-3"></i>
+                            <i class="far fa-angry red total-icons d-inline-block mr-3"></i>
                             <i class="fas fa-equals d-inline-block mr-3"></i>
                             <h1 class="d-inline-block">{{ angry }}</h1>
                         </div>

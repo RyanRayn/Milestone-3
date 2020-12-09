@@ -22,15 +22,22 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/home")
 def home():
+    # Document stats for bottom of homepage after log in
     happy = mongo.db.entries.count_documents({"entry_emotion": "happy"})
     sad = mongo.db.entries.count_documents({"entry_emotion": "sad"})
     angry = mongo.db.entries.count_documents({"entry_emotion": "angry"})
     logs = mongo.db.entries.count_documents({"entry_year": "2020"})
+    a = (happy/logs)
+    b = round(a, 2)*100
+    happyPercent = int(b)
+    tabs = mongo.db.tabs.count()
 
     return render_template("home.html",
-                           happy=happy, sad=sad, angry=angry, logs=logs)
+                           happy=happy, sad=sad, angry=angry,
+                           logs=logs, happyPercent=happyPercent, tabs=tabs)
 
 
+# Register new user
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -55,6 +62,7 @@ def register():
     return render_template("register.html")
 
 
+# Log in
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -86,9 +94,9 @@ def logout():
     return redirect(url_for("home"))
 
 
+# Get tabs from db
 @app.route("/get_tabs", methods=["GET", "POST"])
 def get_tabs():
-    # get tabs from db
     tabs = list(mongo.db.tabs.find())
     # get session user username
     username = mongo.db.users.find_one(
@@ -97,6 +105,7 @@ def get_tabs():
     return render_template("tabs.html", tabs=tabs, username=username)
 
 
+# Create new Tab
 @app.route("/add_tab", methods=["GET", "POST"])
 def add_tab():
     if request.method == "POST":
@@ -118,6 +127,7 @@ def add_tab():
     return redirect(url_for("get_tabs"))
 
 
+# Edit Tab names
 @app.route("/edit_tab/<tab_id>", methods=["GET", "POST"])
 def edit_tab(tab_id):
     if request.method == "POST":
@@ -148,6 +158,7 @@ def delete_tab(tab_id):
 @app.route("/profile/<tab_id>", methods=["GET", "POST"])
 def profile(tab_id):
 
+    # Count documents for stats in profile dashboard
     tab = mongo.db.tabs.find_one({"_id": ObjectId(tab_id)})
     happy = mongo.db.entries.count_documents(
                                             {"$and": [{"entry_name":
@@ -164,6 +175,7 @@ def profile(tab_id):
                                              tab["tab_name"]},
                                              {"entry_emotion": "angry"}]})
 
+    # Datetime get current dates to pass into hidden inputs
     tab = mongo.db.tabs.find_one({"_id": ObjectId(tab_id)})
     month = datetime.utcnow().strftime("%B")
     day = datetime.utcnow().strftime("%d")
@@ -173,6 +185,7 @@ def profile(tab_id):
                            tab=tab, happy=happy, sad=sad, angry=angry)
 
 
+# Entry modal on profile page
 @app.route("/entry_form", methods=["GET", "POST"])
 def entry_form():
     if request.method == "POST":

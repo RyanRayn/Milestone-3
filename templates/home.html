@@ -76,18 +76,18 @@
 <!-- Emoticons -->    
             <div class="icon-container p-2 mt-2">
                 <div class="row">
-                    <div class="col-6 happy-container orange d-flex justify-content-center">
+                    <div class="col-6 happy-container orange text-shadow d-flex justify-content-center">
                         <i class="far fa-smile dark-orange"></i>
                     </div>
-                    <div class="col-6 love-container grey d-flex justify-content-center">
+                    <div class="col-6 love-container grey text-shadow d-flex justify-content-center">
                         <i class="far fa-grin-hearts love-face"></i>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-6 angry-container pink d-flex justify-content-center">
+                    <div class="col-6 angry-container pink text-shadow d-flex justify-content-center">
                         <i class="far fa-angry red"></i>
                     </div>        
-                    <div class="col-6 sad-container blue d-flex justify-content-center">
+                    <div class="col-6 sad-container blue text-shadow d-flex justify-content-center">
                         <i class="far fa-sad-tear dark-blue"></i>
                     </div>
                 </div>        
@@ -131,7 +131,7 @@
                     </div>
                 </div>
                 <div class="row icon-row text-center my-4">
-                    <div class="col-4">
+                    <div class="col-4 ">
                         <i class="fas fa-gift-card dark-orange"></i>
                     </div>
                     <div class="col-4">
@@ -175,36 +175,48 @@
         <div class="container-fluid feature-container">
             {% if session.user %}           
               
-            <div class="row">
-                <div class="col-12 col-md-6 mb-4">
-                    <div class="keep-tab-border d-flex p-3">
-                        <p class="d-inline align-self-center">29</p>    
+            <div class="row mb-4">
+                <div class="col-12 col-md-3 text-center">
+                    <div class="create-tab-border blue d-flex flex-column justify-content-center">
+                        <div class="home-stat dark-blue">{{ tabs }}</div>
                     </div>
+                    <div class="home-stat-headline dark-blue">TABS Created</div>
+                </div> 
+                <div class="col-12 col-md-3 text-center">
+                    <div class="keep-tab-border grey d-flex flex-column justify-content-center">
+                        <div class="home-stat dark-grey">{{ logs }}</div>
+                    </div>
+                    <div class="home-stat-headline dark-grey">Entries YTD</div>
                 </div>
 
 
 
-                <div class="col-12 col-md-6">
-                    <div class="create-tab-border d-flex p-3">
-                        
+                <div class="col-12 col-md-3 text-center">
+                    <div class="relationship-border orange d-flex flex-column justify-content-center">
+                        <div class="home-stat dark-orange">{{ happyPercent }}%</div>   
                     </div>
-                </div>                   
-            </div>                    
-                                                  
-              
-               
-            <div class="row my-4">
-                <div class="col-12 col-md-6 mb-4">
-                    <div class="gift-card-border d-flex p-3">
-                        
-                    </div>
-                </div>   
-                                
-
-
-                <div class="col-12 col-md-6">
-                    <div class="relationship-border d-flex p-3">
-                        
+                    <div class="home-stat-headline dark-orange">Positive Entries</div> 
+                </div>
+                
+                <div class="col-12 col-md-3 text-center">
+                    <div class="d-flex flex-column justify-content-center">
+                  
+                        <div class="pb-2">
+                            <i class="far fa-smile dark-orange total-icons d-inline-block mr-3"></i>
+                            <i class="fas fa-equals d-inline-block mr-3"></i>
+                            <h1 class="d-inline-block">{{ happy }}</h1>
+                        </div>
+                        <div class="pb-2">
+                            <i class="far fa-sad-tear dark-blue total-icons d-inline-block mr-3"></i>
+                            <i class="fas fa-equals d-inline-block mr-3"></i>
+                            <h1 class="d-inline-block">{{ sad }}</h1>
+                        </div>
+                        <div>
+                            <i class="far fa-angry red total-icons d-inline-block mr-3"></i>
+                            <i class="fas fa-equals d-inline-block mr-3"></i>
+                            <h1 class="d-inline-block">{{ angry }}</h1>
+                        </div>
+                       
                     </div>
                 </div>               
             </div>
