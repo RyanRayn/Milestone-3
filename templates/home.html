@@ -99,18 +99,18 @@
         <div class="container-fluid home-container-sm p-0 mt-2">
 <!-- Emoticons -->
             <div class="row home-icon-row">
-                <div class="col-6 py-2 happy-container orange d-flex justify-content-center">
+                <div class="col-6 py-2 happy-container orange text-shadow d-flex justify-content-center">
                     <i class="far fa-smile dark-orange"></i>
                 </div>
-                <div class="col-6 py-2 love-container grey d-flex justify-content-center">
+                <div class="col-6 py-2 love-container grey text-shadow d-flex justify-content-center">
                     <i class="far fa-grin-hearts love-face"></i>
                 </div>
             </div>
             <div class="row home-icon-row">
-                <div class="col-6 py-2 angry-container pink d-flex justify-content-center">
+                <div class="col-6 py-2 angry-container pink text-shadow d-flex justify-content-center">
                     <i class="far fa-angry red"></i>
                 </div>        
-                <div class="col-6 py-2 sad-container blue d-flex justify-content-center">
+                <div class="col-6 py-2 sad-container blue text-shadow d-flex justify-content-center">
                     <i class="far fa-sad-tear dark-blue"></i>
                 </div>
             </div>
@@ -175,18 +175,19 @@
         <div class="container-fluid feature-container">
             {% if session.user %}           
               
-            <div class="row mb-4">
+            <div class="row d-flex mb-4">
                 <div class="col-12 col-md-3 text-center">
-                    <div class="create-tab-border blue d-flex flex-column justify-content-center">
-                        <div class="home-stat dark-blue">{{ tabs }}</div>
+                    <div class="gift-card-border pink d-flex flex-column justify-content-center">
+                        <div class="home-stat red">{{ tabs }}</div>
                     </div>
-                    <div class="home-stat-headline dark-blue">TABS Created</div>
+                    <div class="home-stat-headline red">TABS Created</div>
+                    
                 </div> 
                 <div class="col-12 col-md-3 text-center">
-                    <div class="keep-tab-border grey d-flex flex-column justify-content-center">
-                        <div class="home-stat dark-grey">{{ logs }}</div>
+                    <div class="create-tab-border blue d-flex flex-column justify-content-center">
+                        <div class="home-stat dark-blue">{{ logs }}</div>
                     </div>
-                    <div class="home-stat-headline dark-grey">Entries YTD</div>
+                    <div class="home-stat-headline dark-blue">Entries YTD</div>
                 </div>
 
 
@@ -195,29 +196,28 @@
                     <div class="relationship-border orange d-flex flex-column justify-content-center">
                         <div class="home-stat dark-orange">{{ happyPercent }}%</div>   
                     </div>
-                    <div class="home-stat-headline dark-orange">Positive Entries</div> 
+                    <div class="home-stat-headline dark-orange">Positive</div> 
                 </div>
                 
                 <div class="col-12 col-md-3 text-center">
-                    <div class="d-flex flex-column justify-content-center">
-                  
-                        <div class="pb-2">
-                            <i class="far fa-smile dark-orange total-icons d-inline-block mr-3"></i>
-                            <i class="fas fa-equals d-inline-block mr-3"></i>
-                            <h1 class="d-inline-block">{{ happy }}</h1>
+                    <div class="keep-tab-border grey d-flex flex-column justify-content-center py-4">
+                        <div class="">
+                            <i class="far fa-smile dark-orange total-icons d-inline"></i>
+                            <i class="fas fa-equals d-inline dark-grey mx-4"></i>
+                            <h1 class="d-inline dark-grey">{{ happy }}</h1>
                         </div>
-                        <div class="pb-2">
-                            <i class="far fa-sad-tear dark-blue total-icons d-inline-block mr-3"></i>
-                            <i class="fas fa-equals d-inline-block mr-3"></i>
-                            <h1 class="d-inline-block">{{ sad }}</h1>
+                        <div class="py-4">
+                            <i class="far fa-sad-tear dark-blue total-icons d-inline"></i>
+                            <i class="fas fa-equals d-inline dark-grey mx-4"></i>
+                            <h1 class="d-inline dark-grey">{{ sad }}</h1>
                         </div>
-                        <div>
-                            <i class="far fa-angry red total-icons d-inline-block mr-3"></i>
-                            <i class="fas fa-equals d-inline-block mr-3"></i>
-                            <h1 class="d-inline-block">{{ angry }}</h1>
+                        <div class="">
+                            <i class="far fa-angry red total-icons d-inline"></i>
+                            <i class="fas fa-equals d-inline dark-grey mx-4"></i>
+                            <h1 class="d-inline dark-grey">{{ angry }}</h1>
                         </div>
-                       
                     </div>
+                    <div class="home-stat-headline dark-grey">Scoreboard</div>
                 </div>               
             </div>
 

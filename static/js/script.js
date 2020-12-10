@@ -1,7 +1,7 @@
 /* Flash Message Timeout */
 setTimeout(function() {
     $('#flash_message').fadeOut('fast');
-}, 2500);
+}, 5000);
 
 
 
