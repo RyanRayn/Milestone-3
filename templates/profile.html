@@ -89,7 +89,7 @@
                 <div class="carousel-inner mb-3">
                     <div class="carousel-item active">
                         <div class="tool-box dark-grey d-flex flex-column align-items-center p-2">
-                            <h3 class="mb-4 mt-3 ml-4">Click below to perform detailed search.</h3>
+                            <h3 class="mb-5 mt-3 ml-4">Click below to perform detailed search.</h3>
                             <div class="text-center"><a href="{{ url_for('register') }}"><i class="fad fa-file-search"></i></a></div>
                         </div>
                     </div>
@@ -117,7 +117,7 @@
                     </div>
                     <div class="carousel-item">        
                         <div class="tool-box dark-grey p-2">
-                            <h3 class="mb-4 mt-3 ml-4">Show {{ tab.tab_name.capitalize() }} love with a Starbucks gift card!</h3>
+                            <h3 class="mb-5 mt-3 ml-4">Show {{ tab.tab_name.capitalize() }} love with a Starbucks gift card!</h3>
                             <div class="text-center">
                                 <a target="_blank" href="https://www.starbucks.com/gift"><i class="fad fa-coffee-togo mt-3 mb-2"></i></a>
                             </div>
@@ -137,7 +137,7 @@
 <!-- Profile Dashboard Large Screens -->            
 
             <div class="row large-dashboard px-2 mb-3">
-                <div class="d-none d-md-block col-3 p-1">
+                <div class="d-none d-md-block col-6 col-lg-3 p-1">
                     <div class="tool-box text-center dark-grey p-2">
                         <h3 class="pb-4">Entry Totals</h3>
                         <div>
@@ -157,20 +157,20 @@
                         </div>
                     </div>
                 </div>
-                <div class="d-none d-md-block col-3 p-1">
+                <div class="d-none d-md-block col-6 col-lg-3 p-1">
                     <div class="tool-box dark-grey p-2">
-                        <h3 class="pl-2 mb-2">Click icon below to perform detailed search.</h3>
-                        <div class="text-center mt-4"><a href="{{ url_for('register') }}"><i class="fad fa-file-search"></i></a></div>
+                        <h3 class="pl-2 mb-4">Click icon below to perform detailed search.</h3>
+                        <div class="text-center"><a href="{{ url_for('register') }}"><i class="fad fa-file-search"></i></a></div>
                     </div>
                 </div> 
-                <div class="d-none d-md-block col-3 p-1">
+                <div class="d-none d-md-block col-6 col-lg-3 p-1">
                     <div class="tool-box dark-grey p-2">
                         <h3 class="pl-2 mb-2">Send {{ tab.tab_name.capitalize() }} love with a Starbucks gift card!</h3>
                         <div class="text-center"><a target="_blank" href="https://www.starbucks.com/gift"><i class="fad fa-coffee-togo mt-3 mb-2"></i></a>
                         </div>
                     </div>      
                 </div> 
-                <div class="col-12 col-md-3 p-1">
+                <div class="col-12 col-md-6 col-lg-3 p-1">
                     <div class="tool-box dark-grey text-center d-flex flex-column justify-content-center p-2">
                         <h3 id="email-h3">Send {{ tab.tab_name.capitalize() }} an email?</h3>
                         <h1 id="email-h1" class="dark-grey no-show my-4">Email<br>Sent!</h1>
