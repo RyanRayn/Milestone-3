@@ -203,6 +203,24 @@ def entry_form():
     return redirect(url_for("get_tabs"))
 
 
+# Search Entries
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    name = request.form.get("search_name").lower()
+    query = request.form.get("query").lower()
+    entries = list(mongo.db.entries.find(
+        {"entry_name": name, "$text": {"$search": query}}))
+
+    return render_template("results.html", entries=entries)
+
+
+@app.route("/results/<tab_id>", methods={"GET", "POST"})
+def results(tab_id):
+    tab = mongo.db.tabs.find_one({"_id": ObjectId(tab_id)})
+
+    return render_template("results.html", tab=tab)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

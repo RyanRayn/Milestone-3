@@ -1,0 +1,55 @@
+{% extends "base.html" %}    
+{% block content %}
+
+    <div id="content">
+        <div class="container-fluid">
+
+<!-- Results Page Header -->     
+
+            <div class="row text-center my-2">
+                <div class="col-12">
+                    <h1>Search Results</h1>
+                </div>
+            </div>
+
+<!-- Results -->
+            {% for entry in entries %}
+            <div class="row">
+                <div class="col-12 col-md-4 p-2">
+                    <div class="results-box dark-grey p-2">
+
+                        <h3 class="pb-1">{{ entry.entry_date.capitalize() }}</h3>
+                    </div>
+                </div>
+            </div>            
+
+
+
+        
+                        {{ entry.entry_emotion }}
+                        </div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-12">
+                        
+                        </div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-12">
+                        {{ entry.entry_subject.capitalize() }}
+                        </div> 
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                        <p>{{ entry.entry_details.capitalize() }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>    
+        </div>    
+    </div>        
+
+
+
+{% endblock %}

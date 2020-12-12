@@ -49,7 +49,7 @@ $(".happy").click(function(){
 $(".sad").click(function(){
     $(".insert-1").text("Aww, what did ");
     $(".insert-2").text("do this time?");
-    $("#entry_emotion").val("sad");
+    $("#entry_emotion").val("frown");
 });
 
 $(".angry").click(function(){

@@ -14,7 +14,7 @@
                             <i class="far fa-smile dark-orange"></i>
                             </button>
                             <button onclick="setValues()" class="feelings-btn text-shadow sad mr-4" data-toggle="modal" data-target="#entryModal">
-                            <i class="far fa-sad-tear dark-blue"></i>
+                            <i class="far fa-frown dark-blue"></i>
                             </button>
                             <button onclick="setValues()" class="feelings-btn text-shadow angry" data-toggle="modal" data-target="#entryModal">
                             <i class="far fa-angry red"></i>
@@ -86,13 +86,15 @@
                     <li data-target="#myCarousel" data-slide-to="1"></li>
                     <li data-target="#myCarousel" data-slide-to="2"></li>
                 </ol>
+<!-- Carousel Search -->                
                 <div class="carousel-inner mb-3">
-                    <div class="carousel-item active">
-                        <div class="tool-box dark-grey d-flex flex-column align-items-center p-2">
-                            <h3 class="mb-5 mt-3 ml-4">Click below to perform detailed search.</h3>
-                            <div class="text-center"><a href="{{ url_for('register') }}"><i class="fad fa-file-search"></i></a></div>
-                        </div>
+                    <div class="d-none d-md-block col-6 col-lg-3 p-1">
+                        <div class="tool-box dark-grey text-center p-2">
+                            <h3 class="pb-1">Search {{ tab.tab_name.capitalize() }}'s Entries</h3>
+                            
                     </div>
+                </div>             
+<!-- Carousel Entry Totals -->                    
                     <div class="carousel-item">    
                         <div class="tool-box text-center d-flex flex-column dark-grey p-2">
                             <h3 class="mb-4 mt-3">Entry Totals</h3>
@@ -103,7 +105,7 @@
                                     <h1 class="d-inline">{{ happy }}</h1>
                                 </div>
                                 <div class="py-4">
-                                    <i class="far fa-sad-tear dark-blue total-icons d-inline"></i>
+                                    <i class="far fa-frown dark-blue total-icons d-inline"></i>
                                     <i class="fas fa-equals d-inline mx-4"></i>
                                     <h1 class="d-inline">{{ sad }}</h1>
                                 </div>
@@ -115,6 +117,7 @@
                             </div>
                         </div>
                     </div>
+<!-- Carousel Gift Card -->                    
                     <div class="carousel-item">        
                         <div class="tool-box dark-grey p-2">
                             <h3 class="mb-5 mt-3 ml-4">Show {{ tab.tab_name.capitalize() }} love with a Starbucks gift card!</h3>
@@ -136,6 +139,7 @@
 
 <!-- Profile Dashboard Large Screens -->            
 
+<!-- Entry Totals-->
             <div class="row large-dashboard px-2 mb-3">
                 <div class="d-none d-md-block col-6 col-lg-3 p-1">
                     <div class="tool-box text-center dark-grey p-2">
@@ -146,7 +150,7 @@
                             <h1 class="d-inline">{{ happy }}</h1>
                         </div>
                         <div class="py-4">
-                            <i class="far fa-sad-tear dark-blue total-icons d-inline"></i>
+                            <i class="far fa-frown dark-blue total-icons d-inline"></i>
                             <i class="fas fa-equals d-inline mx-4"></i>
                             <h1 class="d-inline">{{ sad }}</h1>
                         </div>
@@ -157,12 +161,20 @@
                         </div>
                     </div>
                 </div>
+<!-- Search Entries Form -->                
                 <div class="d-none d-md-block col-6 col-lg-3 p-1">
-                    <div class="tool-box dark-grey p-2">
-                        <h3 class="pl-2 mb-4">Click icon below to perform detailed search.</h3>
-                        <div class="text-center"><a href="{{ url_for('register') }}"><i class="fad fa-file-search"></i></a></div>
+                    <div class="tool-box dark-grey text-center p-2">
+                        <h3 class="pb-1">Search {{ tab.tab_name.capitalize() }}'s Entries</h3>
+                        <form action="{{ url_for('search') }}" method="post">
+                            <input type="hidden" id="search_name" name="search_name" value="{{ tab.tab_name }}"> 
+                            <div class="d-flex justify-content-center py-2">
+                                <input id="query" name="query" type="text" class="validate email-input text-center p-1" placeholder="Enter Keyword" required>
+                            </div>
+                            <button class="btn text-center mb-2 submitBtn" type="submit">Search</button>
+                        </form>
                     </div>
-                </div> 
+                </div>             
+<!-- Gift Card -->                 
                 <div class="d-none d-md-block col-6 col-lg-3 p-1">
                     <div class="tool-box dark-grey p-2">
                         <h3 class="pl-2 mb-2">Send {{ tab.tab_name.capitalize() }} love with a Starbucks gift card!</h3>
@@ -170,16 +182,17 @@
                         </div>
                     </div>      
                 </div> 
+<!-- Send Email -->                
                 <div class="col-12 col-md-6 col-lg-3 p-1">
-                    <div class="tool-box dark-grey text-center d-flex flex-column justify-content-center p-2">
-                        <h3 id="email-h3">Send {{ tab.tab_name.capitalize() }} an email?</h3>
+                    <div class="tool-box dark-grey text-center d-flex flex-column justify-content-center pb-2 px-2">
+                        <h3 id="email-h3" class="pb-2">Send {{ tab.tab_name.capitalize() }} an email?</h3>
                         <h1 id="email-h1" class="dark-grey no-show my-4">Email<br>Sent!</h1>
                         <form id="emailForm" onsubmit="return sendMail(this);" method="POST" autocomplete="off"> 
                             <div class="row d-flex justify-content-center">         
-                                <input class="email-input text-center mb-2 validate" type="email" placeholder="To Email" id="toEmail" name="toEmail" required>
+                                <input class="email-input text-center mb-2 validate" type="email" placeholder="To Email:" id="toEmail" name="toEmail" required>
                                 <input class="email-input text-center mb-2" type="text" placeholder="Subject" id="subject" name="subject" required>
                                 <textarea id="message" name="message" class="validate entry-input validate mb-4" maxlength="300" rows="3"></textarea>
-                                <button id="emailSend" onclick="" class="btn text-center mb-2" type="submit">Submit</button>
+                                <button id="emailSend" onclick="" class="btn text-center submitBtn mb-2" type="submit">Submit</button>
                             </div>    
                         </form>
                     </div>    
