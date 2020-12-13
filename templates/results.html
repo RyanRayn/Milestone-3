@@ -8,48 +8,68 @@
 
             <div class="row text-center my-2">
                 <div class="col-12">
-                    <h1>Search Results</h1>
+                    <h1>{{ tab.tab_name.capitalize() }}'s Search Results</h1>
                 </div>
             </div>
 
-<!-- Results -->
-            {% for entry in entries %}
-            <div class="row">
-                <div class="col-12 col-md-4 p-2">
-                    <div class="results-box dark-grey p-2">
-
-                        <h3 class="pb-1">{{ entry.entry_date.capitalize() }}</h3>
+<!-- New Search Form -->
+            <div class="col-12 mb-4 d-flex justify-content-center ">
+                    <form action="{{ url_for('search', tab_id=tab._id) }}" method="post">
+                        <input type="hidden" id="search_name" name="search_name" value="{{ tab.tab_name }}"> 
+                        <div class="d-flex justify-content-center py-2">
+                            <input id="query" name="query" type="text" class="validate email-input text-center p-1" placeholder="Enter New Search" required>
+                            <button class="btn text-center newSubmit ml-2" type="submit">Search</button>
+                        </div>    
+                    </form>
+                </div>
+            </div>
+<!-- Results -->            
+            <div class="row d-none d-md-flex p-3">
+                {% for entry in entries %}
+                <div class="col-md-6 col-lg-4 mb-4 d-flex">
+                    <div class="results-box dark-grey">
+                        <div class="text-center result-icon"><i class="far fa-{{ entry.entry_emotion }}"></i></div>
+                        <div class="home-card-headline text-center"><strong>{{ entry.entry_subject.capitalize() }}</strong></div>
+                        <div class="result-date text-center"><strong>{{ entry.entry_date.capitalize() }}</strong></div>
+                        <p class="d-flex justify-content-center align-self-center px-3 py-2">{{ entry.entry_details.capitalize() }}</p>
                     </div>
                 </div>
+                {% endfor %}
+            </div>
+<!-- Results Accordion For Small Screens-->            
+            <div id="accordion" class="d-md-none mx-2">
+                {% for entry in entries%}
+                <div class="card border-0 collapsed" data-toggle="collapse" data-target="#collapse{{ loop.index }}" aria-expanded="false" aria-controls="collapse{{ loop.index }}">
+                    <div class="card-header white" id="heading{{ loop.index }}">
+                        <div class="row d-flex align-items-center">
+                            <div class="col-3 accordion-icon">
+                                <i class="far fa-{{ entry.entry_emotion }}"></i>    
+                            </div>
+                            <div class="col-9 d-flex align-items-center justify-content-center">
+                                <div class="form-header">
+                                    {{ entry.entry_date.capitalize() }}
+                                </div>
+                            </div>
+                        </div>        
+                    </div>
+                    <div id="collapse{{ loop.index }}" class="collapse" aria-labelledby="heading{{ loop.index }}" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="row text-center">
+                                <div class="col-12">
+                                    {{ entry.entry_subject.capitalize() }}    
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <p class="d-flex justify-content-center align-self-center px-3 py-2">{{ entry.entry_details.capitalize() }}</p>    
+                                </div>
+                            </div>
+                        </div>
+                    </div>   
+                </div>
+                {% endfor %}
             </div>            
-
-
-
-        
-                        {{ entry.entry_emotion }}
-                        </div>
-                    </div>
-                    <div class="row text-center">
-                        <div class="col-12">
-                        
-                        </div>
-                    </div>
-                    <div class="row text-center">
-                        <div class="col-12">
-                        {{ entry.entry_subject.capitalize() }}
-                        </div> 
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                        <p>{{ entry.entry_details.capitalize() }}</p>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>    
-        </div>    
+        </div>
     </div>        
-
-
 
 {% endblock %}

@@ -39,6 +39,7 @@
                                     </div>
                                     <form name="entry-from" id="entry-form" method="POST" action="{{ url_for('entry_form') }}">
 <!-- Hidden Inputs -->                  <input type="hidden" id="entry_emotion" name="entry_emotion" value="">
+                                        <input type="hidden" id="entry_feeling" name="entry_feeling" value="">
                                         <input type="hidden" id="entry_date" name="entry_date" value="">
                                         <input type="hidden" id="entry_month" name="entry_month" value="">
                                         <input type="hidden" id="entry_year" name="entry_year" value="">
@@ -78,70 +79,11 @@
             </div>
             <hr class="mt-0">
 
-<!-- Dashboard Carousel Small Screens -->
-            
-            <div id="myCarousel" class="carousel" data-ride="carousel" data-interval="2500">
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                </ol>
-<!-- Carousel Search -->                
-                <div class="carousel-inner mb-3">
-                    <div class="d-none d-md-block col-6 col-lg-3 p-1">
-                        <div class="tool-box dark-grey text-center p-2">
-                            <h3 class="pb-1">Search {{ tab.tab_name.capitalize() }}'s Entries</h3>
-                            
-                    </div>
-                </div>             
-<!-- Carousel Entry Totals -->                    
-                    <div class="carousel-item">    
-                        <div class="tool-box text-center d-flex flex-column dark-grey p-2">
-                            <h3 class="mb-4 mt-3">Entry Totals</h3>
-                            <div class="d-flex flex-column justify-content-center">    
-                                <div>
-                                    <i class="far fa-smile dark-orange total-icons d-inline"></i>
-                                    <i class="fas fa-equals d-inline mx-4"></i>
-                                    <h1 class="d-inline">{{ happy }}</h1>
-                                </div>
-                                <div class="py-4">
-                                    <i class="far fa-frown dark-blue total-icons d-inline"></i>
-                                    <i class="fas fa-equals d-inline mx-4"></i>
-                                    <h1 class="d-inline">{{ sad }}</h1>
-                                </div>
-                                <div>
-                                    <i class="far fa-angry red total-icons d-inline"></i>
-                                    <i class="fas fa-equals d-inline mx-4"></i>
-                                    <h1 class="d-inline">{{ angry }}</h1>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-<!-- Carousel Gift Card -->                    
-                    <div class="carousel-item">        
-                        <div class="tool-box dark-grey p-2">
-                            <h3 class="mb-5 mt-3 ml-4">Show {{ tab.tab_name.capitalize() }} love with a Starbucks gift card!</h3>
-                            <div class="text-center">
-                                <a target="_blank" href="https://www.starbucks.com/gift"><i class="fad fa-coffee-togo mt-3 mb-2"></i></a>
-                            </div>
-                        </div>
-                    </div>    
-                </div>
-                <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-                    <span class="fas fa-angle-left carousel-arrows dark-grey" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-                <a class="carousel-control-next" href="#myCarousel" role="button" data-slide-to="next">
-                    <span class="fas fa-angle-right carousel-arrows dark-grey" aria-hidden="true"></span> 
-                    <span class="sr-only">Previous</span>
-                </a>
-            </div>
-
-<!-- Profile Dashboard Large Screens -->            
+<!-- Profile Dashboard -->            
 
 <!-- Entry Totals-->
             <div class="row large-dashboard px-2 mb-3">
-                <div class="d-none d-md-block col-6 col-lg-3 p-1">
+                <div class="col-12 col-md-6 col-lg-3 p-1">
                     <div class="tool-box text-center dark-grey p-2">
                         <h3 class="pb-4">Entry Totals</h3>
                         <div>
@@ -162,10 +104,10 @@
                     </div>
                 </div>
 <!-- Search Entries Form -->                
-                <div class="d-none d-md-block col-6 col-lg-3 p-1">
-                    <div class="tool-box dark-grey text-center p-2">
+                <div class="col-12 col-md-6 col-lg-3 p-1">
+                    <div class="search-box dark-grey text-center p-2">
                         <h3 class="pb-1">Search {{ tab.tab_name.capitalize() }}'s Entries</h3>
-                        <form action="{{ url_for('search') }}" method="post">
+                        <form action="{{ url_for('search', tab_id=tab._id) }}" method="post">
                             <input type="hidden" id="search_name" name="search_name" value="{{ tab.tab_name }}"> 
                             <div class="d-flex justify-content-center py-2">
                                 <input id="query" name="query" type="text" class="validate email-input text-center p-1" placeholder="Enter Keyword" required>
@@ -175,7 +117,7 @@
                     </div>
                 </div>             
 <!-- Gift Card -->                 
-                <div class="d-none d-md-block col-6 col-lg-3 p-1">
+                <div class="col-12 col-md-6 col-lg-3 p-1">
                     <div class="tool-box dark-grey p-2">
                         <h3 class="pl-2 mb-2">Send {{ tab.tab_name.capitalize() }} love with a Starbucks gift card!</h3>
                         <div class="text-center"><a target="_blank" href="https://www.starbucks.com/gift"><i class="fad fa-coffee-togo mt-3 mb-2"></i></a>

@@ -43,13 +43,15 @@ $(".angry").click(function(){
 $(".happy").click(function(){
   $(".insert-1").text("");
   $(".insert-2").text("is the best! Give us the details.");
-  $("#entry_emotion").val("happy");
+  $("#entry_emotion").val("smile");
+  $("#entry_feeling").val("happy");
 });
 
 $(".sad").click(function(){
     $(".insert-1").text("Aww, what did ");
     $(".insert-2").text("do this time?");
     $("#entry_emotion").val("frown");
+    $("#entry_feeling").val("sad");
 });
 
 $(".angry").click(function(){

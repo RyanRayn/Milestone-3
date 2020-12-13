@@ -163,12 +163,12 @@ def profile(tab_id):
     happy = mongo.db.entries.count_documents(
                                             {"$and": [{"entry_name":
                                              tab["tab_name"]},
-                                             {"entry_emotion": "happy"}]})
+                                             {"entry_emotion": "smile"}]})
 
     sad = mongo.db.entries.count_documents(
                                             {"$and": [{"entry_name":
                                              tab["tab_name"]},
-                                             {"entry_emotion": "sad"}]})
+                                             {"entry_emotion": "frown"}]})
 
     angry = mongo.db.entries.count_documents(
                                             {"$and": [{"entry_name":
@@ -191,6 +191,7 @@ def entry_form():
     if request.method == "POST":
         entry = {
             "entry_emotion": request.form.get("entry_emotion").lower(),
+            "entry_feeling": request.form.get("entry_feeling").lower(),
             "entry_month": request.form.get("entry_month").lower(),
             "entry_date": request.form.get("entry_date").lower(),
             "entry_year": request.form.get("entry_year").lower(),
@@ -204,14 +205,15 @@ def entry_form():
 
 
 # Search Entries
-@app.route("/search", methods=["GET", "POST"])
-def search():
+@app.route("/search/<tab_id>", methods=["GET", "POST"])
+def search(tab_id):
+    tab = mongo.db.tabs.find_one({"_id": ObjectId(tab_id)})
     name = request.form.get("search_name").lower()
     query = request.form.get("query").lower()
     entries = list(mongo.db.entries.find(
         {"entry_name": name, "$text": {"$search": query}}))
 
-    return render_template("results.html", entries=entries)
+    return render_template("results.html", tab=tab, entries=entries)
 
 
 @app.route("/results/<tab_id>", methods={"GET", "POST"})
