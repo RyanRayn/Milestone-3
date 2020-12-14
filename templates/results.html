@@ -4,6 +4,13 @@
     <div id="content">
         <div class="container-fluid">
 
+<!-- Back To Profile -->
+
+            <div class="row">
+                <div class="col-12 d-flex justify-content-start">
+                    <a href="{{ url_for('profile', tab_id=tab._id) }}" class=""><strong><i class="fal fa-long-arrow-left"></i>Back to {{ tab.tab_name.capitalize() }}'s profile</strong></a>
+                </div>
+            </div>
 <!-- Results Page Header -->     
 
             <div class="row text-center my-2">
@@ -31,7 +38,7 @@
                         <div class="text-center result-icon"><i class="far fa-{{ entry.entry_emotion }}"></i></div>
                         <div class="home-card-headline text-center"><strong>{{ entry.entry_subject.capitalize() }}</strong></div>
                         <div class="result-date text-center"><strong>{{ entry.entry_date.capitalize() }}</strong></div>
-                        <p class="d-flex justify-content-center align-self-center px-3 py-2">{{ entry.entry_details.capitalize() }}</p>
+                        <p class="d-flex justify-content-center align-self-center px-3 py-4">{{ entry.entry_details.capitalize() }}</p>
                     </div>
                 </div>
                 {% endfor %}
@@ -69,7 +76,6 @@
                 </div>
                 {% endfor %}
             </div>            
-        </div>
-    </div>        
+        </div>       
 
 {% endblock %}

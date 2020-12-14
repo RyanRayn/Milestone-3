@@ -22,19 +22,21 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/home")
 def home():
+    tabs = list(mongo.db.tabs.find())
     # Document stats for bottom of homepage after log in
-    happy = mongo.db.entries.count_documents({"entry_emotion": "happy"})
-    sad = mongo.db.entries.count_documents({"entry_emotion": "sad"})
+    happy = mongo.db.entries.count_documents({"entry_emotion": "smile"})
+    sad = mongo.db.entries.count_documents({"entry_emotion": "frown"})
     angry = mongo.db.entries.count_documents({"entry_emotion": "angry"})
     logs = mongo.db.entries.count_documents({"entry_year": "2020"})
     a = (happy/logs)
     b = round(a, 2)*100
     happyPercent = int(b)
-    tabs = mongo.db.tabs.count()
+    profiles = mongo.db.tabs.count()
 
     return render_template("home.html",
                            happy=happy, sad=sad, angry=angry,
-                           logs=logs, happyPercent=happyPercent, tabs=tabs)
+                           logs=logs, happyPercent=happyPercent,
+                           tabs=tabs, profiles=profiles)
 
 
 # Register new user
@@ -157,6 +159,7 @@ def delete_tab(tab_id):
 
 @app.route("/profile/<tab_id>", methods=["GET", "POST"])
 def profile(tab_id):
+    tabs = list(mongo.db.tabs.find())
 
     # Count documents for stats in profile dashboard
     tab = mongo.db.tabs.find_one({"_id": ObjectId(tab_id)})
@@ -182,7 +185,8 @@ def profile(tab_id):
     year = datetime.utcnow().strftime("%Y")
 
     return render_template("profile.html", year=year, day=day, month=month,
-                           tab=tab, happy=happy, sad=sad, angry=angry)
+                           tab=tab, tabs=tabs, happy=happy,
+                           sad=sad, angry=angry)
 
 
 # Entry modal on profile page
