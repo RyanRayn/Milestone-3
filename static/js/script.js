@@ -76,6 +76,7 @@ let today = monthName + " " + currentDate + "," + " " + currentYear;
 $('#entry_month').val(monthName);
 $('#entry_year').val(currentYear);
 $('#entry_date').val(today);
+$('#entry_day').val(currentDate)
 }
 
 /* Send Email Function */

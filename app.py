@@ -151,6 +151,7 @@ def edit_tab(tab_id):
     return render_template("tabs.html", tab=tab)
 
 
+# Delete Tab
 @app.route("/delete_tab/<tab_id>")
 def delete_tab(tab_id):
     mongo.db.tabs.remove({"_id": ObjectId(tab_id)})
@@ -197,6 +198,7 @@ def entry_form():
             "entry_emotion": request.form.get("entry_emotion").lower(),
             "entry_feeling": request.form.get("entry_feeling").lower(),
             "entry_month": request.form.get("entry_month").lower(),
+            "entry_day": request.form.get("new_day").lower(),
             "entry_date": request.form.get("entry_date").lower(),
             "entry_year": request.form.get("entry_year").lower(),
             "entry_subject": request.form.get("entry_subject").lower(),
@@ -211,20 +213,52 @@ def entry_form():
 # Search Entries
 @app.route("/search/<tab_id>", methods=["GET", "POST"])
 def search(tab_id):
+    tabs = list(mongo.db.tabs.find())
     tab = mongo.db.tabs.find_one({"_id": ObjectId(tab_id)})
     name = request.form.get("search_name").lower()
     query = request.form.get("query").lower()
     entries = list(mongo.db.entries.find(
         {"entry_name": name, "$text": {"$search": query}}))
 
-    return render_template("results.html", tab=tab, entries=entries)
+    return render_template("results.html", tab=tab, tabs=tabs, entries=entries)
 
 
+# Search Results
 @app.route("/results/<tab_id>", methods={"GET", "POST"})
 def results(tab_id):
+    tabs = list(mongo.db.tabs.find())
     tab = mongo.db.tabs.find_one({"_id": ObjectId(tab_id)})
 
-    return render_template("results.html", tab=tab)
+    return render_template("results.html", tabs=tabs, tab=tab)
+
+
+# Edit Entries
+@app.route("/edit_entry/<entry_id>/<tab_id>", methods=["GET", "POST"])
+def edit_entry(entry_id, tab_id):
+    if request.method == "POST":
+
+        submit = request.form.get("new_details").lower()
+
+        mongo.db.entries.update({"_id": ObjectId(entry_id)},
+                                {"$set": {"entry_details": submit}})
+
+    tabs = list(mongo.db.tabs.find())
+    tab = mongo.db.tabs.find_one({"_id": ObjectId(tab_id)})
+    entry = mongo.db.entries.find_one({"_id": ObjectId(entry_id)})
+
+    return render_template("success.html", tab=tab, tabs=tabs, entry=entry)
+
+
+@app.route("/success/<tab_id>", methods=["GET", "POST"])
+def success(tab_id):
+    tabs = list(mongo.db.tabs.find())
+    tab = mongo.db.tabs.find_one({"_id": ObjectId(tab_id)})
+    name = request.form.get("search_name").lower()
+    query = request.form.get("query").lower()
+    entries = list(mongo.db.entries.find(
+        {"entry_name": name, "$text": {"$search": query}}))
+
+    return render_template("results.html", tab=tab, tabs=tabs, entries=entries)
 
 
 if __name__ == "__main__":

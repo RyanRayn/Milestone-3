@@ -42,6 +42,7 @@
                                         <input type="hidden" id="entry_feeling" name="entry_feeling" value="">
                                         <input type="hidden" id="entry_date" name="entry_date" value="">
                                         <input type="hidden" id="entry_month" name="entry_month" value="">
+                                        <input type="hidden" id="entry_day" name="entry_day" value="">
                                         <input type="hidden" id="entry_year" name="entry_year" value="">
                                         <input type="hidden" id="entry_name" name="entry_name" value={{ tab.tab_name }}> 
 <!-- Entry Date -->
@@ -114,29 +115,29 @@
                             </div>
                             <button class="btn my-2 submitBtn" type="submit">Search</button>
                         </form>
-                            <h5 class="my-2">Search Ideas</h5> 
-                            <p class="justify-content-center">By Date: Month or Year<br>Emoticon: Angry, Happy, Sad<br>Keyword: Dishes, Mean, Work</p>        
+                            <h5 class="d-none d-md-flex my-2">Search Ideas</h5> 
+                            <p class="d-none d-md-flex justify-content-center">By Date: Month or Year<br>Emoticon: Angry, Happy, Sad<br>Keyword: Dishes, Mean, Work</p>       
                     </div>
                 </div>             
 <!-- Gift Card -->                 
                 <div class="col-12 col-md-6 col-lg-3 p-1">
-                    <div class="tool-box dark-grey p-2">
-                        <a target="_blank" href="https://www.starbucks.com/gift"><h3 class="pl-2 mb-2">Send {{ tab.tab_name.capitalize() }} love with a Starbucks gift card!</h3></a>
-                        <div class="text-center"><a target="_blank" href="https://www.starbucks.com/gift"><i class="fad fa-coffee-togo mt-3 mb-2"></i></a>
+                    <div class="gift-box p-2">
+                        <a target="_blank" href="https://www.starbucks.com/gift"><h3 class="pl-2 mb-2 d-flex justify-content-center align-middle dark-grey">Send {{ tab.tab_name.capitalize() }} love with a Starbucks gift card!</h3></a>
+                        <div class="d-none d-md-block text-center"><a target="_blank" href="https://www.starbucks.com/gift"><i class="fad fa-coffee-togo mt-3 mb-2"></i></a>
                         </div>
                     </div>      
                 </div> 
 <!-- Send Email -->                
                 <div class="col-12 col-md-6 col-lg-3 p-1">
-                    <div class="tool-box dark-grey text-center d-flex flex-column justify-content-center p-2">
-                        <h3 id="email-h3" class="mt-1 pl-2 mb-3">Send {{ tab.tab_name.capitalize() }} an email?</h3>
+                    <div class="tool-box dark-grey d-flex flex-column align-items-center p-2">
+                        <h3 id="email-h3" class="pl-2 mb-3">Send {{ tab.tab_name.capitalize() }} an email?</h3>
                         <h1 id="email-h1" class="dark-grey no-show my-4">Email<br>Sent!</h1>
                         <form id="emailForm" onsubmit="return sendMail(this);" method="POST" autocomplete="off"> 
                             <div class="row d-flex justify-content-center">         
                                 <input class="email-input text-center mb-2 validate" type="email" placeholder="To Email:" id="toEmail" name="toEmail" required>
                                 <input class="email-input text-center mb-2" type="text" placeholder="Subject" id="subject" name="subject" required>
                                 <textarea id="message" name="message" class="validate entry-input validate mb-2" maxlength="300" rows="3"></textarea>
-                                <button id="emailSend" onclick="" class="btn text-center submitBtn mb-2" type="submit">Submit</button>
+                                <button id="emailSend" onclick="" class="btn text-center submitBtn mb-5" type="submit">Submit</button>
                             </div>    
                         </form>
                     </div>    

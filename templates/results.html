@@ -8,7 +8,7 @@
 
             <div class="row">
                 <div class="col-12 d-flex justify-content-start">
-                    <a href="{{ url_for('profile', tab_id=tab._id) }}" class=""><strong><i class="fal fa-long-arrow-left"></i>Back to {{ tab.tab_name.capitalize() }}'s profile</strong></a>
+                    <a href="{{ url_for('profile', tab_id=tab._id) }}" class="black mt-2"><strong>Back to {{ tab.tab_name.capitalize() }}'s profile</strong></a>
                 </div>
             </div>
 <!-- Results Page Header -->     
@@ -21,14 +21,13 @@
 
 <!-- New Search Form -->
             <div class="col-12 mb-4 d-flex justify-content-center ">
-                    <form action="{{ url_for('search', tab_id=tab._id) }}" method="post">
-                        <input type="hidden" id="search_name" name="search_name" value="{{ tab.tab_name }}"> 
-                        <div class="d-flex justify-content-center py-2">
-                            <input id="query" name="query" type="text" class="validate email-input text-center p-1" placeholder="Enter New Search" required>
-                            <button class="btn text-center newSubmit ml-2" type="submit">Search</button>
-                        </div>    
-                    </form>
-                </div>
+                <form action="{{ url_for('search', tab_id=tab._id) }}" method="post">
+                    <input type="hidden" id="search_name" name="search_name" value="{{ tab.tab_name }}"> 
+                    <div class="d-flex justify-content-center py-2">
+                        <input id="query" name="query" type="text" class="validate email-input text-center p-1" placeholder="Enter New Search" required>
+                        <button class="btn text-center newSubmit ml-2" type="submit">Search</button>
+                    </div>    
+                </form>
             </div>
 <!-- Results -->            
             <div class="row d-none d-md-flex p-3">
@@ -38,11 +37,18 @@
                         <div class="text-center result-icon"><i class="far fa-{{ entry.entry_emotion }}"></i></div>
                         <div class="home-card-headline text-center"><strong>{{ entry.entry_subject.capitalize() }}</strong></div>
                         <div class="result-date text-center"><strong>{{ entry.entry_date.capitalize() }}</strong></div>
+                        <div class="text-center">
+                            <a class="btn mt-3 dark-grey" href="{{ url_for('edit_entry', entry_id=entry._id, tab_id=tab._id) }}" data-toggle="modal" data-target="#editEntry{{ loop.index }}">Edit Details</a>
+                        </div>
                         <p class="d-flex justify-content-center align-self-center px-3 py-4">{{ entry.entry_details.capitalize() }}</p>
+                        
                     </div>
                 </div>
                 {% endfor %}
             </div>
+
+
+
 <!-- Results Accordion For Small Screens-->            
             <div id="accordion" class="d-md-none mx-2">
                 {% for entry in entries%}
@@ -66,6 +72,9 @@
                                     {{ entry.entry_subject.capitalize() }}    
                                 </div>
                             </div>
+                            <div class="text-center">
+                                <a class="mt-3 text-center" href="{{ url_for('edit_entry', entry_id=entry._id, tab_id=tab._id) }}">Edit Details</a>
+                            </div>
                             <div class="row">
                                 <div class="col-12">
                                     <p class="d-flex justify-content-center align-self-center px-3 py-2">{{ entry.entry_details.capitalize() }}</p>    
@@ -75,7 +84,41 @@
                     </div>   
                 </div>
                 {% endfor %}
-            </div>            
-        </div>       
+            </div>
+
+<!-- Edit Entry Modal -->
+                {% for entry in entries %}
+                <div class="modal fade" id="editEntry{{ loop.index }}" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content update-modal">
+                            <div class="modal-body">
+                                <div class="d-flex justify-content-center">
+                                    <div class="form-container my-3 p-4 mb-5">
+                                        <div class="row text-center text-white">
+                                            <div class="col-12 form-header">
+                                                <strong>Edit Details</strong>
+                                            </div>
+                                        </div>
+                                        <form name="edit_details" id="edit_details" method="POST" action="{{ url_for('edit_entry', entry_id=entry._id, tab_id=tab._id) }}">         
+<!-- New Details -->            
+                                            <div class="pt-4 d-flex justify-content-center">
+                                                <textarea id="new_details" name="new_details" type="text" class="validate update-input" maxlength="300" rows="3" required>{{ entry.entry_details.capitalize() }}</textarea>
+                                            </div>
+                                            <div class="text-center"><small class="w-100 text-white">(Max length 300 characters. Letters or numbers ok.)</small></div>
+<!-- Submit Button -->            
+                                            <div class="d-flex justify-content-center pt-4">
+                                                <button type="submit" class="btn update-btn create-submit btn-lg mr-2">Submit</button>
+                                                <button type="button" class="btn grey update-cancel" data-dismiss="modal">Cancel</button>
+                                            </div>       
+                                        </form>        
+                                    </div>
+                                </div>                           
+                            </div>
+                        </div>        
+                    </div>
+                </div>
+                {% endfor %}    
+        </div>
+    </div>       
 
 {% endblock %}
