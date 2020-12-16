@@ -10,14 +10,14 @@
                     <div class="col-12">
                         <div class="profile-header mb-3">How did {{ tab.tab_name.capitalize() }} do today?</div>
                         <div class="feelings">
-                            <button onclick="setValues()" class="feelings-btn text-shadow happy mr-4" data-toggle="modal" data-target="#entryModal">
-                            <i class="far fa-smile dark-orange"></i>
+                            <button onclick="setValues()" class="feelings-btn text-shadow happy-btn mr-4" data-toggle="modal" data-target="#entryModal">
+                            <i class="far fa-smile happy"></i>
                             </button>
-                            <button onclick="setValues()" class="feelings-btn text-shadow sad mr-4" data-toggle="modal" data-target="#entryModal">
-                            <i class="far fa-frown dark-blue"></i>
+                            <button onclick="setValues()" class="feelings-btn text-shadow sad-btn mr-4" data-toggle="modal" data-target="#entryModal">
+                            <i class="far fa-frown sad"></i>
                             </button>
-                            <button onclick="setValues()" class="feelings-btn text-shadow angry" data-toggle="modal" data-target="#entryModal">
-                            <i class="far fa-angry red"></i>
+                            <button onclick="setValues()" class="feelings-btn text-shadow angry-btn" data-toggle="modal" data-target="#entryModal">
+                            <i class="far fa-angry angry"></i>
                             </button>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                                             <p><span class="insert-1"></span>{{ tab.tab_name.capitalize() }} <span class="insert-2"></span></p>
                                         </div>
                                     </div>
-                                    <form name="entry-from" id="entry-form" method="POST" action="{{ url_for('entry_form') }}">
+                                    <form name="entry-from" id="entry-form" method="POST" action="{{ url_for('entry_form', tab_id=tab._id) }}">
 <!-- Hidden Inputs -->                  <input type="hidden" id="entry_emotion" name="entry_emotion" value="">
                                         <input type="hidden" id="entry_feeling" name="entry_feeling" value="">
                                         <input type="hidden" id="entry_date" name="entry_date" value="">
@@ -79,29 +79,15 @@
                 <h2>Dashboard</h2> 
             </div>
             <hr class="mt-0">
-
+            
 <!-- Profile Dashboard -->            
 
-<!-- Entry Totals-->
+<!-- Relationship Status -->
             <div class="row large-dashboard px-2 mb-3">
                 <div class="col-12 col-md-6 col-lg-3 p-1">
                     <div class="tool-box text-center dark-grey p-2">
-                        <h3 class="pb-4">Entry Totals</h3>
-                        <div>
-                            <i class="far fa-smile dark-orange total-icons d-inline"></i>
-                            <i class="fas fa-equals d-inline mx-4"></i>
-                            <h1 class="d-inline">{{ happy }}</h1>
-                        </div>
-                        <div class="py-4">
-                            <i class="far fa-frown dark-blue total-icons d-inline"></i>
-                            <i class="fas fa-equals d-inline mx-4"></i>
-                            <h1 class="d-inline">{{ sad }}</h1>
-                        </div>
-                        <div>
-                            <i class="far fa-angry red total-icons d-inline"></i>
-                            <i class="fas fa-equals d-inline mx-4"></i>
-                            <h1 class="d-inline">{{ angry }}</h1>
-                        </div>
+                        <h3 class="pb-4">Relationship Status</h3>
+                        <div><i id="faHeart" style="opacity:{{ status }}" class="fas fa-heart"></i></div>
                     </div>
                 </div>
 <!-- Search Entries Form -->                

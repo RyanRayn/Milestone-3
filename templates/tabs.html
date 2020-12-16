@@ -63,6 +63,7 @@
             {% for tab in tabs %}
                 <div class="col-6 my-4 col-md-3 d-flex justify-content-center">
                     <div class="text-center">
+                        <form><input type="hidden" id="love{{ loop.index }}" name="love{{ loop.index }}" value="{{ happyPercent }}"></form>
                         <a href="{{ url_for('profile', tab_id=tab._id) }}" class=""><i class="fad fa-user mb-3"></i><br></a>
                         <h5 class="w-200">{{ tab.tab_name.capitalize() }}</h5>
                         <div class="no-show">
@@ -131,17 +132,21 @@
                 </div>
             {% endfor %}    
             </div>
-            <div class="row">
-                <div class="col-md-6 col-lg-4 mb-4 d-flex">
-                    <div class="results-box dark-grey">
-                        <div class="text-center result-icon"><i class="far fa-frown"></i></div>
-                        <div class="home-card-headline text-center"><strong>Mess</strong></div>
-                        <div class="result-date text-center"><strong>December 12, 2020</strong></div>
-                        <p class="d-flex align-items-center px-3 py-2">It's important to not spank, hit, or slap your child. At this age, kids are unlikely to be able to make a connection between the behavior and physical punishment. The message you send when you spank is that it's OK to hit someone when you're angry. Experts say when you're angry. Experts say Expertss</p>
-
-                    </div>
-                </div>
-            </div>            
+               <div>
+                            <i class="far fa-smile happy total-icons d-inline"></i>
+                            <i class="fas fa-equals d-inline mx-4"></i>
+                            <h1 class="d-inline">{{ happy }}</h1>
+                        </div>
+                        <div class="py-4">
+                            <i class="far fa-frown sad total-icons d-inline"></i>
+                            <i class="fas fa-equals d-inline mx-4"></i>
+                            <h1 class="d-inline">{{ sad }}</h1>
+                        </div>
+                        <div>
+                            <i class="far fa-angry angry total-icons d-inline"></i>
+                            <i class="fas fa-equals d-inline mx-4"></i>
+                            <h1 class="d-inline">{{ angry }}</h1>
+                        </div>
         </div>   
     </div>        
 

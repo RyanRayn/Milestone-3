@@ -79,40 +79,41 @@ hr{
 }
 
 /*---------- Colors ----------*/
-.black{
-    color:black;
+
+.happy{
+    color:rgb(255, 187, 0);
 }
 
-.grey{
-    background-color:rgba(238, 238, 238, 0.555);
+.sad{
+    color:rgb(110, 110, 255);
+}
+
+.angry{
+    color:rgb(253, 87, 87);
+}
+
+.black{
+    color:black;
 }
 
 .dark-grey{
     color:rgb(155, 155, 155);
 }
 
+.grey{
+    background-color:rgba(238, 238, 238, 0.555);
+}
+
 .white{
     background-color:white;
 }
 
-.red{
-    color:rgb(253, 87, 87);
-
-}
 .pink{
     background-color:#ecb09979;
 }
 
-.dark-blue{
-    color:rgb(110, 110, 255);
-}
-
 .blue{
     background-color:#bedbfd7e;
-}
-
-.dark-orange{
-    color:rgb(255, 187, 0);
 }
 
 .orange{
@@ -467,19 +468,19 @@ hr{
     border:none;
 }
 
-.happy:hover{
+.happy-btn:hover{
     background-color:#f9cf8b70;
     border-radius:50%;
     box-shadow: 0 0 8px 8px white inset;
 }
 
-.sad:hover{
+.sad-btn:hover{
     background-color:#bedbfde8;
     border-radius:50%;
     box-shadow: 0 0 8px 8px white inset;
 }
 
-.angry:hover{
+.angry-btn:hover{
     background-color:rgba(255, 167, 167, 0.849);
     border-radius:50%;
     box-shadow: 0 0 8px 8px white inset;
@@ -585,6 +586,12 @@ hr{
     font-size:40px;
 }
 
+#faHeart{
+    font-size:10vw;
+    color:rgb(253, 87, 87);
+    opacity:0;
+}
+
 /*---------- Results ----------*/
 
 .results-box{
@@ -649,6 +656,10 @@ hr{
 .update-cancel{
     color:white;
     border-radius:25px;
+}
+
+.edit-entry:hover{
+    color:rgb(155, 155, 155);
 }
 
 /*---------- Footer ----------*/

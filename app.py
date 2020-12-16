@@ -179,6 +179,9 @@ def profile(tab_id):
                                              tab["tab_name"]},
                                              {"entry_emotion": "angry"}]})
 
+    logs = mongo.db.entries.count_documents({"entry_name": tab["tab_name"]})
+    status = (happy/logs)
+
     # Datetime get current dates to pass into hidden inputs
     tab = mongo.db.tabs.find_one({"_id": ObjectId(tab_id)})
     month = datetime.utcnow().strftime("%B")
@@ -187,27 +190,54 @@ def profile(tab_id):
 
     return render_template("profile.html", year=year, day=day, month=month,
                            tab=tab, tabs=tabs, happy=happy,
-                           sad=sad, angry=angry)
+                           sad=sad, angry=angry, status=status)
 
 
 # Entry modal on profile page
-@app.route("/entry_form", methods=["GET", "POST"])
-def entry_form():
+@app.route("/entry_form/<tab_id>", methods=["GET", "POST"])
+def entry_form(tab_id):
+    tab = mongo.db.tabs.find_one({"_id": ObjectId(tab_id)})
+
     if request.method == "POST":
         entry = {
             "entry_emotion": request.form.get("entry_emotion").lower(),
             "entry_feeling": request.form.get("entry_feeling").lower(),
             "entry_month": request.form.get("entry_month").lower(),
-            "entry_day": request.form.get("new_day").lower(),
+            "entry_day": request.form.get("entry_day").lower(),
             "entry_date": request.form.get("entry_date").lower(),
             "entry_year": request.form.get("entry_year").lower(),
-            "entry_subject": request.form.get("entry_subject").lower(),
-            "entry_details": request.form.get("entry_details").lower(),
+            "entry_subject": request.form.get("entry_subject"),
+            "entry_details": request.form.get("entry_details"),
             "entry_name": request.form.get("entry_name").lower()
         }
 
+    tabs = list(mongo.db.tabs.find())
+
+    # Count documents for stats in profile dashboard
+    happy = mongo.db.entries.count_documents(
+                                            {"$and": [{"entry_name":
+                                             tab["tab_name"]},
+                                             {"entry_emotion": "smile"}]})
+
+    sad = mongo.db.entries.count_documents(
+                                            {"$and": [{"entry_name":
+                                             tab["tab_name"]},
+                                             {"entry_emotion": "frown"}]})
+
+    angry = mongo.db.entries.count_documents(
+                                            {"$and": [{"entry_name":
+                                             tab["tab_name"]},
+                                             {"entry_emotion": "angry"}]})
+
+    # Datetime get current dates to pass into hidden inputs
+    month = datetime.utcnow().strftime("%B")
+    day = datetime.utcnow().strftime("%d")
+    year = datetime.utcnow().strftime("%Y")
+
     mongo.db.entries.insert_one(entry)
-    return redirect(url_for("get_tabs"))
+    return render_template("profile.html", year=year, day=day, month=month,
+                           tab=tab, tabs=tabs, happy=happy,
+                           sad=sad, angry=angry)
 
 
 # Search Entries
@@ -216,7 +246,7 @@ def search(tab_id):
     tabs = list(mongo.db.tabs.find())
     tab = mongo.db.tabs.find_one({"_id": ObjectId(tab_id)})
     name = request.form.get("search_name").lower()
-    query = request.form.get("query").lower()
+    query = request.form.get("query")
     entries = list(mongo.db.entries.find(
         {"entry_name": name, "$text": {"$search": query}}))
 
@@ -228,8 +258,12 @@ def search(tab_id):
 def results(tab_id):
     tabs = list(mongo.db.tabs.find())
     tab = mongo.db.tabs.find_one({"_id": ObjectId(tab_id)})
+    name = request.form.get("search_name").lower()
+    query = request.form.get("query")
+    entries = list(mongo.db.entries.find(
+        {"entry_name": name, "$text": {"$search": query}}))
 
-    return render_template("results.html", tabs=tabs, tab=tab)
+    return render_template("results.html", tabs=tabs, tab=tab, entry=entries)
 
 
 # Edit Entries
@@ -237,7 +271,7 @@ def results(tab_id):
 def edit_entry(entry_id, tab_id):
     if request.method == "POST":
 
-        submit = request.form.get("new_details").lower()
+        submit = request.form.get("new_details")
 
         mongo.db.entries.update({"_id": ObjectId(entry_id)},
                                 {"$set": {"entry_details": submit}})
@@ -254,7 +288,7 @@ def success(tab_id):
     tabs = list(mongo.db.tabs.find())
     tab = mongo.db.tabs.find_one({"_id": ObjectId(tab_id)})
     name = request.form.get("search_name").lower()
-    query = request.form.get("query").lower()
+    query = request.form.get("query")
     entries = list(mongo.db.entries.find(
         {"entry_name": name, "$text": {"$search": query}}))
 

@@ -58,6 +58,7 @@ $(".angry").click(function(){
     $(".insert-1").text("");
     $(".insert-2").text("makes me so MAD!!!");
     $("#entry_emotion").val("angry");
+    $("#entry_feeling").val("angry");
 });
 
 /* Enter date values in hidden input fields on the Entry Modal */
@@ -76,7 +77,7 @@ let today = monthName + " " + currentDate + "," + " " + currentYear;
 $('#entry_month').val(monthName);
 $('#entry_year').val(currentYear);
 $('#entry_date').val(today);
-$('#entry_day').val(currentDate)
+$('#entry_day').val(currentDate);
 }
 
 /* Send Email Function */
@@ -109,3 +110,4 @@ $("#emailSend").click(function(){
     $("#email-h3").addClass("no-show");
     $("#email-h1").removeClass("no-show");
 });
+
