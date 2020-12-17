@@ -549,7 +549,7 @@ hr{
 }
 
 .fa-coffee-togo{
-    font-size:11vw;
+    font-size:10em;
     --fa-primary-color:rgb(253, 87, 87);
     --fa-secondary-color:rgb(155, 155, 155);
 }
@@ -571,23 +571,12 @@ hr{
     font-size:2vw;
 }
 
-.fa-file-search{
-    font-size:11vw;
-    --fa-primary-color:rgb(110, 110, 255);
-    --fa-secondary-color:rgb(155, 155, 155);
-}
-
-.fa-file-search:hover{
-    --fa-primary-color:rgb(253, 87, 87);
-    --fa-secondary-color:rgb(107, 107, 107);
-}
-
 .carousel-arrows{
     font-size:40px;
 }
 
-#faHeart{
-    font-size:10vw;
+.fa-heart{
+    font-size:10em;
     color:rgb(253, 87, 87);
     opacity:0;
 }
@@ -634,11 +623,6 @@ hr{
 
 .result-date{
     font-size:20px;
-}
-
-.fa-long-arrow-left{
-    font-size:1.5em;
-    color:black;
 }
 
 .update-modal{
@@ -735,46 +719,28 @@ hr{
         font-size:5vw;
     }
 
-    #myCarousel{
-        display:flex;
-    }
-
     .fa-coffee-togo{
         font-size:8em;
     }
 
-    .fa-file-search{
-        font-size:8em;
+    .fa-heart{
+        font-size:10em;
     }
 
     .feelings i{
-    font-size:4em;
+        font-size:4em;
     }
 
     .total-icons{
-    font-size:3em;
+        font-size:3em;
     }
 
     .profile-header{
-    font-size:7vw;
+        font-size:7vw;
     }
 
     .home-stat{
-    font-size:8em;
-    }
-
-    .search-box{
-        height:175px
-    }
-
-    .gift-box{
-        height:110px
-    }
-}
-
-@media (min-width: 768px) {
-    #myCarousel{
-        display:none;
+        font-size:8em;
     }
 }
 
@@ -783,23 +749,25 @@ hr{
         font-size:9vw;
     }
 
-    .fa-file-search{
-        font-size:9vw;
+    .fa-heart{
+        font-size:10vw;
     }
 }
 
 @media (min-width: 1850px) {
     .total-icons{
-    font-size:2.5vw;
+        font-size:2.5vw;
     }
 }
 
-@media (max-width: 991px) {
-    .fa-coffee-togo{
-    font-size:8em;
+@media (max-width: 630px) {
+    .search-display{
+        display:none;
+    }
 }
 
-    .fa-file-search{
-    font-size:8em;
-}
+@media (max-width: 576px) {
+    .search-box{
+        height:175px;
+    }
 }

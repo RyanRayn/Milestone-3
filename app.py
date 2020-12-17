@@ -27,7 +27,7 @@ def home():
     happy = mongo.db.entries.count_documents({"entry_emotion": "smile"})
     sad = mongo.db.entries.count_documents({"entry_emotion": "frown"})
     angry = mongo.db.entries.count_documents({"entry_emotion": "angry"})
-    logs = mongo.db.entries.count_documents({"entry_year": "2020"})
+    logs = mongo.db.entries.count_documents({})
     a = (happy/logs)
     b = round(a, 2)*100
     happyPercent = int(b)
