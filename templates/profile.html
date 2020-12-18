@@ -58,7 +58,7 @@
                                         </div>
 <!-- Entry Details -->
                                         <div class="pt-4 d-flex justify-content-center">
-                                            <textarea id="entry_details" name="entry_details" class="validate entry-input" maxlength="300" rows="3"></textarea>
+                                            <textarea id="entry_details" name="entry_details" class="validate entry-input" maxlength="200" rows="3"></textarea>
                                         </div>
                                         <div class="text-center">
                                             <small class="w-100 text-white">*Details not required. Max 300 characters.</small>
@@ -133,14 +133,14 @@
 <!-- Relationship Status -->
             <div class="row large-dashboard px-2">
                 <div class="d-none d-sm-block col-sm-4 p-1">
-                    <div class="tool-box d-flex flex-column text-center dark-grey p-2">
+                    <div class="keep-tab-border tool-box d-flex flex-column text-center dark-grey p-2">
                         <h3 class="pb-4">Relationship Status</h3>
                         <div class=""><i style="opacity:{{ status }}" class="fas fa-heart"></i></div>
                     </div>
                 </div>
 <!-- Search Entries Form -->                
                 <div class="col-12 col-sm-4 p-1">
-                    <div class="search-box dark-grey d-flex flex-column align-items-center p-2">
+                    <div class="keep-tab-border search-box dark-grey d-flex flex-column align-items-center p-2">
                         <h3 class="text-center pb-1">Search Entries</h3>
                         <form class="text-center" action="{{ url_for('search', tab_id=tab._id) }}" method="post">
                             <input type="hidden" id="search_name" name="search_name" value="{{ tab.tab_name }}"> 
@@ -155,7 +155,7 @@
                 </div>             
 <!-- Entry Totals -->       
                 <div class="d-none d-sm-block col-sm-4 p-1">
-                    <div class="tool-box d-flex flex-column text-center dark-grey p-2">
+                    <div class="keep-tab-border tool-box d-flex flex-column text-center dark-grey p-2">
                         <h3 class="pb-4">Scoreboard</h3>    
                         <div>
                             <i class="far fa-smile happy total-icons d-inline"></i>
@@ -176,9 +176,9 @@
                 </div>
             </div>             
 <!-- Send Email -->
-            <div class="row px-2">                
+            <div class="row py-2 px-2">                
                 <div class="col-12 col-sm-7 p-1 mb-2">
-                    <div class="tool-box dark-grey d-flex flex-column align-items-center p-2">
+                    <div class="keep-tab-border tool-box dark-grey d-flex flex-column align-items-center p-2">
                         <h3 id="sendEmail" class="pl-2 mb-3">Send {{ tab.tab_name.capitalize() }} an email?</h3>
                         <div class="d-flex justify-content-center"><i id="plane" class="fad fa-paper-plane mt-5 no-show"></i></div>
                         <form id="emailForm" onsubmit="return sendMail(this);" method="POST" autocomplete="off"> 
@@ -193,7 +193,7 @@
                 </div>
 <!-- Gift Card -->                
                 <div class="d-none d-sm-block col-sm-5 p-1">
-                    <div class="gift-box dark-grey d-flex flex-column p-2">
+                    <div class="keep-tab-border gift-box dark-grey d-flex flex-column p-2">
                         <a target="_blank" href="https://www.starbucks.com/gift"><h3 class="pl-2 mb-4 d-flex justify-content-center align-middle dark-grey">Send {{ tab.tab_name.capitalize() }} love with a Starbucks gift card!</h3></a>
                         <div class="text-center"><a target="_blank" href="https://www.starbucks.com/gift"><i class="fad fa-coffee-togo mt-3 mb-2"></i></a>
                         </div>

@@ -102,7 +102,7 @@
                                         <form name="edit_details" id="edit_details" method="POST" action="{{ url_for('edit_entry', entry_id=entry._id, tab_id=tab._id) }}">         
 <!-- New Details -->            
                                             <div class="pt-4 d-flex justify-content-center">
-                                                <textarea id="new_details" name="new_details" class="validate update-input" maxlength="300" rows="3" required>{{- entry.entry_details -}}</textarea>
+                                                <textarea id="new_details" name="new_details" class="validate update-input" maxlength="200" rows="3" required>{{- entry.entry_details -}}</textarea>
                                             </div>
                                             <div class="text-center"><small class="w-100 text-white">(Max length 300 characters. Letters or numbers ok.)</small></div>
 <!-- Submit Button -->            

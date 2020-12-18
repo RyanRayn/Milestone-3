@@ -124,31 +124,17 @@ def add_tab():
         }
 
         mongo.db.tabs.insert_one(tab)
+
+        entry = {
+            "entry_emotion": request.form.get("entry_emotion").lower(),
+            "entry_date": request.form.get("entry_date").lower(),
+            "entry_name": request.form.get("tab_name").lower()
+        }
+
+        mongo.db.entries.insert_one(entry)
         return redirect(url_for("get_tabs"))
 
     return redirect(url_for("get_tabs"))
-
-
-# Edit Tab names
-@app.route("/edit_tab/<tab_id>", methods=["GET", "POST"])
-def edit_tab(tab_id):
-    if request.method == "POST":
-
-        existing_tab = mongo.db.tabs.find_one(
-            {"tab_name": request.form.get("new_tab_name").lower()})
-
-        if existing_tab:
-            flash("Tab name already exists")
-            return redirect(url_for("get_tabs"))
-
-        submit = {
-            "tab_name": request.form.get("new_tab_name").lower()
-        }
-        mongo.db.tabs.update({"_id": ObjectId(tab_id)}, submit)
-        return redirect(url_for("get_tabs"))
-
-    tab = mongo.db.tabs.find_one({"_id": ObjectId(tab_id)})
-    return render_template("tabs.html", tab=tab)
 
 
 # Delete Tab
@@ -167,7 +153,7 @@ def profile(tab_id):
     happy = mongo.db.entries.count_documents(
                                             {"$and": [{"entry_name":
                                              tab["tab_name"]},
-                                             {"entry_emotion": "smile"}]})
+                                             {"entry_feeling": "happy"}]})
 
     sad = mongo.db.entries.count_documents(
                                             {"$and": [{"entry_name":
@@ -179,8 +165,14 @@ def profile(tab_id):
                                              tab["tab_name"]},
                                              {"entry_emotion": "angry"}]})
 
+    smile = mongo.db.entries.count_documents(
+                                            {"$and": [{"entry_name":
+                                             tab["tab_name"]},
+                                             {"entry_emotion": "smile"}]})
+
     logs = mongo.db.entries.count_documents({"entry_name": tab["tab_name"]})
-    status = (happy/logs)
+
+    status = (smile/logs)
 
     # Datetime get current dates to pass into hidden inputs
     tab = mongo.db.tabs.find_one({"_id": ObjectId(tab_id)})
@@ -230,6 +222,7 @@ def entry_form(tab_id):
                                              {"entry_emotion": "angry"}]})
 
     logs = mongo.db.entries.count_documents({"entry_name": tab["tab_name"]})
+
     status = (happy/logs)
 
     # Datetime get current dates to pass into hidden inputs
@@ -253,6 +246,9 @@ def search(tab_id):
     entries = list(mongo.db.entries.find(
         {"entry_name": name, "$text": {"$search": query}}))
 
+    if len(entries) == 0:
+        flash("No Results Found")
+
     return render_template("results.html", tab=tab, tabs=tabs, entries=entries)
 
 
@@ -265,6 +261,9 @@ def results(tab_id):
     query = request.form.get("query")
     entries = list(mongo.db.entries.find(
         {"entry_name": name, "$text": {"$search": query}}))
+
+    if len(entries) == 0:
+        flash("No Results Found")
 
     return render_template("results.html", tabs=tabs, tab=tab, entry=entries)
 
@@ -301,4 +300,4 @@ def success(tab_id):
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=False)
+            debug=True)
