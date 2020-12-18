@@ -65,7 +65,7 @@ $(".angry").click(function(){
 function setValues(){
 
 let monthNames = ["January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"]
+  "July", "August", "September", "October", "November", "December"];
 
 let d = new Date();
 let monthNumber = d.getMonth();
@@ -107,7 +107,7 @@ $(document).ready(function(){
 
 /* Change header message when email sends */
 $("#emailSend").click(function(){
-    $("#email-h3").addClass("no-show");
-    $("#email-h1").removeClass("no-show");
+    $("#sendEmail").addClass("no-show");
+    $("#plane").removeClass("no-show");
 });
 

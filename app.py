@@ -45,10 +45,10 @@ def register():
     if request.method == "POST":
 
         existing_user = mongo.db.users.find_one(
-            {"username": request.form.get("username").lower()})
+            {"email": request.form.get("email").lower()})
 
         if existing_user:
-            flash("Username already exists")
+            flash("Another account already linked to this email.")
             return redirect(url_for("register"))
 
         register = {
@@ -58,8 +58,8 @@ def register():
         }
         mongo.db.users.insert_one(register)
 
-        session["user"] = request.form.get("username").lower()
-        return redirect(url_for("profile", username=session["user"]))
+        session["user"] = request.form.get("email").lower()
+        return redirect(url_for("home", email=session["user"]))
 
     return render_template("register.html")
 
@@ -69,20 +69,20 @@ def register():
 def login():
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
-            {"username": request.form.get("username").lower()})
+            {"email": request.form.get("email").lower()})
 
         if existing_user:
             if check_password_hash(
                                 existing_user["password"],
                                 request.form.get("password")):
-                session["user"] = request.form.get("username").lower()
+                session["user"] = request.form.get("email").lower()
                 return redirect(url_for(
-                    "home", username=session["user"]))
+                    "home", email=session["user"]))
             else:
-                flash("Incorrect Username and/or Password")
+                flash("Incorrect Email and/or Password")
                 return redirect(url_for("login"))
         else:
-            flash("Incorrect Username and/or Password")
+            flash("Incorrect Email and/or Password")
             return redirect(url_for("login"))
 
     return render_template("login.html")
@@ -102,7 +102,7 @@ def get_tabs():
     tabs = list(mongo.db.tabs.find())
     # get session user username
     username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
+        {"email": session["user"]})["username"]
 
     return render_template("tabs.html", tabs=tabs, username=username)
 
@@ -229,6 +229,9 @@ def entry_form(tab_id):
                                              tab["tab_name"]},
                                              {"entry_emotion": "angry"}]})
 
+    logs = mongo.db.entries.count_documents({"entry_name": tab["tab_name"]})
+    status = (happy/logs)
+
     # Datetime get current dates to pass into hidden inputs
     month = datetime.utcnow().strftime("%B")
     day = datetime.utcnow().strftime("%d")
@@ -237,7 +240,7 @@ def entry_form(tab_id):
     mongo.db.entries.insert_one(entry)
     return render_template("profile.html", year=year, day=day, month=month,
                            tab=tab, tabs=tabs, happy=happy,
-                           sad=sad, angry=angry)
+                           sad=sad, angry=angry, status=status)
 
 
 # Search Entries

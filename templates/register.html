@@ -56,13 +56,13 @@
                     <div class="form-container my-3 p-4 blue">
                         <div class="row mb-2">
                             <div class="col-12 text-center form-header">
-                            <strong>Username and Password</strong>
+                            <strong>Create Secure Password:</strong>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12 d-flex justify-content-center">  
                                 <ul>
-                                    <li>Must be 5 to 15 characters long</li>
+                                    <li>Must be 7 to 20 characters long</li>
                                     <li class="my-2">Can contain upper or lowercase letters</li>
                                     <li>May use any letter A to Z or number 0 to 9</li>
                                 </ul>
@@ -79,19 +79,20 @@
                             <strong>Register</strong>
                         </div>
                     </div>
-                    <form method="POST" action="{{ url_for('register') }}">      
-<!-- Username -->            
-                        <div class="pt-4 d-flex justify-content-center">
-                            <input id="username" name="username" type="text" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate reg-input text-center p-1" placeholder="Username" required>
-                        </div>
-<!-- Password -->             
-                        <div class="pt-4 d-flex justify-content-center">
-                            <input id="password" name="password" type="password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate reg-input text-center p-1" placeholder="Password" required>
-                        </div>
+                    <form method="POST" action="{{ url_for('register') }}">
 <!-- Email Address -->             
                         <div class="pt-4 d-flex justify-content-center">
                             <input id="email" name="email" type="text" class="reg-input text-center p-1" placeholder="Email Address" required>
+                        </div>                              
+<!-- First Name -->            
+                        <div class="pt-4 d-flex justify-content-center">
+                            <input id="username" name="username" type="text" class="validate reg-input text-center p-1" placeholder="First Name" required>
                         </div>
+<!-- Password -->             
+                        <div class="pt-4 d-flex justify-content-center">
+                            <input id="password" name="password" type="password" minlength="7" maxlength="20" pattern="^[a-zA-Z0-9]{7,20}$" class="validate reg-input text-center p-1" placeholder="Password" required>
+                        </div>
+
 <!-- Registration Button -->            
                         <div class="d-flex justify-content-center py-4">
                             <button type="submit" class="btn reg-btn btn-lg">Go!</button>

@@ -179,8 +179,8 @@
             <div class="row px-2">                
                 <div class="col-12 col-sm-7 p-1 mb-2">
                     <div class="tool-box dark-grey d-flex flex-column align-items-center p-2">
-                        <h3 id="email-h3" class="pl-2 mb-3">Send {{ tab.tab_name.capitalize() }} an email?</h3>
-                        <h1 id="email-h1" class="dark-grey no-show my-4">Email<br>Sent!</h1>
+                        <h3 id="sendEmail" class="pl-2 mb-3">Send {{ tab.tab_name.capitalize() }} an email?</h3>
+                        <div class="d-flex justify-content-center"><i id="plane" class="fad fa-paper-plane mt-5 no-show"></i></div>
                         <form id="emailForm" onsubmit="return sendMail(this);" method="POST" autocomplete="off"> 
                             <div class="row d-flex justify-content-center p-2">         
                                 <input class="email-input text-center mb-2 validate" type="email" placeholder="To Email:" id="toEmail" name="toEmail" required>

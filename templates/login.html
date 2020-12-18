@@ -70,13 +70,13 @@
                         </div>
                     </div>
                     <form method="POST" action="{{ url_for('login') }}">           
-<!-- Username -->            
+<!-- Email Address -->            
                         <div class="pt-4 d-flex justify-content-center">
-                            <input id="username" name="username" type="text" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate login-input text-center p-1" placeholder="Username" required>
+                            <input id="email" name="email" type="text" class="validate login-input text-center p-1" placeholder="Email Address" required>
                         </div>
 <!-- Password -->             
                         <div class="pt-4 d-flex justify-content-center">
-                            <input id="password" name="password" type="password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate login-input text-center p-1" placeholder="Password" required>
+                            <input id="password" name="password" type="password" minlength="7" maxlength="20" pattern="^[a-zA-Z0-9]{5,15}$" class="validate login-input text-center p-1" placeholder="Password" required>
                         </div>
 <!-- Login Button -->            
                         <div class="d-flex justify-content-center pt-4">

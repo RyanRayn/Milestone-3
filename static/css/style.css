@@ -257,14 +257,14 @@ hr{
     --fa-secondary-color:#676b76d8;
 }
 
-.fa-hands-heart{
-    --fa-primary-color:rgb(253, 87, 87);
-    --fa-secondary-color:#f9cf8b70;
+.fa-hand-holding-box{
+    --fa-primary-color:rgb(110, 110, 255);
+    --fa-secondary-color:#d6b57f;
 }
 
-.fa-thumbs-up{
-    --fa-primary-color:rgb(110, 110, 255);
-    --fa-secondary-color:#f9cf8b70;
+.fa-heart-square{
+    --fa-primary-color:rgb(253, 87, 87);
+    --fa-secondary-color:rgba(253, 87, 87, 0.39);
 }
 
 .home-card-headline{
@@ -284,13 +284,13 @@ hr{
 }
 
 .gift-card-border{
-    border:4px solid #ecb09979;
+    border:4px solid #ffe7c0;
     border-radius:25px;
     min-height:300px;
 }
 
 .relationship-border{
-    border:4px solid #f9cf8b70;
+    border:4px solid rgba(255, 152, 152, 0.507);
     border-radius:25px;
     min-height:300px;
 }
@@ -559,7 +559,13 @@ hr{
     --fa-secondary-color:rgb(107, 107, 107);
 }
 
-#email-h1{
+.fa-paper-plane{
+    font-size:10em;
+    --fa-primary-color:white;
+    --fa-secondary-color:white;
+}
+
+#emailSent{
     font-size:6vw;
 }
 
@@ -769,5 +775,11 @@ hr{
 @media (max-width: 576px) {
     .search-box{
         height:175px;
+    }
+}
+
+@media (max-width: 1000px) {
+    #emailSent{
+        font-size:8vw;
     }
 }

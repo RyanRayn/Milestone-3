@@ -52,14 +52,14 @@
 <!-- Results Accordion For Small Screens-->            
             <div id="accordion" class="d-md-none mx-2">
                 {% for entry in entries%}
-                <div class="card border-0 collapsed" data-toggle="collapse" data-target="#collapse{{ loop.index }}" aria-expanded="false" aria-controls="collapse{{ loop.index }}">
+                <div class="card border-0 collapsed" role="presentation" data-toggle="collapse" data-target="#collapse{{ loop.index }}" aria-controls="collapse{{ loop.index }}">
                     <div class="card-header white" id="heading{{ loop.index }}">
                         <div class="row d-flex align-items-center">
                             <div class="col-3 accordion-icon">
                                 <i class="far fa-{{ entry.entry_emotion }}"></i>    
                             </div>
                             <div class="col-9 d-flex align-items-center justify-content-center">
-                                <div class="form-header">
+                                <div class="home-card-headline">
                                     {{ entry.entry_date.capitalize() }}
                                 </div>
                             </div>
@@ -102,7 +102,7 @@
                                         <form name="edit_details" id="edit_details" method="POST" action="{{ url_for('edit_entry', entry_id=entry._id, tab_id=tab._id) }}">         
 <!-- New Details -->            
                                             <div class="pt-4 d-flex justify-content-center">
-                                                <textarea id="new_details" name="new_details" type="text" class="validate update-input" maxlength="300" rows="3" required>{{- entry.entry_details -}}</textarea>
+                                                <textarea id="new_details" name="new_details" class="validate update-input" maxlength="300" rows="3" required>{{- entry.entry_details -}}</textarea>
                                             </div>
                                             <div class="text-center"><small class="w-100 text-white">(Max length 300 characters. Letters or numbers ok.)</small></div>
 <!-- Submit Button -->            

@@ -20,19 +20,19 @@
 <body>
 
 <!-- Flash Message -->
-    <section>
+    <div>
         {% with messages = get_flashed_messages() %}
             {% if messages %}
                 {% for message in messages %}
                     <div id="flash_message" class="row">
                         <div class="col-12 flashes pink d-flex justify-content-center">
-                        {{ message }}
+                        <h1>{{ message }}</h1>
                         </div>
                     </div>
                 {% endfor%}
             {% endif %}
         {% endwith %}
-    </section>
+    </div>
 
 <div class="wrapper">
     {% if session.user %}

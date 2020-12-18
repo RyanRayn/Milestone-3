@@ -23,7 +23,7 @@
             <div class="text-container mr-5">
             {% if session.user %}
                 <div class="row">
-                    <div class="col-12 home-headline text-center">Welcome Back!</div>
+                    <h1 class="col-12 home-headline text-center">Welcome Back!</h1>
                 </div>
                 <div class="row">
                     <div class="col-12">
@@ -157,7 +157,7 @@
             {% if session.user %}
                 <div class="row mb-4">    
                     <div class="col-12 d-flex justify-content-center align-items-end">
-                        <a href="{{ url_for('get_tabs') }}" type="button" class="btn btn-lg tabs-btn">Take me to my tabs!</a>
+                        <a href="{{ url_for('get_tabs') }}" class="btn btn-lg tabs-btn">Take me to my tabs!</a>
                     </div>
                 </div>
                 {% else %}
@@ -178,7 +178,7 @@
 <!-- Home Dashboard Large Screens -->            
             <div class="row d-none d-sm-flex mb-4">
                 <div class="col-12 col-md-6 col-xl-3 text-center">
-                    <div class="gift-card-border pink d-flex flex-column justify-content-center">
+                    <div class="relationship-border pink d-flex flex-column justify-content-center">
                         <div class="home-stat angry">{{ profiles }}</div>
                     </div>
                     <div class="home-stat-headline angry mb-4">TABS Created</div>
@@ -194,7 +194,7 @@
 
 
                 <div class="col-12 col-md-6 col-xl-3 text-center">
-                    <div class="relationship-border orange d-flex flex-column justify-content-center">
+                    <div class="gift-card-border orange d-flex flex-column justify-content-center">
                         <div class="home-stat happy">{{ happyPercent }}%</div>   
                     </div>
                     <div class="home-stat-headline happy mb-4">Positive Entries</div> 
@@ -226,7 +226,7 @@
             <div id="myCarousel" class="carousel slide d-block d-sm-none text-center mb-4" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active"> 
-                        <div class="gift-card-border pink d-flex flex-column justify-content-center">
+                        <div class="relationship-border pink d-flex flex-column justify-content-center">
                             <div class="home-stat angry">{{ profiles }}</div>
                             <div class="home-stat-headline angry mb-4">TABS Created</div>
                         </div>
@@ -238,7 +238,7 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <div class="relationship-border orange d-flex flex-column justify-content-center">
+                        <div class="gift-card-border orange d-flex flex-column justify-content-center">
                             <div class="home-stat happy">{{ happyPercent }}%</div>
                             <div class="home-stat-headline happy mb-4">Positive Entries</div>   
                         </div> 
@@ -294,27 +294,27 @@
                         <p class="d-inline ml-3 align-self-center"><span class="home-card-headline font-weight-bold">Keep TABS Daily</span><br><br>There is no limit on how many entries you can log. Keep track of all happy, sad, angry or frustrating moments.</p>
                     </div>
                 </div>                   
-            </div>                    
-                                                  
-<!-- Gift Card -->                
-               
+            </div>
+            
+<!-- Relationship Status Card -->
             <div class="row my-4">
                 <div class="col-12 col-md-6 mb-4">
+                    <div class="relationship-border d-flex p-3">
+                        <i class="fad fa-heart-square d-inline align-self-center icon-size"></i>
+                        <p class="d-inline ml-3 align-self-center"><span class="home-card-headline font-weight-bold">Status Change</span><br><br>Watch your status change for each tab. Negative entries make your heart fade, while a positive entry will make it grow stronger.</p>
+                    </div>
+                </div>               
+                                                           
+<!-- Gift Card -->                
+               
+                <div class="col-12 col-md-6">
                     <div class="gift-card-border d-flex p-3">
-                        <i class="fad fa-hands-heart d-inline align-self-center icon-size"></i>
+                        <i class="fad fa-hand-holding-box d-inline align-self-center icon-size"></i>
                         <p class="d-inline ml-3 align-self-center"><span class="home-card-headline font-weight-bold">Send Thanks</span><br><br>Log a positive entry and show appreciation by sending a gift card or thank you email directly from their profile.</p>
                     </div>
                 </div>   
-                                
-<!-- Relationship Status Card -->
+            </div>                     
 
-                <div class="col-12 col-md-6">
-                    <div class="relationship-border d-flex p-3">
-                        <i class="fad fa-thumbs-up d-inline align-self-center icon-size"></i>
-                        <p class="d-inline ml-3 align-self-center"><span class="home-card-headline font-weight-bold">Status Change</span><br><br>As you are keeping tabs, watch how your relationship status heart automatically changes for each individual profile. Don't let your hearts fade and relationships die.</p>
-                    </div>
-                </div>               
-            </div>
             
             
             <div class="row d-flex justify-content-center my-4">
