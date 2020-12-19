@@ -111,4 +111,19 @@ $("#emailSend").click(function(){
     $("#plane").removeClass("no-show");
 });
 
+/* Disable Email Submit Button Until Inputs Are Filled */
+$(document).ready(function (){
+    validate();
+    $('#toEmail, #subject, #message').change(validate);
+});
 
+function validate(){
+    if ($('#toEmail').val().length   >   0   &&
+        $('#subject').val().length  >   0   &&
+        $('#message').val().length    >   0) {
+        $("#emailSend").prop("disabled", false);
+    }
+    else {
+        $("#emailSend").prop("disabled", true);
+    }
+}
