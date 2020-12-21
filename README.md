@@ -68,7 +68,10 @@ Keeping Tabs is a platform that allows users to keep records of all their person
 ##### *Homepage* 
 * All pages were designed for ease of use and avoid confusion. Landing pages on mobile views have a hamburger icon in the top right corner containing a dropdown menu for access to other pages.
 
-<p align="center"><img src="/static/images/desktophome.png" width="400" height="400"></p>
+<p float="left">
+<img src="/static/images/desktophome.png" width="400" height="400">
+<img src="/static/images/mobilehamburger.png" width="400">
+</p>
 
 <p align="center"><img src="/static/images/mobilehamburger.png" width="400"></p>
 
