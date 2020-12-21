@@ -1,4 +1,4 @@
-<p align="center"><img src="/images/tabsmockup.pdf" width="400"></p>
+<p align="center"><img src="/static/images/tabsmockup.pdf" width="400"></p>
 
 
 # **Keeping TABS**
@@ -68,54 +68,84 @@ Keeping Tabs is a platform that allows users to keep records of all their person
 ##### *Homepage* 
 * All pages were designed for ease of use and avoid confusion. Landing pages on mobile views have a hamburger icon in the top right corner containing a dropdown menu for access to other pages.
 
-<p align="center"><img src="/images/desktophome.png" width="400" height="400"></p>
+<p align="center"><img src="/static/images/desktophome.png" width="400" height="400"></p>
 
-<p align="center"><img src="/images/mobilehamburger.png" width="400"></p>
+<p align="center"><img src="/static/images/mobilehamburger.png" width="400"></p>
 
 * Both mobile and desktop home page views also contain a multiple buttons encouraging new users to register or log in.
 
-<p align="center"><img src="/images/mobilehamburger.png" width="400"></p>
+<p align="center"><img src="/static/images/mobilehamburger.png" width="400"></p>
 
 * After logging in users are redirected back to the home page that now displays user specific data including a scoreboard with a breakdown of all their entries. 
 
-<p align="center"><img src="/images/homedashboard.png" width="400"></p>
+<p align="center"><img src="/static/images/homedashboard.png" width="400"></p>
 
 * All pages also offer multiple access points for users to make a quick entry or look up profile data.
 
-<p align="center"><img src="/images/homeprofiles.png" width="400"></p>
+<p align="center"><img src="/static/images/homeprofiles.png" width="400"></p>
 
 ##### *Registration and Log in pages*
 * Log in and registration page were designed to be simple, straight forward and welcoming.
 
-<p align="center"><img src="/images/login.png" width="400"></p>
+<p align="center"><img src="/static/images/login.png" width="400"></p>
 
-<p align="center"><img src="/images/register.png" width="400"></p>
+<p align="center"><img src="/static/images/register.png" width="400"></p>
 
 ##### *Tabs Page*
 * Tabs page is simple in design and user friendly. From this page users can select a tab to view, create a new one or delete an old.
 
-<p align="center"><img src="/images/tabspage.png" width="400"></p>
+<p align="center"><img src="/static/images/tabspage.png" width="400"></p>
 
-<p align="center"><img src="/images/tabeditdelete.png" width="400"></p>
+<p align="center"><img src="/static/images/tabeditdelete.png" width="400"></p>
 
 ##### *Profile Pages*
 * After selecting a tab to view, users are then redirected to that tabs profile page. Occupying the top half of the screen are three buttons that open different modals to log entries.
-<p align="center"><img src="/images/profileview.png" width="400"></p>
+<p align="center"><img src="/static/images/profileview.png" width="400"></p>
 
 * Each button and modal has a different theme based on the emotion behind the entry, happy, sad or angry.
 
-<p align="center"><img src="/images/happyentry.png" width="400"></p>
-<p align="center"><img src="/images/sadentry.png" width="400"></p>
-<p align="center"><img src="/images/angryentry.png" width="400"></p>
+<p align="center"><img src="/static/images/happyentry.png" width="400"></p>
+<p align="center"><img src="/static/images/sadentry.png" width="400"></p>
+<p align="center"><img src="/static/images/angryentry.png" width="400"></p>
 
 * On the bottom half of the profile page is an interactive dashboard for users to view and search data, send emails to comunicate feelings or send a gift.
 
-<p align="center"><img src="/images/profileview.png" width="400"></p>
+<p align="center"><img src="/static/images/profileview.png" width="400"></p>
 
 ##### *Profile Page Dashboard*
-* The relationship status element displays a heart which based off of the users data will grow darker with happy entries and start to fade with angry or sad entries,
+* The relationship status element displays a heart which based off of the users data will grow darker with happy entries and the opacity will fade with angry or sad entries.
 
-<p align="center"><img src="/images/happyentry.png" width="400"></p>
+<p align="center"><img src="/static/images/relationshipstatus.png" width="400"></p>
+
+* The search element allows users to search through that specific tabs entries. They can search by month, year, keyword or emotion they chose when they made the entry, happy, sad or angry.
+
+* The scoreboard (also featured on the home page) breaks down all entries made for that tab into three categories, happy, sad and angry.
+
+<p align="center"><img src="/static/images/scoreboard.png" width="400"></p>
+
+* The EmailJS API was used for the email element. In efforts to encourage open communication and sharing feelings, this feature allows users to send a quick message directly from each tab.
+
+<p align="center"><img src="/static/images/giftemail.png" width="400"></p>
+
+* To provide a way for users to send a quick thank you or a nice reward for a job well done I created the gift box. Featured on the site is a link to send a Starbucks gift card but multiple gifts can be offered to give users options.
+
+##### *Search Results Page*
+
+<p align="center"><img src="/static/images/searchresults.png" width="400"></p>
+
+* After entering an entry search from the profile page, the user is redirected to the results page where all their search results will be displayed. Each result showcases all the details entered and also gives the user an opportunity to edit the description of each entry.
+
+<p align="center"><img src="/static/images/searchresults.png" width="400"></p>
+<p align="center"><img src="/static/images/editentry.png" width="400"></p>
+
+
+* On the top of the results page is an input field for users to perform a different search also a link to return back to the profile page they started the search from.
+
+<p align="center"><img src="/static/images/resultspage.png" width="400"></p>
+
+* For mobile users the results will conveniently be displayed in an accordion to help prevent excessive scrolling.
+
+<p align="center"><img src="/static/images/resultsmobile.png" width="400"></p>
 
 ### Wireframes
 * All wireframes can be found [HERE.]()
