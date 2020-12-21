@@ -81,7 +81,7 @@
             <hr class="mt-0">
 
 <!-- Carousel Mobile Screens -->
-            <div id="myCarousel" class="carousel slide d-block d-sm-none mb-2" data-ride="carousel">
+            <div id="myCarousel" class="d-md-none carousel slide mb-2" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active"> 
                         <div class="tool-box d-flex flex-column text-center dark-grey p-2">
@@ -132,15 +132,15 @@
 
 <!-- Relationship Status -->
             <div class="row large-dashboard px-2">
-                <div class="d-none d-sm-block col-sm-4 p-1">
-                    <div class="keep-tab-border tool-box d-flex flex-column text-center dark-grey p-2">
+                <div class="dashboard-item d-none d-md-block col-md-4 p-1">
+                    <div class="tool-box d-flex flex-column text-center dark-grey p-2">
                         <h3 class="pb-4">Relationship Status</h3>
                         <div class=""><i style="opacity:{{ status }}" class="fas fa-heart"></i></div>
                     </div>
                 </div>
 <!-- Search Entries Form -->                
-                <div class="col-12 col-sm-4 p-1">
-                    <div class="keep-tab-border search-box dark-grey d-flex flex-column align-items-center p-2">
+                <div class="col-12 col-md-4 p-1">
+                    <div class="search-box dark-grey d-flex flex-column align-items-center p-2">
                         <h3 class="text-center pb-1">Search Entries</h3>
                         <form class="text-center" action="{{ url_for('search', tab_id=tab._id) }}" method="post">
                             <input type="hidden" id="search_name" name="search_name" value="{{ tab.tab_name }}"> 
@@ -149,13 +149,13 @@
                             </div>
                             <button class="btn mt-1 submitBtn" type="submit">Search</button>
                         </form>
-                            <h5 class="search-display my-2">Search Ideas</h5> 
-                            <p class="search-display justify-content-center">By Date: Month or Year<br>Emoticon: Angry, Happy, Sad<br>Keyword: Dishes, Mean, Work</p>       
+                            <h5 class="search-display d-none d-md-flex my-2">Search Ideas</h5> 
+                            <p class="search-display d-none d-md-flex justify-content-center">Emoticon: Angry, Happy Sad<br>Date: Month or Year<br> Keyword: Work, Mean, Dishes</p>       
                     </div>
                 </div>             
 <!-- Entry Totals -->       
-                <div class="d-none d-sm-block col-sm-4 p-1">
-                    <div class="keep-tab-border tool-box d-flex flex-column text-center dark-grey p-2">
+                <div class="dashboard-item d-none d-md-flex col-md-4 p-1">
+                    <div class="tool-box d-flex flex-column text-center dark-grey p-2">
                         <h3 class="pb-4">Scoreboard</h3>    
                         <div>
                             <i class="far fa-smile happy total-icons d-inline"></i>
@@ -177,13 +177,13 @@
             </div>             
 <!-- Send Email -->
             <div class="row py-2 px-2">                
-                <div class="col-12 col-sm-7 p-1 mb-2">
-                    <div class="keep-tab-border tool-box dark-grey d-flex flex-column align-items-center p-2">
+                <div class="col-12 col-md-7 p-1 mb-2">
+                    <div class="tool-box dark-grey d-flex flex-column align-items-center p-2">
                         <h3 id="sendEmail" class="pl-2 mb-3">Send {{ tab.tab_name.capitalize() }} an email?</h3>
                         <div class="d-flex justify-content-center"><i id="plane" class="fad fa-paper-plane mt-5 no-show"></i></div>
                         <form id="emailForm" onsubmit="return sendMail(this);" method="POST" autocomplete="off"> 
                             <div class="row d-flex justify-content-center p-2">         
-                                <input class="email-input text-center mb-2 validate" type="email" placeholder="To Email:" id="toEmail" name="toEmail" required>
+                                <input class="email-input text-center mb-2 validate" type="email" pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" placeholder="To Email:" id="toEmail" name="toEmail" required>
                                 <input class="email-input text-center mb-2" type="text" placeholder="Subject" id="subject" name="subject" required>
                                 <textarea id="message" name="message" class="validate entry-input validate mb-2" maxlength="300" rows="3"></textarea>
                             </div>
@@ -192,8 +192,8 @@
                     </div>    
                 </div>
 <!-- Gift Card -->                
-                <div class="d-none d-sm-block col-sm-5 p-1">
-                    <div class="keep-tab-border gift-box dark-grey d-flex flex-column p-2">
+                <div class="dashboard-item d-none d-md-flex col-md-5 p-1">
+                    <div class="gift-box dark-grey d-flex flex-column p-2">
                         <a target="_blank" href="https://www.starbucks.com/gift"><h3 class="pl-2 mb-4 d-flex justify-content-center align-middle dark-grey">Send {{ tab.tab_name.capitalize() }} love with a Starbucks gift card!</h3></a>
                         <div class="text-center"><a target="_blank" href="https://www.starbucks.com/gift"><i class="fad fa-coffee-togo mt-3 mb-2"></i></a>
                         </div>
