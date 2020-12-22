@@ -1,4 +1,4 @@
-<p align="center"><img src="/static/images/tabsmockup.pdf" width="400"></p>
+<p align="center"><img src="/static/images/mockup.pdf" width="400"></p>
 
 
 # **Keeping TABS**
@@ -113,7 +113,11 @@ Keeping Tabs is a platform that allows users to keep records of all their person
 ##### *Profile Page Dashboard*
 * The relationship status element displays a heart which based off of the users data will grow darker with happy entries and the opacity will fade with angry or sad entries.
 
-<p align="center"><img src="/static/images/relationshipstatus.png" width="400"></p>
+<p float="left">
+<img src="/static/images/relationshipstatus2.png" width="400">
+<img src="/static/images/relationshipstatus3.png" width="400">
+<img src="/static/images/relationshipstatus.png" width="400">
+</p>
 
 * The search element allows users to search through that specific tabs entries. They can search by month, year, keyword or emotion they chose when they made the entry, happy, sad or angry.
 
@@ -129,8 +133,6 @@ Keeping Tabs is a platform that allows users to keep records of all their person
 
 ##### *Search Results Page*
 
-<p align="center"><img src="/static/images/searchresults.png" width="400"></p>
-
 * After entering an entry search from the profile page, the user is redirected to the results page where all their search results will be displayed. Each result showcases all the details entered and also gives the user an opportunity to edit the description of each entry.
 
 <p align="center"><img src="/static/images/searchresults.png" width="400"></p>
@@ -143,7 +145,7 @@ Keeping Tabs is a platform that allows users to keep records of all their person
 
 * For mobile users the results will conveniently be displayed in an accordion to help prevent excessive scrolling.
 
-<p align="center"><img src="/static/images/resultsmobile.png" width="400"></p>
+<p align="center"><img src="/static/images/resultsmobile.png" height="500"></p>
 
 ### Wireframes
 * All wireframes can be found [HERE.](https://github.com/RyanRayn/Milestone-3/blob/master/static/images/KeepingTabsWireframe.pdf)
@@ -166,6 +168,8 @@ Keeping Tabs is a platform that allows users to keep records of all their person
 * jQuery
 * Python
 * MongoDB
+* Flask
+* Jinja
 
 ### Frameworks, Libraries & Programs Used
 1. [Bootstrap 4.5.0:](https://getbootstrap.com/) 
@@ -175,17 +179,15 @@ Keeping Tabs is a platform that allows users to keep records of all their person
 3. [Font Awesome:](https://fontawesome.com/)
    * Font Awesome was used on all pages throughout the website to add icons for UX purposes.
 4. [jQuery 3.5.1:](https://code.jquery.com/)
-   * 
-
-
-
+   * jQuery was use multiple time throughout this project.
 5. [JavaScript 4.5.2:](https://getbootstrap.com/docs/4.0/getting-started/javascript/) 
-   * 
-
-
-
+   * JavaScript was used multiple times, most notably with the EmailJS API and other email functions. JavaScript was also used to get and display current dates.
 6. [EmailJS](https://www.emailjs.com/) 
    * The EmailJS API was used for the profile email form.
+7. [Flask](https://flask.palletsprojects.com/en/1.1.x/)
+   * The Flask framework was used throughout this entire project.
+8. [Jinja](https://jinja.palletsprojects.com/en/2.11.x/)
+   * Jinja templating language was used throughout this project to pass data into html templates.  
 8. [Git:](https://git-scm.com/)
    * Git was used for version control by utilizing the Gitpod terminal to commit to Git and push to Github.
 9. [GitHub:](https://github.com/)  
@@ -197,7 +199,7 @@ Keeping Tabs is a platform that allows users to keep records of all their person
 
 ## **Testing**
 
-   * The W3C Markup Validator, W3C CSS Validator Services, and JS Hint were used to validate every page of the project to ensure there were no syntax errors in the project.
+   * The W3C Markup Validator, W3C CSS Validator Services, PEP8 online and JS Hint were used to validate every page of the project to ensure there were no syntax errors in the project.
 
    * All testing validation can be seen [HERE.]() 
 
