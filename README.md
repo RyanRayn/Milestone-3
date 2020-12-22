@@ -1,4 +1,4 @@
-<p align="center"><img src="/static/images/mockup.pdf" width="400"></p>
+<p align="center"><img src="/static/images/mockup.png" width="400"></p>
 
 
 # **Keeping TABS**
