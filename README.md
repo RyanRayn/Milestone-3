@@ -102,9 +102,9 @@ Keeping Tabs is a platform that allows users to keep records of all their person
 
 * Each button and modal has a different theme based on the emotion behind the entry, happy, sad or angry.
 
-<p align="center"><img src="/static/images/happyentry.png" width="400"></p>
-<p align="center"><img src="/static/images/sadentry.png" width="400"></p>
-<p align="center"><img src="/static/images/angryentry.png" width="400"></p>
+<p float="left"><img src="/static/images/happyentry.png" width="400">
+<img src="/static/images/sadentry.png" width="400">
+<img src="/static/images/angryentry.png" width="400"></p>
 
 * On the bottom half of the profile page is an interactive dashboard for users to view and search data, send emails to comunicate feelings or send a gift.
 
@@ -114,9 +114,9 @@ Keeping Tabs is a platform that allows users to keep records of all their person
 * The relationship status element displays a heart which based off of the users data will grow darker with happy entries and the opacity will fade with angry or sad entries.
 
 <p float="left">
-<img src="/static/images/relationshipstatus2.png" width="400">
-<img src="/static/images/relationshipstatus3.png" width="400">
-<img src="/static/images/relationshipstatus.png" width="400">
+<img src="/static/images/relationshipstatus2.png" width="250">
+<img src="/static/images/relationshipstatus3.png" width="250">
+<img src="/static/images/relationshipstatus.png" width="250">
 </p>
 
 * The search element allows users to search through that specific tabs entries. They can search by month, year, keyword or emotion they chose when they made the entry, happy, sad or angry.
@@ -135,8 +135,9 @@ Keeping Tabs is a platform that allows users to keep records of all their person
 
 * After entering an entry search from the profile page, the user is redirected to the results page where all their search results will be displayed. Each result showcases all the details entered and also gives the user an opportunity to edit the description of each entry.
 
-<p align="center"><img src="/static/images/searchresults.png" width="400"></p>
-<p align="center"><img src="/static/images/editentry.png" width="400"></p>
+<p float="left"><img src="/static/images/searchresults.png" width="400">
+<img src="/static/images/editentry.png" width="400">
+</p>
 
 
 * On the top of the results page is an input field for users to perform a different search also a link to return back to the profile page they started the search from.
@@ -148,7 +149,7 @@ Keeping Tabs is a platform that allows users to keep records of all their person
 <p align="center"><img src="/static/images/resultsmobile.png" height="500"></p>
 
 ### Wireframes
-* All wireframes can be found [HERE.](https://github.com/RyanRayn/Milestone-3/blob/master/static/images/KeepingTabsWireframe.pdf)
+* All wireframes can be found [HERE.](https://github.com/RyanRayn/Milestone-3/tree/master/documents/wireframes)
 
 ***
 
@@ -201,7 +202,7 @@ Keeping Tabs is a platform that allows users to keep records of all their person
 
    * The W3C Markup Validator, W3C CSS Validator Services, PEP8 online and JS Hint were used to validate every page of the project to ensure there were no syntax errors in the project.
 
-   * All testing validation can be seen [HERE.]() 
+   * All testing validation can be seen [HERE.](https://github.com/RyanRayn/Milestone-3/tree/master/documents/testing) 
 
 ### Testing User Stories from UX Section
 **First Time Visitor Goals**
