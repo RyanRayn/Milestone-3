@@ -8,7 +8,7 @@ View the live project [HERE.](https://keeping-tabs-ryan.herokuapp.com/)
 
 ## **Introduction**
 
-Keeping Tabs is a platform that allows users to keep records of all their personal interactions. Searchable entries for each relationship are organized into three categories, happy, sad and angry, and then statistics giving an idea of relationship health are displayed on a profile dashboard. In an effort to encourage keeping lines of communication open, the user can send an email expressing their feelings directly from each profile page. Users can also send a "thank you" gift, in this example, it is a Starbucks gift card. Keeping Tabs is not only about keeping track of bad things people do to you but also bringing to light all the positive moments that can sometimes be overlooked.   
+Keeping Tabs is a platform that allows users to keep records of all their personal interactions. Searchable entries for each relationship are organized into three categories, happy, sad and angry, and then statistics giving an idea of relationship health are displayed on a profile dashboard. In efforts to encourage keeping lines of communication open, the user can send an email expressing their feelings directly from each profile page. Users can also send a "thank you" gift, in this example, it is a Starbucks gift card. Keeping Tabs is not only about keeping track of bad things people do to you but also bringing to light all the positive moments that can sometimes be overlooked.   
 
 ***
 
@@ -68,16 +68,11 @@ Keeping Tabs is a platform that allows users to keep records of all their person
 ##### *Homepage* 
 * All pages were designed for ease of use and avoid confusion. Landing pages on mobile views have a hamburger icon in the top right corner containing a dropdown menu for access to other pages.
 
-<p float="left">
-<img src="/static/images/desktophome.png" width="400" height="400">
-<img src="/static/images/mobilehamburger.png" width="400">
-</p>
-
 <p align="center"><img src="/static/images/mobilehamburger.png" width="400"></p>
 
 * Both mobile and desktop home page views also contain a multiple buttons encouraging new users to register or log in.
 
-<p align="center"><img src="/static/images/mobilehamburger.png" width="400"></p>
+<p align="center"><img src="/static/images/tablethome.png" width="400"></p>
 
 * After logging in users are redirected back to the home page that now displays user specific data including a scoreboard with a breakdown of all their entries. 
 
@@ -90,9 +85,9 @@ Keeping Tabs is a platform that allows users to keep records of all their person
 ##### *Registration and Log in pages*
 * Log in and registration page were designed to be simple, straight forward and welcoming.
 
-<p align="center"><img src="/static/images/login.png" width="400"></p>
-
-<p align="center"><img src="/static/images/register.png" width="400"></p>
+<p float="left"><img src="/static/images/login.png" width="400">
+<img src="/static/images/register.png" width="400">
+</p>
 
 ##### *Tabs Page*
 * Tabs page is simple in design and user friendly. From this page users can select a tab to view, create a new one or delete an old.
@@ -113,7 +108,7 @@ Keeping Tabs is a platform that allows users to keep records of all their person
 
 * On the bottom half of the profile page is an interactive dashboard for users to view and search data, send emails to comunicate feelings or send a gift.
 
-<p align="center"><img src="/static/images/profileview.png" width="400"></p>
+<p align="center"><img src="/static/images/profiledashboard.png" width="400"></p>
 
 ##### *Profile Page Dashboard*
 * The relationship status element displays a heart which based off of the users data will grow darker with happy entries and the opacity will fade with angry or sad entries.
@@ -151,7 +146,7 @@ Keeping Tabs is a platform that allows users to keep records of all their person
 <p align="center"><img src="/static/images/resultsmobile.png" width="400"></p>
 
 ### Wireframes
-* All wireframes can be found [HERE.]()
+* All wireframes can be found [HERE.](https://github.com/RyanRayn/Milestone-3/blob/master/static/images/KeepingTabsWireframe.pdf)
 
 ***
 
