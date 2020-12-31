@@ -128,7 +128,10 @@ def add_tab():
         entry = {
             "entry_emotion": request.form.get("entry_emotion").lower(),
             "entry_date": request.form.get("entry_date").lower(),
-            "entry_name": request.form.get("tab_name").lower()
+            "entry_name": request.form.get("tab_name").lower(),
+            "entry_subject": request.form.get("entry_subject").lower(),
+            "entry_details": request.form.get("entry_details"),
+            "entry_feeling": request.form.get("entry_feeling")
         }
 
         mongo.db.entries.insert_one(entry)

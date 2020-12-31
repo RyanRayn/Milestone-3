@@ -8,39 +8,16 @@ function sendMail(emailSend) {
     .then(
         function(response) {
             console.log("SUCCESS", response);
+            $("#sendEmail").addClass("no-show");
+            $("#emailForm").addClass("no-show");
+            $("#plane").removeClass("no-show");
         },
         function(error) {
             console.log("FAILED", error);
-        });
+        },
+        );
     return false;
 }
 
-/* Hide email form on submission */
-$(document).ready(function(){
-    $( "#emailSend" ).click(function() {
-        $( "#emailForm" ).hide( "slow", function() {
-    });
-});
-}); 
 
-/* Change header message when email sends */
-$("#emailSend").click(function(){
-    $("#sendEmail").addClass("no-show");
-    $("#plane").removeClass("no-show");
-});
 
-/* Disable Email Submit Button Until Inputs Are Filled */
-$(document).ready(function (){
-    validate();
-    $('#toEmail, #subject').change(validate);
-});
-
-function validate(){
-    if ($('#toEmail').val().length   >   0   &&
-        $('#subject').val().length  >   0) {
-        $("#emailSend").prop("disabled", false);
-    }
-    else {
-        $("#emailSend").prop("disabled", true);
-    }
-}
