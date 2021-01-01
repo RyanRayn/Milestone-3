@@ -8,6 +8,7 @@ function sendMail(emailSend) {
     .then(
         function(response) {
             console.log("SUCCESS", response);
+            /* Hide email form after email is sent and show paper plane icon */
             $("#sendEmail").addClass("no-show");
             $("#emailForm").addClass("no-show");
             $("#plane").removeClass("no-show");

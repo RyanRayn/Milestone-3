@@ -22,8 +22,8 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/home")
 def home():
-    tabs = list(mongo.db.tabs.find())
-    # Document stats for bottom of homepage after log in
+    tabs = mongo.db.tabs.find().sort([("tab_name", 1)])
+    # Document stats for homepage dashboard after log in
     happy = mongo.db.entries.count_documents({"entry_emotion": "smile"})
     sad = mongo.db.entries.count_documents({"entry_emotion": "frown"})
     angry = mongo.db.entries.count_documents({"entry_emotion": "angry"})
@@ -44,6 +44,7 @@ def home():
 def register():
     if request.method == "POST":
 
+        # Check for existing user and flash message if one already exists
         existing_user = mongo.db.users.find_one(
             {"email": request.form.get("email").lower()})
 
@@ -51,6 +52,7 @@ def register():
             flash("Another account already linked to this email.")
             return redirect(url_for("register"))
 
+        # Insert new user into db
         register = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
@@ -96,10 +98,10 @@ def logout():
     return redirect(url_for("home"))
 
 
-# Get tabs from db
+# Get tabs from and sort alphabetically from db
 @app.route("/get_tabs", methods=["GET", "POST"])
 def get_tabs():
-    tabs = list(mongo.db.tabs.find())
+    tabs = list(mongo.db.tabs.find().sort([("tab_name", 1)]))
     # get session user username
     username = mongo.db.users.find_one(
         {"email": session["user"]})["username"]
@@ -107,11 +109,12 @@ def get_tabs():
     return render_template("tabs.html", tabs=tabs, username=username)
 
 
-# Create new Tab
+# Create new tab
 @app.route("/add_tab", methods=["GET", "POST"])
 def add_tab():
     if request.method == "POST":
 
+        # Check if tab name already exists and flash message if it does
         existing_tab = mongo.db.tabs.find_one(
             {"tab_name": request.form.get("tab_name").lower()})
 
@@ -119,12 +122,15 @@ def add_tab():
             flash("Tab name already exists")
             return redirect(url_for("get_tabs"))
 
+        # Insert new tab into db
         tab = {
             "tab_name": request.form.get("tab_name").lower()
         }
 
         mongo.db.tabs.insert_one(tab)
 
+        # Hidden inputs into db with new tab name to avoid
+        # errors when loading new profile page
         entry = {
             "entry_emotion": request.form.get("entry_emotion").lower(),
             "entry_date": request.form.get("entry_date").lower(),
@@ -149,7 +155,9 @@ def delete_tab(tab_id):
 
 @app.route("/profile/<tab_id>", methods=["GET", "POST"])
 def profile(tab_id):
-    tabs = list(mongo.db.tabs.find())
+
+    # Get tabs from db alphabetically for dropdown menu
+    tabs = mongo.db.tabs.find().sort([("tab_name", 1)])
 
     # Count documents for stats in profile dashboard
     tab = mongo.db.tabs.find_one({"_id": ObjectId(tab_id)})
@@ -194,6 +202,8 @@ def entry_form(tab_id):
     tab = mongo.db.tabs.find_one({"_id": ObjectId(tab_id)})
 
     if request.method == "POST":
+
+        # Event entry for tab
         entry = {
             "entry_emotion": request.form.get("entry_emotion").lower(),
             "entry_feeling": request.form.get("entry_feeling").lower(),
@@ -206,7 +216,8 @@ def entry_form(tab_id):
             "entry_name": request.form.get("entry_name").lower()
         }
 
-    tabs = list(mongo.db.tabs.find())
+    # Get tabs from db alphabetically for dropdown menu
+    tabs = mongo.db.tabs.find().sort([("tab_name", 1)])
 
     # Count documents for stats in profile dashboard
     happy = mongo.db.entries.count_documents(
@@ -226,6 +237,7 @@ def entry_form(tab_id):
 
     logs = mongo.db.entries.count_documents({"entry_name": tab["tab_name"]})
 
+    # Relationship status icon
     status = (happy/logs)
 
     # Datetime get current dates to pass into hidden inputs
@@ -242,13 +254,18 @@ def entry_form(tab_id):
 # Search Entries
 @app.route("/search/<tab_id>", methods=["GET", "POST"])
 def search(tab_id):
-    tabs = list(mongo.db.tabs.find())
+
+    # Get tabs from db alphabetically for dropdown menu
+    tabs = mongo.db.tabs.find().sort([("tab_name", 1)])
+    # Get tab info from db
     tab = mongo.db.tabs.find_one({"_id": ObjectId(tab_id)})
+    # Get data to search from form
     name = request.form.get("search_name").lower()
     query = request.form.get("query")
+    # Search db
     entries = list(mongo.db.entries.find(
         {"entry_name": name, "$text": {"$search": query}}))
-
+    # Flash message if no query results
     if len(entries) == 0:
         flash("No Results Found")
 
@@ -258,13 +275,18 @@ def search(tab_id):
 # Search Results
 @app.route("/results/<tab_id>", methods={"GET", "POST"})
 def results(tab_id):
-    tabs = list(mongo.db.tabs.find())
+
+    # Get tabs from db alphabetically for dropdown menu
+    tabs = mongo.db.tabs.find().sort([("tab_name", 1)])
+    # Get tab info from db
     tab = mongo.db.tabs.find_one({"_id": ObjectId(tab_id)})
+    # Get data to search from form
     name = request.form.get("search_name").lower()
     query = request.form.get("query")
+    # Search db
     entries = list(mongo.db.entries.find(
         {"entry_name": name, "$text": {"$search": query}}))
-
+    # Flash message if no query results
     if len(entries) == 0:
         flash("No Results Found")
 
@@ -275,14 +297,17 @@ def results(tab_id):
 @app.route("/edit_entry/<entry_id>/<tab_id>", methods=["GET", "POST"])
 def edit_entry(entry_id, tab_id):
     if request.method == "POST":
-
+        # Get new details from form and update db
         submit = request.form.get("new_details")
 
         mongo.db.entries.update({"_id": ObjectId(entry_id)},
                                 {"$set": {"entry_details": submit}})
 
-    tabs = list(mongo.db.tabs.find())
+    # Get tabs from db alphabetically for dropdown menu
+    tabs = mongo.db.tabs.find().sort([("tab_name", 1)])
+    # Get tab info from db
     tab = mongo.db.tabs.find_one({"_id": ObjectId(tab_id)})
+    # Find entry in db to edit
     entry = mongo.db.entries.find_one({"_id": ObjectId(entry_id)})
 
     return render_template("success.html", tab=tab, tabs=tabs, entry=entry)
@@ -290,10 +315,15 @@ def edit_entry(entry_id, tab_id):
 
 @app.route("/success/<tab_id>", methods=["GET", "POST"])
 def success(tab_id):
-    tabs = list(mongo.db.tabs.find())
+
+    # Get tabs from db alphabetically for dropdown menu
+    tabs = mongo.db.tabs.find().sort([("tab_name", 1)])
+    # Get tab info from db
     tab = mongo.db.tabs.find_one({"_id": ObjectId(tab_id)})
+    # Get data to search from from
     name = request.form.get("search_name").lower()
     query = request.form.get("query")
+    # Search db
     entries = list(mongo.db.entries.find(
         {"entry_name": name, "$text": {"$search": query}}))
 
