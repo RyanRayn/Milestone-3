@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div id="content">
+        <div class="container-fluid">
+            <div class="row text-center mt-4">
+                <div class="col-12">
+                    <i class="far fa-frown sad error-icon"></i>
+                </div>
+            </div>
+            <div class="row mt-4 ml-2">
+                <div class="col-12 d-flex justify-content-center">
+                    <h1>Oh No! We couldn't find the page you were looking for.</h1>
+                </div>
+            </div>
+            <div class="row mt-1">
+                <div class="col-12 d-flex justify-content-center">
+                    <h4>(It's not you, it's us. We swear.)</h4>
+                </div>
+            </div>
+            <div class="row my-5">    
+                <div class="col-12 d-flex justify-content-center">
+                    <a href="{{ url_for('get_tabs') }}" class="btn btn-lg error-btn">Take me back to my tabs!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -150,6 +150,12 @@ def add_tab():
 @app.route("/delete_tab/<tab_id>")
 def delete_tab(tab_id):
     mongo.db.tabs.remove({"_id": ObjectId(tab_id)})
+
+    tab = request.form.get("delete_entries")
+
+    delete = {"entry_name": tab}
+
+    mongo.db.entries.delete_many(delete)
     return redirect(url_for("get_tabs"))
 
 
@@ -328,6 +334,16 @@ def success(tab_id):
         {"entry_name": name, "$text": {"$search": query}}))
 
     return render_template("results.html", tab=tab, tabs=tabs, entries=entries)
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('error.html')
+
+
+@app.errorhandler(500)
+def internal_error(e):
+    return render_template('error.html')
 
 
 if __name__ == "__main__":

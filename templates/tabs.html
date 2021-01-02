@@ -91,7 +91,7 @@
                                             </div>
                                         </div>
                                         <form name="delete_tab{{ loop.index }}" id="delete_tab{{ loop.index }}" method="GET" action="{{ url_for('delete_tab', tab_id=tab._id) }}">           
-<!-- Delete Button -->                      
+<!-- Delete Button -->                      <input type="hidden" id="delete_entries" name="delete_entries" value={{ tab.tab_name }}>
                                             <div class="d-flex justify-content-center pt-4">
                                                 <button type="submit" class="btn delete-btn create-submit btn-lg">Delete</button>
                                             </div>      

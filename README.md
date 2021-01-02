@@ -14,7 +14,29 @@ Keeping Tabs is a platform that allows users to audit all their personal relatio
 
 ## **Table Of Contents**
 
- 
+  * [**Introduction**](#--introduction--)
+  * [**User Experience (UX)**](#--user-experience--ux---)
+    + [User Stories](#user-stories)
+    + [Target Audience](#target-audience)
+    + [User Goals](#user-goals)
+    + [Design](#design)
+    + [Wireframes](#wireframes)
+  * [**Features**](#--features--)
+  * [**Technologies Used**](#--technologies-used--)
+    + [Languages Used](#languages-used)
+    + [Frameworks, Libraries & Programs Used](#frameworks--libraries---programs-used)
+  * [**Testing**](#--testing--)
+    + [Testing User Stories from UX Section](#testing-user-stories-from-ux-section)
+    + [Further Testing](#further-testing)
+  * [**Deployment**](#--deployment--)
+    + [Project Creation](#project-creation)
+    + [Deployment to Heroku](#deployment-to-heroku)
+  * [**Credits**](#--credits--)
+    + [Code](#code)
+    + [Content](#content)
+    + [Media](#media)
+    + [Acknowledgements](#acknowledgements)
+
 ***
 
 ## **User Experience (UX)**
@@ -149,6 +171,11 @@ Keeping Tabs is a platform that allows users to audit all their personal relatio
 * For mobile users the results will conveniently be displayed in an accordion to help prevent excessive scrolling.
 
 <p align="center"><img src="/static/images/resultsmobile.png" height="500"></p>
+
+##### *Error Pages*
+
+* For a for a complete user experience, custom error pages have been created to handle 404 and 500 errors.
+<p align="center"><img src="/static/images/404.png" width="400"></p>
 
 ### Wireframes
 * All wireframes can be found [HERE.](https://github.com/RyanRayn/Milestone-3/tree/master/documents/wireframes)

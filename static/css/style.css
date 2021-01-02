@@ -689,6 +689,26 @@ hr{
     color:white;
 }
 
+/*---------- Error Pages -----------*/
+
+.error-icon{
+    font-size:12em;
+}
+
+.error-header{
+    font-size:4em;
+}
+
+.error-btn{
+    background-color:rgb(110, 110, 255);
+    color:white;
+    border-radius:25px;
+}
+
+.error-btn:hover{
+    background-color:#bedbfde8;
+    color:white;
+}
 /*---------- Media Queries ----------*/
 
 @media (max-width: 588px) {
