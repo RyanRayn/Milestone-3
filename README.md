@@ -128,6 +128,10 @@ Keeping Tabs is a platform that allows users to audit all their personal relatio
 <img src="/static/images/sadentry.png" width="300"  height="350">
 <img src="/static/images/angryentry.png" width="300"  height="350"></p>
 
+* After submitting an entry the user is then redirected to a monthly view of entries made for that tab. From this page they can edit entries, go back to the profile page or perform a search of all entries.
+
+<p align="center"><img src="/static/images/monthly.png" width="400"></p>
+
 * On the bottom half of the profile page is an interactive dashboard for users to view and search data, send emails to comunicate feelings or send a gift.
 
 <p align="center"><img src="/static/images/profiledashboard.png" width="400"></p>

@@ -149,13 +149,14 @@ def add_tab():
 # Delete Tab
 @app.route("/delete_tab/<tab_id>")
 def delete_tab(tab_id):
+    # Get tab name from db
+    tab = mongo.db.tabs.find_one({"_id": ObjectId(tab_id)})
+    # Delete tab from db
     mongo.db.tabs.remove({"_id": ObjectId(tab_id)})
+    # Delete all tab entries from db
+    tab_entries = {"entry_name": tab["tab_name"]}
+    mongo.db.entries.delete_many(tab_entries)
 
-    tab = request.form.get("delete_entries")
-
-    delete = {"entry_name": tab}
-
-    mongo.db.entries.delete_many(delete)
     return redirect(url_for("get_tabs"))
 
 
@@ -207,6 +208,9 @@ def profile(tab_id):
 def entry_form(tab_id):
     tab = mongo.db.tabs.find_one({"_id": ObjectId(tab_id)})
 
+    # Get tabs from db alphabetically for dropdown menu
+    tabs = mongo.db.tabs.find().sort([("tab_name", 1)])
+
     if request.method == "POST":
 
         # Event entry for tab
@@ -221,40 +225,24 @@ def entry_form(tab_id):
             "entry_details": request.form.get("entry_details"),
             "entry_name": request.form.get("entry_name").lower()
         }
-
-    # Get tabs from db alphabetically for dropdown menu
-    tabs = mongo.db.tabs.find().sort([("tab_name", 1)])
-
-    # Count documents for stats in profile dashboard
-    happy = mongo.db.entries.count_documents(
-                                            {"$and": [{"entry_name":
-                                             tab["tab_name"]},
-                                             {"entry_emotion": "smile"}]})
-
-    sad = mongo.db.entries.count_documents(
-                                            {"$and": [{"entry_name":
-                                             tab["tab_name"]},
-                                             {"entry_emotion": "frown"}]})
-
-    angry = mongo.db.entries.count_documents(
-                                            {"$and": [{"entry_name":
-                                             tab["tab_name"]},
-                                             {"entry_emotion": "angry"}]})
-
-    logs = mongo.db.entries.count_documents({"entry_name": tab["tab_name"]})
-
-    # Relationship status icon
-    status = (happy/logs)
+    mongo.db.entries.insert_one(entry)
 
     # Datetime get current dates to pass into hidden inputs
     month = datetime.utcnow().strftime("%B")
     day = datetime.utcnow().strftime("%d")
     year = datetime.utcnow().strftime("%Y")
 
-    mongo.db.entries.insert_one(entry)
-    return render_template("profile.html", year=year, day=day, month=month,
-                           tab=tab, tabs=tabs, happy=happy,
-                           sad=sad, angry=angry, status=status)
+    # Get data to search from form
+    name = request.form.get("entry_name").lower()
+    query = request.form.get("entry_month").lower()
+    print(name)
+    print(query)
+    # Search db
+    entries = list(mongo.db.entries.find(
+        {"entry_name": name, "$text": {"$search": query}}))
+
+    return render_template("monthly.html", year=year, day=day, month=month,
+                           tab=tab, tabs=tabs, entries=entries)
 
 
 # Search Entries
@@ -349,4 +337,4 @@ def internal_error(e):
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=True)
+            debug=False)
