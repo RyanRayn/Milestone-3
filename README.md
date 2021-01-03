@@ -124,9 +124,9 @@ Keeping Tabs is a platform that allows users to audit all their personal relatio
 
 * Each button and modal has a different theme based on the emotion behind the entry, happy, sad or angry.
 
-<p float="left"><img src="/static/images/happyentry.png" width="300"  height="350">
-<img src="/static/images/sadentry.png" width="300"  height="350">
-<img src="/static/images/angryentry.png" width="300"  height="350"></p>
+<p float="left"><img src="/static/images/happyentry.png" width="250"  height="350">
+<img src="/static/images/sadentry.png" width="250"  height="350">
+<img src="/static/images/angryentry.png" width="250"  height="350"></p>
 
 * After submitting an entry the user is then redirected to a monthly view of entries made for that tab. From this page they can edit entries, go back to the profile page or perform a search of all entries.
 
@@ -163,8 +163,8 @@ Keeping Tabs is a platform that allows users to audit all their personal relatio
 
 * After entering an entry search from the profile page, the user is redirected to the results page where all their search results will be displayed. Each result showcases all the details entered and also gives the user an opportunity to edit the description of each entry.
 
-<p float="left"><img src="/static/images/searchresults.png" width="550" height="400">
-<img src="/static/images/editentry.png" width="350" height="400">
+<p float="left"><img src="/static/images/searchresults.png" width="500" height="400">
+<img src="/static/images/editentry.png" width="300" height="400">
 </p>
 
 
